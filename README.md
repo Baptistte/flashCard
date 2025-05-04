@@ -35,35 +35,7 @@ Cette application web permet de réviser des notions de Droit des Affaires à l'
 
 ## Architecture du Projet
 
-Le projet est structuré en modules JavaScript pour une meilleure organisation et maintenabilité :
-.
-├── index.html # Structure principale de la page web
-├── style.css # Styles CSS pour l'apparence
-├── flashcards.json # Fichier contenant les données des cartes (questions, réponses, chapitre, diagrammes...)
-│
-└── js/ # Dossier contenant le code JavaScript
-│
-├── app.js # Point d'entrée principal : orchestre l'application, gère l'état global et les événements majeurs.
-│
-├── dataManager.js # Module de gestion des données : chargement du JSON, lecture/écriture du localStorage (maîtrisées, favoris), filtrage des cartes.
-│
-├── ui/ # Dossier pour les modules liés à l'interface utilisateur
-│ │
-│ ├── chapterSelectUI.js # Gère l'affichage et les interactions de l'écran de sélection des chapitres.
-│ │
-│ ├── flashcardUI.js # Gère l'affichage de la flashcard (question, réponse, diagramme, icône favori, flip).
-│ │
-│ ├── controlsUI.js # Gère l'état visuel (activé/désactivé) et l'affichage des boutons de contrôle (Préc., Flip, Match/Pass, Shuffle, Reset...).
-│ │
-│ └── progressUI.js # Gère l'affichage de la progression (barre visuelle et indicateur textuel).
-│
-└── utils/ # Dossier pour les fonctions utilitaires
-│
-├── mermaidUtil.js # Fonctions spécifiques pour l'initialisation et le rendu des diagrammes Mermaid.
-│
-├── animation.js # Fonctions pour les animations CSS (fadeIn, fadeOut).
-│
-└── helpers.js # Fonctions utilitaires générales (mélange de tableau, validation, échappement HTML...).
+**Le projet est structuré en modules JavaScript pour une meilleure organisation et maintenabilité :**
 
 **Flux de l'application :**
 
