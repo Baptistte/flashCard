@@ -1,0 +1,1373 @@
+[
+  {
+    "chapitre": 0,
+    "question": "Quelle est la nature fondamentale du droit des affaires et comment évolue-t-il ?",
+    "reponse": "Le droit des affaires est une discipline vivante et mouvante, reposant sur des piliers mais en constante évolution. Ses changements sont principalement dus à l'évolution des pratiques, des usages, des comportements économiques et aux avancées technologiques comme internet."
+  },
+  {
+    "chapitre": 0,
+    "question": "Comment le droit des affaires réagit-il aux phénomènes sociétaux et technologiques ?",
+    "reponse": "Face aux mouvements sociétaux et technologiques, le droit s'efforce de s'adapter, bien que souvent avec un temps de retard. Il cherche parfois aussi à anticiper ces changements, ce qui explique les nombreuses réformes dans ce domaine, tout en conservant des principes permanents."
+  },
+  {
+    "chapitre": 0,
+    "question": "Pourquoi la définition du droit des affaires est-elle complexe ?",
+    "reponse": "La définition est difficile car le droit des affaires associe des concepts parfois difficiles à appréhender. Il s'est développé de manière empirique et n'a été conçu comme une discipline juridique distincte que relativement récemment (fin du 19e siècle), étant souvent confondu avec le droit commercial."
+  },
+  {
+    "chapitre": 0,
+    "question": "Qu'est-ce que le droit commercial et quel est son lien avec le Code de commerce ?",
+    "reponse": "Le droit commercial est historiquement l'appellation la plus ancienne et officielle, se référant directement au Code de commerce. Il est défini comme le droit applicable aux commerçants et aux activités commerciales, ces dernières étant la notion première définissant le commerçant."
+  },
+  {
+    "chapitre": 0,
+    "question": "Pourquoi l'appellation 'droit commercial' est-elle considérée comme réductrice et obsolète ?",
+    "reponse": "Elle est réductrice car peu de règles s'appliquent aujourd'hui exclusivement aux commerçants et activités commerciales ; beaucoup de règles du Code de commerce ont une portée plus large. De plus, la compétence du tribunal de commerce s'est élargie (ex: artisans), rendant l'appellation moins précise et donc en partie obsolète."
+  },
+  {
+    "chapitre": 0,
+    "question": "Quelles activités liées à la vie des affaires ne sont pas considérées comme commerciales juridiquement ?",
+    "reponse": "Plusieurs activités importantes liées à la vie des affaires ne sont pas juridiquement des activités commerciales. Les exemples cités incluent l'agriculture, les professions libérales et l'artisanat."
+  },
+  {
+    "chapitre": 0,
+    "question": "Quelle était la conception originelle du droit économique et pourquoi est-elle dépassée ?",
+    "reponse": "À l'origine (seconde moitié du 20e siècle), le droit économique visait les techniques par lesquelles l'État régissait l'économie, le rapprochant du droit public. Cette conception est dépassée car l'interventionnisme étatique a reculé au profit des idées libérales, l'État ne pouvant plus imposer autant aux entreprises (ex: perte du levier monétaire au profit de la BCE)."
+  },
+  {
+    "chapitre": 0,
+    "question": "Qu'est-ce que l'analyse économique du droit et comment se distingue-t-elle du droit économique ?",
+    "reponse": "L'analyse économique du droit est une sous-discipline de l'économie qui étudie le droit (positif) pour mesurer l'efficacité économique des règles juridiques. Elle se distingue du droit économique, qui est une branche du droit visant à régir les activités économiques."
+  },
+  {
+    "chapitre": 0,
+    "question": "Quel est le principal obstacle juridique à la reconnaissance d'un 'droit de l'entreprise' ?",
+    "reponse": "L'obstacle juridique majeur est que l'entreprise, en tant que telle, n'est pas un sujet de droit. Le droit s'intéresse aux entités dotées de la personnalité juridique (l'entrepreneur, la société) qui peuvent détenir des droits et obligations. L'entreprise elle-même ne peut, par exemple, conclure de contrats."
+  },
+  {
+    "chapitre": 0,
+    "question": "Comment définit-on le droit des affaires de manière générale ?",
+    "reponse": "Le droit des affaires est l'appellation la plus retenue et la moins controversée. Il est défini comme l'ensemble des règles juridiques applicables à la vie des affaires, c'est-à-dire aux entreprises et à leurs activités."
+  },
+  {
+    "chapitre": 0,
+    "question": "Pourquoi le droit des affaires est-il considéré comme autonome par rapport au droit civil ?",
+    "reponse": "Son autonomie s'explique par les impératifs spécifiques de la vie des affaires (rapidité, crédit, sécurité) qui nécessitent des règles juridiques souvent dérogatoires au droit commun (droit civil), bien que le droit civil puisse compléter le droit des affaires."
+  },
+  {
+    "chapitre": 0,
+    "question": "La dualité droit civil / droit des affaires est-elle universelle ?",
+    "reponse": "Non, plusieurs pays (comme la Roumanie mentionnée) optent pour l'unité du droit privé, avec un code civil unique intégrant les règles applicables aux particuliers et aux entreprises. La France maintient historiquement une dualité, bien que cette approche soit minoritaire en Europe."
+  },
+  {
+    "chapitre": 0,
+    "question": "Comment le droit commercial a-t-il évolué pour devenir une branche autonome ?",
+    "reponse": "Initialement un ensemble de règles pratiques et d'usages lacunaires, le droit commercial a connu d'importantes réformes législatives (surtout dès le 19e siècle) qui ont comblé ses lacunes. Cette complétude progressive en a fait une branche du droit quasi-autonome par rapport au droit civil."
+  },
+  {
+    "chapitre": 0,
+    "question": "Quelle est l'influence du droit commercial sur le droit civil ?",
+    "reponse": "Il existe une influence réciproque. Le droit civil complète le droit des affaires, mais le droit civil moderne puise aussi largement son inspiration dans la législation commerciale et la jurisprudence des tribunaux de commerce, comme l'illustre la réforme du droit des obligations de 2016."
+  },
+  {
+    "chapitre": 0,
+    "question": "Pourquoi le crédit est-il essentiel en droit des affaires et comment le droit y répond-il ?",
+    "reponse": "Le crédit est essentiel ('la sève de l'économie') pour créer ou maintenir une activité. Le droit des affaires favorise le crédit en offrant des instruments juridiques, notamment des sûretés (garanties) efficaces, qui augmentent la certitude du prêteur d'être remboursé et rémunéré."
+  },
+  {
+    "chapitre": 0,
+    "question": "Comparez la position du débiteur en droit civil et en droit des affaires face aux difficultés de paiement.",
+    "reponse": "Le droit des affaires est plus pro-créancier. Contrairement au droit civil où un débiteur peut demander un délai de grâce au juge en cas de difficultés, cela n'existe généralement pas en droit des affaires (ex: lettre de change), où la rigueur des paiements est privilégiée pour assurer la confiance et le crédit."
+  },
+  {
+    "chapitre": 0,
+    "diagram_mermaid": "graph LR\n    A(Créancier) -- Réclame 100% --> B1[Commerçant Débiteur 1];\n    A -- Réclame 100% --> B2[Commerçant Débiteur 2];\n    B1 -- ou --> B2;\n    B1 --> C{Paye 100%};\n    B2 --> C;\n    C --> D[Créancier Désintéressé];\n    B1 -- Puis recours pour sa part --> B2;\n    style D fill:#c9ffc9,stroke:#333,stroke-width:2px;",
+    "question": "Définissez la solidarité passive et expliquez sa particularité en droit commercial.",
+    "reponse": "La solidarité passive existe lorsque plusieurs débiteurs sont tenus d'une même dette, le créancier pouvant réclamer la totalité à l'un d'eux (le plus solvable). En droit commercial, elle est présumée (de droit ou par usage *contra legem*) entre codébiteurs, contrairement au droit civil où elle doit être stipulée, renforçant la sécurité du créancier."
+  },
+  {
+    "chapitre": 0,
+    "question": "Comment le droit des affaires favorise-t-il la circulation des biens et richesses ?",
+    "reponse": "Il favorise la circulation rapide et facile des biens et richesses par des techniques de transmission simplifiées pour les créances et certains biens (ex: endossement, virement de titres financiers, blockchain), contrastant avec la complexité de certaines transmissions en droit civil (ex: immobilier via notaire et publicité foncière)."
+  },
+  {
+    "chapitre": 0,
+    "question": "Qu'entend-on par le pragmatisme du droit des affaires ?",
+    "reponse": "Le pragmatisme signifie que le droit des affaires se veut au service des acteurs économiques, réactif aux nouvelles pratiques et technologies, anticipant parfois leurs besoins. Son objectif est d'être performant pour favoriser la compétitivité et la création de richesse, évoluant rapidement."
+  },
+  {
+    "chapitre": 0,
+    "question": "Qui sont les 'auteurs' réels des règles de droit des affaires ?",
+    "reponse": "Si formellement le législateur est l'auteur, matériellement, les acteurs du monde des affaires (entreprises, organisations professionnelles) sont souvent les inspirateurs et sont largement associés à l'élaboration de la loi, reflétant le pragmatisme de cette branche du droit."
+  },
+  {
+    "chapitre": 0,
+    "question": "Pourquoi le rythme d'évolution du droit des affaires diffère-t-il de celui du droit civil ?",
+    "reponse": "Le droit des affaires évolue rapidement pour s'adapter aux changements économiques et technologiques constants, utilisant souvent des procédures accélérées comme les ordonnances. Le droit civil, touchant aux structures profondes de la société, évolue plus lentement, après de longs débats."
+  },
+  {
+    "chapitre": 0,
+    "question": "Qu'est-ce que la règle du 'double clic' dans le commerce électronique et quel est son but ?",
+    "reponse": "Consacrée par la loi de 2004, la règle du 'double clic' exige que l'acheteur en ligne puisse vérifier le détail de sa commande et son prix TTC, corriger des erreurs, puis confirmer définitivement son achat par un second clic. Son but est de protéger le consommateur en s'assurant de son consentement éclairé."
+  },
+  {
+    "chapitre": 0,
+    "question": "Quelles sont les sources formelles internes du droit des affaires ?",
+    "reponse": "Les sources formelles internes suivent la hiérarchie des normes : le bloc de constitutionnalité (Constitution de 1958, DDHC, Charte de l'environnement), puis les lois (et ordonnances ratifiées), et enfin les règlements (décrets, arrêtés), y compris ceux émanant des autorités de régulation."
+  },
+  {
+    "chapitre": 0,
+    "question": "Citez des principes constitutionnels importants pour le droit des affaires.",
+    "reponse": "Plusieurs principes constitutionnels sont clés : le droit de propriété, la liberté d'entreprendre, la liberté contractuelle (majoritairement issus de la DDHC), et le principe de précaution (Charte de l'environnement), qui peut influencer les activités économiques."
+  },
+  {
+    "chapitre": 0,
+    "question": "Comment le Conseil Constitutionnel intervient-il en droit des affaires ?",
+    "reponse": "Le Conseil Constitutionnel (CC) intervient via le contrôle de constitutionnalité des lois (a priori ou via QPC). Il a développé un véritable 'droit économique constitutionnel', évaluant la conformité des lois affectant les entreprises (ex: lois sur les VTC, pass sanitaire) aux libertés fondamentales, en opérant un contrôle de proportionnalité."
+  },
+  {
+    "chapitre": 1,
+    "question": "Quelle est l'approche privilégiée pour identifier les activités commerciales ?",
+    "reponse": "L'approche privilégiée est l'approche objective, qui étudie le droit commercial par son objet (les activités commerciales elles-mêmes), plutôt que l'approche subjective (centrée sur les sujets, les commerçants). On identifie d'abord les activités avant de définir les acteurs."
+  },
+  {
+    "chapitre": 1,
+    "question": "Quelles sont les deux méthodes pour identifier le champ de la commercialité ?",
+    "reponse": "Il existe deux méthodes : l'approche analytique (ou énumérative), qui consiste à lister les activités considérées comme commerciales par la loi (principalement L110-1 et L110-2 C.com), et l'approche synthétique, qui tente de dégager des critères généraux communs à ces activités."
+  },
+  {
+    "chapitre": 1,
+    "question": "Quels articles du Code de commerce listent les actes de commerce terrestres et maritimes ?",
+    "reponse": "L'article L110-1 du Code de commerce énumère les principaux actes de commerce terrestres. L'article L110-2 liste spécifiquement les actes réputés commerciaux relevant du commerce maritime."
+  },
+  {
+    "chapitre": 1,
+    "question": "Les prestations de services sont-elles mentionnées dans la liste légale des actes de commerce ?",
+    "reponse": "La notion générale de 'prestation de services' (consacrée en droit civil en 2016) n'apparaît pas explicitement dans les listes L110-1/L110-2. Cependant, plusieurs activités listées sont des formes de prestations de services (transport, commission, agences d'affaires, etc.)."
+  },
+  {
+    "chapitre": 1,
+    "question": "Qu'est-ce qu'un acte de commerce par nature ?",
+    "reponse": "Un acte de commerce par nature est un acte réputé commercial en raison de son objet intrinsèque, indépendamment de la qualité de la personne qui l'accomplit ou de sa forme. L'article L110-1 en fournit la principale énumération."
+  },
+  {
+    "chapitre": 1,
+    "question": "L'achat pour revente nécessite-t-il une transformation du bien ?",
+    "reponse": "Non, l'achat pour revente est commercial que le bien soit revendu 'en nature' (tel qu'acheté) ou après avoir été travaillé ou transformé par l'acheteur avant la revente. L'intention de revendre avec profit est le critère clé."
+  },
+  {
+    "chapitre": 1,
+    "question": "Quels types de biens meubles peuvent faire l'objet d'un achat pour revente commercial ?",
+    "reponse": "La notion de 'meuble' est large. Elle inclut les biens meubles corporels (marchandises, produits finis) mais aussi les biens meubles incorporels (brevets, créances, logiciels, fonds de commerce)."
+  },
+  {
+    "chapitre": 1,
+    "question": "Quelle est l'importance de l'intention spéculative dans l'achat pour revente ?",
+    "reponse": "L'intention spéculative (acheter pour revendre plus cher et réaliser un profit) est un critère psychologique essentiel. Même si prouver l'intention peut être difficile, elle est présumée chez un commerçant. C'est cette recherche de plus-value qui caractérise l'acte."
+  },
+  {
+    "chapitre": 1,
+    "question": "Certaines activités de production sont-elles exclues de la commercialité ? Donnez des exemples.",
+    "reponse": "Oui, certaines productions sont civiles par nature : l'agriculture (sauf si accessoire à une activité commerciale), les activités intellectuelles (enseignement privé, professions libérales, création artistique) et les activités extractives (carrières, sources), sauf l'exploitation des mines (commerciale par exception légale)."
+  },
+  {
+    "chapitre": 1,
+    "question": "Qu'est-ce qu'un 'marchand de biens' ?",
+    "reponse": "Un marchand de biens est une personne dont l'activité consiste à acheter des immeubles en vue de les revendre. Cette activité est réputée commerciale par la loi (L110-1), distinguant le marchand de biens de l'agent immobilier (intermédiaire) ou du promoteur immobilier (qui construit avant de vendre)."
+  },
+  {
+    "chapitre": 1,
+    "question": "Qu'entend-on par 'entreprise de location de meubles' ?",
+    "reponse": "La loi répute commerciale toute entreprise de location de meubles (L110-1). Cela vise une activité habituelle et organisée de mise à disposition de biens meubles, corporels ou incorporels, contre rémunération. La location isolée n'est pas commerciale."
+  },
+  {
+    "chapitre": 1,
+    "question": "La location d'immeubles nus est-elle commerciale ?",
+    "reponse": "Non, la location d'immeubles nus (non garnis, non meublés) est une activité civile. En revanche, la location meublée est considérée comme commerciale, au moins fiscalement (revenus en BIC), et peut l'être juridiquement si elle prend la forme d'une entreprise."
+  },
+  {
+    "chapitre": 1,
+    "question": "Pourquoi l'hôtellerie est-elle une activité commerciale ?",
+    "reponse": "L'hôtellerie n'est pas une simple location immobilière. Elle est commerciale car elle fournit, outre la disposition d'un local, un ensemble de services annexes (accueil, ménage, petit-déjeuner, wifi, etc.), la qualifiant d'entreprise de prestation de services."
+  },
+  {
+    "chapitre": 1,
+    "question": "Quelle est la distinction essentielle entre commerce et artisanat selon la jurisprudence ?",
+    "reponse": "La jurisprudence tend à distinguer l'artisanat (civil) du commerce par l'importance de la spéculation sur le travail d'autrui. L'artisan tire l'essentiel de ses revenus de son travail personnel, tandis que le commerçant spécule davantage sur la main-d'œuvre qu'il emploie ou sur la marge réalisée sur les marchandises."
+  },
+  {
+    "chapitre": 1,
+    "question": "Le transport maritime est-il visé par l'article L110-1 du Code de commerce ?",
+    "reponse": "Non, l'article L110-1 vise l'entreprise de transport 'par terre ou par eau' (fluviale). Le transport maritime, bien que commercial, fait l'objet d'un texte spécifique, l'article L110-2, qui liste les actes relevant du commerce maritime."
+  },
+  {
+    "chapitre": 1,
+    "question": "Qu'est-ce qu'une 'entreprise de fournitures' ?",
+    "reponse": "C'est une activité commerciale (L110-1) consistant à livrer des biens ou services de manière continue ou périodique, souvent dans le cadre d'un contrat d'abonnement (ex: fourniture d'eau, d'énergie, de journaux). La livraison ponctuelle d'un bien relève plutôt de la vente simple."
+  },
+  {
+    "chapitre": 1,
+    "question": "Que recouvrent les 'agences d'affaires' ?",
+    "reponse": "C'est une catégorie assez large et fourre-tout (L110-1) désignant les entreprises qui se chargent de gérer les affaires d'autrui. Exemples : agences de recouvrement de créances, agences de voyages, détectives privés, et plus récemment, les agences d'influenceurs."
+  },
+  {
+    "chapitre": 1,
+    "question": "Les 'établissements de ventes à l'encan' sont-ils commerciaux ?",
+    "reponse": "Oui (L110-1), il s'agit des établissements exploitant des salles de ventes aux enchères publiques de marchandises en gros (par lots). Ceci est distinct de la vente volontaire de meubles aux enchères publiques, qui est une activité civile exercée par des mandataires."
+  },
+  {
+    "chapitre": 1,
+    "question": "Les 'établissements de spectacles publics' relèvent-ils du commerce ?",
+    "reponse": "Oui (L110-1), cela comprend les opérateurs exploitant théâtres, cinémas, cirques, mais aussi les clubs sportifs professionnels. L'activité doit être réalisée à titre professionnel et dans un but lucratif pour être commerciale ; une structure associative est exclue."
+  },
+  {
+    "chapitre": 1,
+    "question": "Quelles sont les opérations assimilées aux opérations de crédit selon le Code monétaire et financier ?",
+    "reponse": "Outre les crédits classiques (prêts d'argent), sont assimilées aux opérations de crédit certaines techniques de financement comme le crédit-bail (leasing) et l'affacturage (factoring), qui relèvent donc de la commercialité bancaire."
+  },
+  {
+    "chapitre": 1,
+    "question": "L'activité bancaire est-elle une activité réglementée ?",
+    "reponse": "Oui, l'activité bancaire (opérations de banque : réception de fonds, crédit, services de paiement) est fortement réglementée. Elle relève en principe du monopole des établissements de crédit agréés, bien que certaines opérations (paiement, monnaie électronique) puissent être exercées par des établissements spécialisés."
+  },
+  {
+    "chapitre": 1,
+    "question": "Qu'est-ce que la monnaie électronique ?",
+    "reponse": "C'est une valeur monétaire stockée sous forme électronique (sur un support prépayé ou un serveur), représentant une créance sur l'émetteur, acceptée comme moyen de paiement par des tiers. Son émission et sa gestion sont des activités commerciales réglementées."
+  },
+  {
+    "chapitre": 1,
+    "question": "Que sont les 'FinTech' ?",
+    "reponse": "FinTech (Finance & Technologie) désigne les entreprises (souvent des startups) qui utilisent les nouvelles technologies pour offrir des services financiers innovants, concurrençant ou complétant les acteurs traditionnels. Elles opèrent dans des domaines comme le paiement, le crédit, la monnaie électronique."
+  },
+  {
+    "chapitre": 1,
+    "question": "Le courtage est-il toujours une activité commerciale ?",
+    "reponse": "Oui, l'opération de courtage (mettre en relation deux parties en vue de la conclusion d'un contrat) est listée comme un acte de commerce par nature (L110-1), même si l'objet final du contrat est civil (ex: courtage matrimonial ou patrimonial)."
+  },
+  {
+    "chapitre": 1,
+    "question": "Quel est le rôle des plateformes numériques type Uber ou Airbnb au regard du courtage ?",
+    "reponse": "Ces plateformes agissent essentiellement comme des courtiers : elles mettent en relation des offreurs (chauffeurs, propriétaires) et des demandeurs (passagers, locataires). Elles ont développé l'économie 'ubérisée' ou collaborative, mais leur statut exact (simple courtier ou prestataire de service ?) a fait l'objet de débats juridiques."
+  },
+  {
+    "chapitre": 2,
+    "question": "Qu'est-ce que le régime plénier des actes de commerce ?",
+    "reponse": "Le régime plénier désigne l'ensemble des règles de droit spécifiques qui s'appliquent lorsqu'un acte est commercial pour *toutes* les parties impliquées (par opposition aux actes mixtes). Ces règles concernent notamment la prescription et la preuve."
+  },
+  {
+    "chapitre": 2,
+    "question": "Quel est le délai de prescription de droit commun en matière commerciale ?",
+    "reponse": "Depuis la réforme de 2008, le délai de prescription de droit commun pour les obligations nées à l'occasion de leur commerce entre commerçants (ou entre commerçants et non-commerçants) est de cinq ans, aligné sur le délai de droit commun civil."
+  },
+  {
+    "chapitre": 2,
+    "question": "Existe-t-il des délais de prescription plus courts en matière commerciale ?",
+    "reponse": "Oui, la loi prévoit des prescriptions plus courtes pour certaines matières spécifiques. Par exemple, en matière de transport routier de marchandises, l'action se prescrit par un an (L133-6 C.com). Les actions en nullité de sociétés ou d'actes sociaux se prescrivent par trois ans."
+  },
+  {
+    "chapitre": 2,
+    "question": "Quelle est la différence entre prescription et forclusion ?",
+    "reponse": "La prescription éteint le droit d'agir en justice après un certain délai, mais peut être suspendue ou interrompue. La forclusion fixe un délai préfix, souvent très court et insusceptible de suspension ou d'interruption, pour accomplir un acte ou exercer un droit, sous peine de déchéance (ex: délais en procédures collectives)."
+  },
+  {
+    "chapitre": 2,
+    "question": "Quel est le principe de la preuve en matière commerciale ?",
+    "reponse": "Entre commerçants, pour les actes de commerce, la preuve est libre (article L110-3 C.com). Cela signifie que tous les moyens de preuve sont admissibles (écrit, témoignage, comptabilité, etc.), sans la hiérarchie et l'exigence d'écrit préconstitué du droit civil pour les actes dépassant un certain montant."
+  },
+  {
+    "chapitre": 2,
+    "question": "La liberté de la preuve s'applique-t-elle toujours en matière commerciale ?",
+    "reponse": "Non, elle ne vaut que pour les actes de commerce accomplis par des commerçants et prouvés *contre* un commerçant. Si un non-commerçant est partie à l'acte (acte mixte), les règles de preuve dépendent de qui prouve contre qui. De plus, la loi exige parfois un écrit même entre commerçants (formalisme *ad probationem* ou *ad validitatem*)."
+  },
+  {
+    "chapitre": 2,
+    "question": "Qu'est-ce que le formalisme *ad validitatem* et donnez un exemple en droit commercial ?",
+    "reponse": "Le formalisme *ad validitatem* signifie que le respect d'une forme particulière (souvent un écrit avec mentions obligatoires) est exigé pour la validité même de l'acte. En son absence, l'acte est nul. Exemple : la lettre de change doit comporter certaines mentions (L511-1) pour valoir comme telle."
+  },
+  {
+    "chapitre": 2,
+    "question": "Qu'est-ce que le formalisme *ad probationem* ?",
+    "reponse": "Le formalisme *ad probationem* signifie que le respect d'une forme (généralement un écrit) n'est pas requis pour la validité de l'acte, mais seulement pour en faciliter la preuve. Un acte irrégulier en la forme peut valoir comme commencement de preuve par écrit, à compléter par d'autres éléments."
+  },
+  {
+    "chapitre": 2,
+    "question": "Quel est l'objectif du formalisme dans les titres de paiement ou de crédit ?",
+    "reponse": "L'exigence de formalisme vise principalement à protéger celui qui s'engage (prise de conscience du risque) et à assurer la sécurité juridique et la confiance des porteurs successifs du titre, qui doivent pouvoir se fier à son apparence."
+  },
+  {
+    "chapitre": 2,
+    "question": "L'écrit est-il exigé en cas de rupture de relations commerciales établies ?",
+    "reponse": "Oui, l'article L442-1 2° C.com exige que la rupture (totale ou partielle) d'une relation commerciale établie soit précédée d'un préavis écrit d'une durée suffisante. L'absence de préavis écrit engage la responsabilité de l'auteur de la rupture."
+  },
+  {
+    "chapitre": 2,
+    "question": "Qu'est-ce que la réfaction dans la vente commerciale ?",
+    "reponse": "La réfaction est la faculté pour l'acheteur, en cas de défaut de conformité non rédhibitoire de la chose vendue (qualité ou quantité), de conserver la chose tout en obtenant une réduction unilatérale du prix, sans intervention du juge. Cela permet de sauvegarder le contrat."
+  },
+  {
+    "chapitre": 2,
+    "question": "Qu'est-ce que la faculté de remplacement dans la vente commerciale ?",
+    "reponse": "En cas de défaut de livraison par le vendeur d'une chose de genre (interchangeable), l'acheteur a la faculté de se procurer une chose équivalente auprès d'un autre fournisseur, aux frais du vendeur initial défaillant. Il peut aussi réclamer des dommages et intérêts."
+  },
+  {
+    "chapitre": 2,
+    "question": "Comment s'appliquent les règles de preuve dans un acte mixte ?",
+    "reponse": "De manière distributive : le non-commerçant qui prouve contre le commerçant bénéficie de la liberté de la preuve. Inversement, le commerçant qui prouve contre le non-commerçant doit respecter les règles de preuve civiles (exigence d'écrit au-delà d'un certain seuil)."
+  },
+  {
+    "chapitre": 2,
+    "question": "Quelle est la règle de compétence juridictionnelle pour un acte mixte ?",
+    "reponse": "Le non-commerçant (demandeur) a le choix : il peut assigner le commerçant soit devant le tribunal judiciaire (sa juridiction naturelle), soit devant le tribunal de commerce. En revanche, le commerçant (demandeur) doit obligatoirement assigner le non-commerçant devant le tribunal judiciaire."
+  },
+  {
+    "chapitre": 2,
+    "question": "Le non-commerçant peut-il être attrait devant le tribunal de commerce ?",
+    "reponse": "Oui, si le commerçant l'assigne devant le tribunal de commerce et que le non-commerçant ne soulève pas l'incompétence *in limine litis* (au début du procès). En acceptant (même tacitement) la compétence, il renonce à la décliner."
+  },
+  {
+    "chapitre": 2,
+    "question": "Qui est défini comme commerçant personne physique par l'article L121-1 C.com ?",
+    "reponse": "Sont commerçants ceux qui exercent des actes de commerce et en font leur profession habituelle. La jurisprudence y ajoute la condition d'indépendance (agir en son nom et pour son compte)."
+  },
+  {
+    "chapitre": 2,
+    "question": "Un influenceur peut-il être qualifié de commerçant ?",
+    "reponse": "Oui, la jurisprudence (Cour d'appel de Paris, 2021) a qualifié d'activité commerciale celle d'un influenceur dont l'activité ne se limite pas à poster des messages mais s'intègre dans une stratégie éditoriale globale visant un public ciblé avec promotion de services. Une loi de 2023 encadre d'ailleurs leur activité."
+  },
+  {
+    "chapitre": 2,
+    "question": "Quels actes de commerce ne confèrent pas la qualité de commerçant ?",
+    "reponse": "L'accomplissement, même répété, d'actes de commerce par la forme (signer des lettres de change) ou par accessoire ne suffit pas à conférer la qualité de commerçant. Il faut accomplir des actes de commerce par nature à titre de profession."
+  },
+  {
+    "chapitre": 2,
+    "question": "Qu'implique la condition d'habitude ou de profession ?",
+    "reponse": "Elle implique une répétition des actes de commerce, exercés de manière indépendante. Elle suppose aussi que l'activité permette à son auteur d'en tirer les ressources nécessaires à sa subsistance, ce qui la distingue d'une activité occasionnelle ou de loisir."
+  },
+  {
+    "chapitre": 2,
+    "question": "Comment apprécie-t-on la condition d'habitude pour les ventes en ligne par des particuliers ?",
+    "reponse": "C'est une question délicate sans réponse évidente. La jurisprudence (ex: TGI Mulhouse 2012) et les plateformes elles-mêmes (ex: Amazon) utilisent des seuils (nombre d'objets, chiffre d'affaires sur une période) pour distinguer le vendeur occasionnel du vendeur professionnel/commerçant, mais le débat persiste."
+  },
+  {
+    "chapitre": 2,
+    "question": "Qu'est-ce que le 'pluriactivité' ou 'slashing' et comment le droit l'encourage-t-il ?",
+    "reponse": "C'est le fait d'exercer plusieurs activités simultanément, par exemple une activité salariée et une activité commerciale indépendante. Le droit encourage ce cumul, notamment via le régime de l'auto-entrepreneur et en limitant la portée des clauses d'exclusivité dans les contrats de travail (L1222-5 C.trav)."
+  },
+  {
+    "chapitre": 2,
+    "question": "Qu'est-ce qui différencie fondamentalement le commerçant indépendant du salarié ?",
+    "reponse": "Le critère distinctif est la subordination juridique : le salarié travaille sous les ordres et le contrôle d'un employeur. Le commerçant agit de manière indépendante, à ses risques et périls, même si son autonomie peut être limitée en pratique (ex: franchisé)."
+  },
+  {
+    "chapitre": 2,
+    "question": "Le dirigeant d'une société commerciale est-il un commerçant ?",
+    "reponse": "En principe, non. Le commerçant est la société elle-même (personne morale). Le dirigeant (gérant, président) est un mandataire social qui agit au nom de la société ; il n'engage pas son patrimoine personnel (sauf faute de gestion)."
+  },
+  {
+    "chapitre": 2,
+    "question": "Dans quel cas un gérant de société peut-il être considéré comme travailleur indépendant au regard de la sécurité sociale ?",
+    "reponse": "C'est le cas du gérant majoritaire de SARL (qui détient plus de la moitié du capital social). Bien que mandataire social, il est assimilé à un travailleur indépendant pour la sécurité sociale, contrairement au gérant minoritaire ou égalitaire, assimilé à un salarié."
+  },
+  {
+    "chapitre": 2,
+    "question": "Comment la jurisprudence requalifie-t-elle parfois la relation entre plateformes numériques et travailleurs indépendants ?",
+    "reponse": "Malgré le statut formel d'indépendant, si la plateforme exerce un contrôle étroit sur le travailleur (directives, sanctions, organisation du travail), la jurisprudence peut requalifier la relation en contrat de travail, en raison de l'existence d'un lien de subordination de fait (ex: arrêts Take Eat Easy, Uber)."
+  },
+  {
+    "chapitre": 3,
+    "question": "Pourquoi la protection du patrimoine personnel de l'entrepreneur individuel est-elle un enjeu majeur ?",
+    "reponse": "Parce qu'en principe, l'entrepreneur individuel répond indéfiniment des dettes professionnelles sur l'ensemble de son patrimoine (personnel et professionnel confondus), en vertu du principe d'unicité du patrimoine. Protéger le patrimoine personnel vise à limiter ce risque et encourager la création d'entreprise."
+  },
+  {
+    "chapitre": 3,
+    "question": "Quels étaient les 3 dispositifs de protection du patrimoine de l'entrepreneur avant la loi de 2022 ?",
+    "reponse": "Avant 2022, trois dispositifs coexistaient : la création d'une société unipersonnelle (EURL/SASU), la déclaration notariée d'insaisissabilité (DNI) pour les biens fonciers non professionnels, et l'EIRL (Entreprise Individuelle à Responsabilité Limitée) avec patrimoine d'affectation."
+  },
+  {
+    "chapitre": 3,
+    "question": "Comment la société unipersonnelle (EURL, SASU) protège-t-elle l'entrepreneur ?",
+    "reponse": "Elle crée une personne morale distincte de l'entrepreneur, dotée de son propre patrimoine. Ainsi, les créanciers de la société ne peuvent saisir que les biens de la société, et non le patrimoine personnel de l'associé unique (sauf exceptions)."
+  },
+  {
+    "chapitre": 3,
+    "question": "Quelles sont les limites pratiques de la protection offerte par la société unipersonnelle ?",
+    "reponse": "La protection est limitée car les créanciers, notamment les banques, exigent souvent une caution personnelle de l'associé unique dirigeant. De plus, sa responsabilité peut être engagée en cas de faute de gestion ayant contribué à l'insuffisance d'actif."
+  },
+  {
+    "chapitre": 3,
+    "question": "Qu'est-ce que l'insaisissabilité de la résidence principale ?",
+    "reponse": "Depuis la loi Macron de 2015, la résidence principale de l'entrepreneur individuel est insaisissable de plein droit (sans formalité) par ses créanciers professionnels dont les droits naissent à l'occasion de l'activité professionnelle. Cette protection est automatique."
+  },
+  {
+    "chapitre": 3,
+    "question": "Comment les autres biens immobiliers non affectés à l'usage professionnel pouvaient-ils être protégés avant 2022 ?",
+    "reponse": "L'entrepreneur pouvait les rendre insaisissables via une déclaration notariée d'insaisissabilité (DNI), publiée au service de la publicité foncière et/ou au registre professionnel. Cette protection n'était opposable qu'aux créanciers professionnels postérieurs à la publication."
+  },
+  {
+    "chapitre": 3,
+    "question": "L'insaisissabilité légale ou déclarée est-elle d'ordre public ?",
+    "reponse": "Non, l'entrepreneur peut y renoncer expressément et par écrit, mais uniquement au profit d'un créancier spécifique (souvent une banque) et pour un engagement déterminé. La renonciation doit respecter un formalisme strict."
+  },
+  {
+    "chapitre": 3,
+    "question": "Qu'était l'EIRL et pourquoi a-t-elle échoué ?",
+    "reponse": "L'EIRL (Entreprise Individuelle à Responsabilité Limitée) permettait à l'entrepreneur de créer un patrimoine d'affectation distinct de son patrimoine personnel. Elle a échoué en raison de sa complexité administrative et surtout parce qu'elle rendait difficile l'accès au crédit, les banques étant réticentes face à ce patrimoine séparé."
+  },
+  {
+    "chapitre": 3,
+    "question": "Quel est le régime du patrimoine de l'entrepreneur individuel depuis la loi du 14 février 2022 ?",
+    "reponse": "Cette loi a instauré un statut unique pour l'entrepreneur individuel (EI), créant automatiquement et de plein droit une séparation entre son patrimoine professionnel et son patrimoine personnel. Désormais, seul le patrimoine professionnel répond des dettes professionnelles."
+  },
+  {
+    "chapitre": 3,
+    "question": "Comment est composé le patrimoine professionnel de l'EI selon la loi de 2022 ?",
+    "reponse": "Il est composé des biens, droits, obligations et sûretés dont l'entrepreneur est titulaire et qui sont *utiles* à son activité professionnelle. La notion d'utilité remplace celle de nécessité de l'EIRL, étant plus large."
+  },
+  {
+    "chapitre": 3,
+    "question": "Qui doit prouver qu'un bien est utile à l'activité professionnelle dans le nouveau statut de l'EI ?",
+    "reponse": "La charge de la preuve repose sur le créancier professionnel qui souhaite saisir un bien. C'est à lui de démontrer que le bien contesté est bien 'utile' à l'activité professionnelle pour pouvoir le saisir."
+  },
+  {
+    "chapitre": 3,
+    "question": "La séparation des patrimoines de l'EI est-elle absolue ?",
+    "reponse": "Non, il existe des exceptions et une certaine 'porosité'. L'entrepreneur peut y renoncer au profit d'un créancier. La séparation cesse en cas de décès ou de cessation d'activité. Elle peut aussi être écartée en cas de manœuvres frauduleuses ou d'inobservations graves et répétées."
+  },
+  {
+    "chapitre": 3,
+    "question": "Comment fonctionne la renonciation à la séparation des patrimoines dans le statut de l'EI ?",
+    "reponse": "L'entrepreneur peut renoncer à la séparation, mais uniquement sur demande écrite d'un créancier spécifique, pour un engagement précis et pour un montant déterminé. Un délai de réflexion de 7 jours francs est imposé avant la signature de l'acte de renonciation."
+  },
+  {
+    "chapitre": 3,
+    "question": "Que se passe-t-il en cas de cessation d'activité ou de décès de l'entrepreneur individuel (EI) ?",
+    "reponse": "La cessation d'activité ou le décès entraîne la réunion des patrimoines professionnel et personnel. Les créanciers professionnels peuvent alors poursuivre le recouvrement de leurs créances sur l'ensemble du patrimoine unifié (ou transmis aux héritiers)."
+  },
+  {
+    "chapitre": 3,
+    "question": "Qu'est-ce que le fonds de commerce ?",
+    "reponse": "Le fonds de commerce est un bien meuble incorporel, une universalité de fait regroupant l'ensemble des éléments (corporels et incorporels) affectés par un commerçant à l'exploitation de son activité en vue d'attirer et de retenir une clientèle. C'est souvent l'actif principal du commerçant."
+  },
+  {
+    "chapitre": 3,
+    "question": "Pourquoi le fonds de commerce est-il important économiquement ?",
+    "reponse": "Il représente la valeur économique de l'activité (sa capacité à générer du chiffre d'affaires et des bénéfices). Il constitue également une garantie pour les créanciers, car il peut être donné en nantissement pour obtenir du crédit."
+  },
+  {
+    "chapitre": 3,
+    "question": "Le fonds de commerce a-t-il toujours eu une définition légale ?",
+    "reponse": "Non, il a longtemps été une création de la pratique et de la jurisprudence. Sa consécration légale s'est faite progressivement, notamment avec les lois sur sa vente et son nantissement à la fin du 19e et début du 20e siècle, mais il n'a toujours pas de définition légale unique et exhaustive."
+  },
+  {
+    "chapitre": 3,
+    "question": "Quelles sont les deux approches pour analyser la composition du fonds de commerce ?",
+    "reponse": "L'approche analytique consiste à énumérer les différents éléments (incorporels et corporels) qui composent le fonds. L'approche synthétique le considère comme un bien unitaire, distinct de ses composantes."
+  },
+  {
+    "chapitre": 3,
+    "question": "Quel est l'élément essentiel et indispensable du fonds de commerce ?",
+    "reponse": "L'élément essentiel, sans lequel le fonds de commerce ne peut exister, est la clientèle. Tous les autres éléments (nom, enseigne, droit au bail, matériel, etc.) servent principalement à attirer et conserver cette clientèle."
+  },
+  {
+    "chapitre": 3,
+    "question": "Quelle est la différence entre clientèle et achalandage ?",
+    "reponse": "La clientèle désigne les personnes qui s'adressent habituellement à un commerçant en raison de sa réputation, de la qualité de ses produits ou services (facteurs personnels). L'achalandage désigne la clientèle plus passagère, attirée principalement par l'emplacement du fonds (facteurs géographiques)."
+  },
+  {
+    "chapitre": 3,
+    "question": "Le commerçant a-t-il un droit de propriété sur sa clientèle ?",
+    "reponse": "Juridiquement, on ne parle pas de 'propriété' de la clientèle, car les clients sont libres. Cependant, la clientèle est considérée comme un 'bien' appropriable par le commerçant, protégé contre les actes de concurrence déloyale visant à la détourner illicitement."
+  },
+  {
+    "chapitre": 3,
+    "question": "Qu'est-ce que la concurrence déloyale et comment protège-t-elle la clientèle ?",
+    "reponse": "La concurrence déloyale sanctionne les procédés contraires aux usages loyaux du commerce visant à attirer la clientèle d'un concurrent (dénigrement, imitation, parasitisme, désorganisation). Elle protège indirectement la clientèle en sanctionnant les moyens illicites de la capter."
+  },
+  {
+    "chapitre": 3,
+    "question": "Dans quels cas une personne exploitant une activité n'est-elle pas considérée comme propriétaire de la clientèle ?",
+    "reponse": "Ce peut être le cas lorsque la clientèle est principalement attachée à une marque ou enseigne non détenue par l'exploitant (franchisé), à un emplacement spécifique dont il n'est pas maître (exploitant dans un centre commercial, buvette d'un jardin public), ou à une personne (mandataire, gérant de débit de tabac)."
+  },
+  {
+    "chapitre": 3,
+    "question": "Qu'est-ce que le nom commercial ?",
+    "reponse": "C'est l'appellation sous laquelle un commerçant exerce son activité et se fait connaître de sa clientèle. Il peut s'agir d'un nom patronymique, d'un pseudonyme ou d'une dénomination de fantaisie. Il sert à identifier le fonds de commerce."
+  },
+  {
+    "chapitre": 3,
+    "question": "Le nom patronymique utilisé comme nom commercial devient-il un élément du fonds ?",
+    "reponse": "Oui, lorsqu'un nom patronymique est exploité commercialement pendant un certain temps, il se détache de la personne physique pour devenir un signe distinctif du fonds, un élément incorporel cessible avec le fonds (sauf clause contraire)."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quelle est la juridiction de principe pour les litiges commerciaux ?",
+    "reponse": "En France métropolitaine (hors Alsace-Moselle), la juridiction de principe est le tribunal de commerce (TC). C'est une juridiction d'exception spécialisée, composée majoritairement de juges élus (commerçants)."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quelle est l'origine historique des tribunaux de commerce ?",
+    "reponse": "Ils trouvent leur origine dans les juridictions consulaires du Moyen Âge. Le premier tribunal de commerce moderne a été créé à Paris par un édit de Charles IX en 1563, composé de juges marchands élus par leurs pairs pour trancher les litiges commerciaux."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quel est le rôle du greffe du tribunal de commerce ?",
+    "reponse": "Le greffe, tenu par un greffier (officier public et ministériel), assure l'administration du tribunal, la tenue des registres légaux (notamment le RCS), la réception des actes de procédure, l'assistance aux audiences, et la conservation des décisions. Il joue un rôle central dans la vie juridique des entreprises."
+  },
+  {
+    "chapitre": 4,
+    "question": "Qu'est-ce que l'expérimentation du Tribunal des Activités Économiques (TAE) ?",
+    "reponse": "Prévue par une loi de 2023, c'est une expérimentation menée dans certains TC volontaires pour une durée de 4 ans. Ces TAE auront une compétence élargie aux procédures collectives de tous les acteurs économiques (y compris agriculteurs, professions libérales), visant à unifier le traitement des difficultés des entreprises."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quelles sont les principales compétences matérielles du tribunal de commerce (art. L721-3 C.com) ?",
+    "reponse": "Le TC connaît : 1/ des contestations relatives aux engagements entre commerçants, artisans, ou établissements de crédit ; 2/ des contestations relatives aux sociétés commerciales ; 3/ des contestations relatives aux actes de commerce entre toutes personnes."
+  },
+  {
+    "chapitre": 4,
+    "question": "Un litige entre une société commerciale et un de ses associés relève-t-il du TC ?",
+    "reponse": "Oui, la jurisprudence considère que les litiges opposant une société commerciale à ses associés ou dirigeants, s'ils concernent la gestion ou le fonctionnement de la société, relèvent de la compétence du TC, même si l'associé n'est pas commerçant."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quelle est la règle de compétence pour un acte mixte (commercial pour l'un, civil pour l'autre) ?",
+    "reponse": "Le demandeur non-commerçant a le choix d'assigner le commerçant devant le TC ou le tribunal judiciaire. Le demandeur commerçant doit assigner le non-commerçant devant le tribunal judiciaire, sauf si ce dernier accepte la compétence du TC (renonciation)."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quelle est la règle de compétence territoriale de principe pour les tribunaux de commerce ?",
+    "reponse": "Comme en procédure civile, le tribunal territorialement compétent est en principe celui du lieu où demeure le défendeur. S'il s'agit d'une personne morale (société), c'est le lieu de son siège social."
+  },
+  {
+    "chapitre": 4,
+    "question": "Existe-t-il des options de compétence territoriale en matière contractuelle ou délictuelle ?",
+    "reponse": "Oui, en matière contractuelle, le demandeur peut aussi choisir le tribunal du lieu de livraison effective de la chose ou d'exécution de la prestation de service. En matière délictuelle (ex: concurrence déloyale), il peut choisir le tribunal du lieu du fait dommageable ou celui du lieu où le dommage a été subi."
+  },
+  {
+    "chapitre": 4,
+    "question": "Qu'est-ce qu'une clause attributive de juridiction ?",
+    "reponse": "C'est une clause insérée dans un contrat par laquelle les parties désignent à l'avance le tribunal qui sera compétent pour trancher les litiges pouvant naître de ce contrat, dérogeant ainsi aux règles de compétence territoriale légales."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quelles sont les conditions de validité d'une clause attributive de juridiction (art. 48 CPC) ?",
+    "reponse": "Elle n'est valable qu'entre commerçants et doit être spécifiée de façon très apparente dans l'engagement principal. Elle permet de choisir un tribunal de commerce spécifique, même s'il n'est pas légalement compétent."
+  },
+  {
+    "chapitre": 4,
+    "question": "Qu'est-ce que l'arbitrage ?",
+    "reponse": "L'arbitrage est un mode privé de règlement des litiges par lequel les parties conviennent de soumettre leur différend à un ou plusieurs juges privés (les arbitres), dont la décision (sentence arbitrale) s'imposera à elles avec l'autorité de la chose jugée."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quelle est la différence entre la clause compromissoire et le compromis d'arbitrage ?",
+    "reponse": "La clause compromissoire est une convention signée *avant* la naissance du litige, par laquelle les parties s'engagent à soumettre à l'arbitrage les différends *futurs* relatifs à un contrat. Le compromis est une convention signée *après* la naissance du litige, par laquelle les parties décident de soumettre ce différend *actuel* à l'arbitrage."
+  },
+  {
+    "chapitre": 4,
+    "question": "L'arbitrage est-il réservé aux commerçants ?",
+    "reponse": "Historiquement oui, mais son champ s'est élargi. L'article 2061 C.civ permet désormais la clause compromissoire dans les contrats conclus à raison d'une activité professionnelle. Elle est aussi possible, sous conditions, pour des litiges impliquant des non-professionnels ou des personnes publiques."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quels sont les principaux avantages de l'arbitrage ?",
+    "reponse": "Les avantages souvent cités sont : la rapidité (par rapport aux tribunaux étatiques), la confidentialité de la procédure et de la sentence, l'expertise des arbitres choisis par les parties, leur indépendance (surtout en international), et une plus grande flexibilité procédurale."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quelle est la différence entre arbitrage institutionnel et arbitrage ad hoc ?",
+    "reponse": "L'arbitrage institutionnel se déroule sous l'égide d'un centre d'arbitrage (ex: CCI Paris, CIMA) qui administre la procédure selon son propre règlement. L'arbitrage ad hoc est organisé directement par les parties et les arbitres, sans l'intervention d'une institution."
+  },
+  {
+    "chapitre": 4,
+    "question": "Qu'est-ce qu'un arbitre statuant en 'amiable compositeur' ?",
+    "reponse": "Si les parties l'y autorisent expressément, l'arbitre peut statuer en amiable compositeur, c'est-à-dire en équité. Il peut alors écarter l'application stricte de la règle de droit si elle conduit à une solution injuste dans le cas d'espèce."
+  },
+  {
+    "chapitre": 4,
+    "question": "Comment une sentence arbitrale est-elle exécutée ?",
+    "reponse": "La sentence a l'autorité de la chose jugée. Si une partie refuse de l'exécuter spontanément, l'autre partie doit obtenir une décision d'exequatur du président du tribunal judiciaire pour pouvoir recourir à l'exécution forcée. L'exequatur est rarement refusé (contrôle limité à l'ordre public)."
+  },
+  {
+    "chapitre": 4,
+    "question": "Qu'est-ce que le principe de 'compétence-compétence' en arbitrage ?",
+    "reponse": "C'est le principe selon lequel l'arbitre est juge de sa propre compétence. S'il est saisi d'un litige et que sa compétence est contestée, c'est à lui, en priorité, de statuer sur l'existence, la validité et l'étendue de la convention d'arbitrage."
+  },
+  {
+    "chapitre": 4,
+    "question": "Qu'est-ce que le principe d'autonomie de la clause compromissoire ?",
+    "reponse": "C'est le principe selon lequel la clause compromissoire est indépendante du contrat principal dans lequel elle est insérée. Ainsi, la nullité ou l'inefficacité du contrat principal n'affecte pas, en soi, la validité de la clause compromissoire, qui survit pour permettre à l'arbitre de statuer."
+  },
+  {
+    "chapitre": 4,
+    "question": "Une clause compromissoire peut-elle être opposée à une partie qui ne l'a pas signée ?",
+    "reponse": "Oui, la jurisprudence, notamment internationale, admet l'extension de la clause compromissoire à des tiers non-signataires s'ils sont directement impliqués dans l'exécution du contrat ou font partie d'un groupe de contrats ou d'un groupe de sociétés liés."
+  },
+  {
+    "chapitre": 4,
+    "question": "Que se passe-t-il si une partie à une convention d'arbitrage n'a pas les moyens financiers de participer à la procédure ('impécuniosité') ?",
+    "reponse": "La jurisprudence considère que l'impécuniosité ne rend pas la clause compromissoire inapplicable. La force obligatoire de la clause demeure. Il faut trouver des solutions pour permettre à l'arbitrage d'avoir lieu (ex: avances de frais, mécanismes de financement), mais la question reste complexe."
+  },
+  {
+    "chapitre": 4,
+    "question": "Que sont les modes alternatifs ou amiables de règlement des litiges (MARD / ADR) ?",
+    "reponse": "Ce sont des processus souples et non coercitifs (médiation, conciliation) où un tiers neutre aide les parties à trouver elles-mêmes une solution négociée à leur différend, afin de préserver la relation et d'éviter une décision judiciaire imposée."
+  },
+  {
+    "chapitre": 4,
+    "question": "Quel est le rôle du médiateur ou du conciliateur ?",
+    "reponse": "Le médiateur ou conciliateur facilite le dialogue entre les parties, les aide à identifier leurs intérêts et à explorer des options mutuellement acceptables, mais n'a aucun pouvoir de décision. L'accord trouvé (ou non) appartient aux seules parties."
+  },
+  {
+    "chapitre": 4,
+    "question": "Dans quel contexte le juge administratif (JA) intervient-il en droit des affaires ?",
+    "reponse": "Le JA intervient lorsque l'administration est partie au litige ou lorsqu'un acte administratif est contesté. Son rôle économique s'est accru avec l'intervention de l'État et des collectivités dans l'économie et l'application du droit de la concurrence aux entités publiques."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quels sont les éléments incorporels les plus importants du fonds de commerce ?",
+    "reponse": "Les éléments incorporels clés incluent la clientèle/achalandage (élément essentiel), le nom commercial, l'enseigne, le droit au bail, les droits de propriété intellectuelle (brevets, marques), les licences et autorisations administratives, et le savoir-faire."
+  },
+  {
+    "chapitre": 5,
+    "question": "Le droit au bail est-il toujours un élément du fonds de commerce ?",
+    "reponse": "Non, le droit au bail n'existe que si le commerçant est locataire du local où il exploite son fonds. Si le commerçant est propriétaire des murs, il n'y a pas de droit au bail, ce qui peut diminuer la valeur du fonds en cas de cession."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quelles sont les licences ou autorisations administratives qui peuvent faire partie du fonds de commerce ?",
+    "reponse": "Certaines licences sont attachées à l'exploitation du fonds et transmissibles avec lui (ex: licence de débit de boissons de catégorie III ou IV), elles en sont alors un élément incorporel. D'autres sont personnelles à l'exploitant et ne se transmettent pas."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quels sont les éléments corporels du fonds de commerce ?",
+    "reponse": "Les éléments corporels sont principalement le matériel et l'outillage (mobilier, machines, véhicules servant à l'exploitation) et les marchandises (stocks de matières premières, produits finis destinés à la vente)."
+  },
+  {
+    "chapitre": 5,
+    "question": "Les immeubles sont-ils inclus dans le fonds de commerce ?",
+    "reponse": "Non, par principe, les immeubles (même celui où le fonds est exploité) sont exclus de la composition du fonds de commerce, qui est un bien meuble incorporel. La vente du fonds et la vente de l'immeuble sont deux opérations distinctes."
+  },
+  {
+    "chapitre": 5,
+    "question": "Le fonds de commerce est-il considéré comme un bien meuble ou immeuble ?",
+    "reponse": "Le fonds de commerce est qualifié de bien meuble incorporel, en raison de la prépondérance des éléments incorporels qui le composent (clientèle, nom, droit au bail...). Cette qualification exclut l'application des règles propres aux immeubles."
+  },
+  {
+    "chapitre": 5,
+    "question": "Le concept de fonds de commerce a-t-il été étendu à d'autres activités ?",
+    "reponse": "Oui, le succès et la pertinence du concept ont conduit à son extension par la loi ou la jurisprudence à d'autres secteurs : fonds artisanal, fonds libéral, et même fonds agricole, reconnaissant une valeur patrimoniale à ces activités."
+  },
+  {
+    "chapitre": 5,
+    "question": "Qu'est-ce qu'un fonds de commerce électronique ?",
+    "reponse": "C'est la transposition du concept au commerce en ligne. Son existence est admise, même sans local physique obligatoire. L'élément clé devient le nom de domaine, et la clientèle est dématérialisée. Sa spécificité tend cependant à s'atténuer."
+  },
+  {
+    "chapitre": 5,
+    "question": "Une entreprise exploitant un site internet gratuit (financé par la publicité) a-t-elle une clientèle propriétaire d'un fonds ?",
+    "reponse": "La question est débattue. Si le site attire des utilisateurs (une 'clientèle' non payante) grâce à son contenu et les 'vend' à des annonceurs, on peut considérer qu'il y a une clientèle et donc un fonds. La gratuité apparente masque souvent un modèle économique indirect."
+  },
+  {
+    "chapitre": 5,
+    "question": "À qui appartient la clientèle dans le cadre d'un réseau de distribution (franchise, concession) ?",
+    "reponse": "La jurisprudence a évolué. Initialement attachée à la marque/fournisseur, elle est désormais considérée comme partagée : une clientèle nationale attachée à la marque (propriété du franchiseur/concédant) et une clientèle locale créée par l'activité du distributeur (sa propriété)."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quelles sont les principales opérations juridiques relatives au fonds de commerce ?",
+    "reponse": "Le fonds de commerce peut faire l'objet de diverses opérations : la vente, l'apport en société, le nantissement (gage sans dépossession), et la location-gérance (mise en gérance)."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quelles sont les conditions de fond pour la validité de la vente d'un fonds de commerce ?",
+    "reponse": "Elles relèvent du droit commun des contrats (consentement non vicié, capacité, objet certain, cause licite) et du droit de la vente (accord sur la chose - le fonds - et le prix). Le dol par réticence dolosive est une cause fréquente d'annulation."
+  },
+  {
+    "chapitre": 5,
+    "question": "L'obligation d'information précontractuelle (art. 1112-1 C.civ) s'applique-t-elle à la vente de fonds de commerce ?",
+    "reponse": "Oui, le vendeur doit communiquer à l'acheteur les informations dont l'importance est déterminante pour son consentement. Cela remplace en partie les anciennes mentions obligatoires (loi de 1935 abrogée) qui visaient à éclairer l'acquéreur."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quelles formalités de publicité sont requises lors de la vente d'un fonds de commerce et pourquoi ?",
+    "reponse": "La vente doit être publiée dans un support habilité à recevoir des annonces légales (SHAL) et au BODACC. Cette publicité vise à informer les créanciers du vendeur pour leur permettre de faire opposition au paiement du prix entre les mains du vendeur."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quelle est l'obligation principale du vendeur d'un fonds de commerce ?",
+    "reponse": "Outre la garantie des vices cachés et d'éviction du fait des tiers, l'obligation principale est la délivrance du fonds, ce qui inclut la mise à disposition de tous les éléments cédés, et surtout, permettre à l'acheteur d'exploiter la clientèle."
+  },
+  {
+    "chapitre": 5,
+    "question": "Qu'implique la garantie d'éviction du fait personnel du vendeur ?",
+    "reponse": "Elle interdit au vendeur de se rétablir dans des conditions qui lui permettraient de détourner la clientèle qu'il a cédée. C'est une obligation de non-concurrence implicite, souvent renforcée par une clause contractuelle."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quelles sont les conditions de validité d'une clause de non-rétablissement insérée dans l'acte de vente ?",
+    "reponse": "Pour être valable, la clause doit être proportionnée aux intérêts légitimes de l'acquéreur. Elle doit être limitée dans son objet (activités similaires), dans le temps et dans l'espace."
+  },
+  {
+    "chapitre": 5,
+    "question": "Comment les créanciers du vendeur sont-ils protégés lors de la vente du fonds ?",
+    "reponse": "Grâce à la publicité de la vente, ils peuvent former opposition au paiement du prix. Le prix de vente devient alors indisponible entre les mains de l'acheteur (ou séquestre) pendant un délai, permettant aux créanciers de se faire payer sur ce prix."
+  },
+  {
+    "chapitre": 5,
+    "question": "Qu'est-ce que le nantissement du fonds de commerce ?",
+    "reponse": "C'est une sûreté réelle sans dépossession : le commerçant affecte son fonds en garantie du paiement d'une dette (souvent un prêt bancaire) sans en perdre la possession ni l'exploitation. Il doit être inscrit sur un registre tenu au greffe du TC."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quels droits confère le nantissement au créancier inscrit ?",
+    "reponse": "Il confère deux droits principaux : un droit de préférence (être payé par priorité sur le prix de vente du fonds) et un droit de suite (pouvoir saisir le fonds même s'il a été vendu à un tiers)."
+  },
+  {
+    "chapitre": 5,
+    "question": "Le créancier nanti peut-il demander l'attribution judiciaire du fonds en cas de non-paiement ?",
+    "reponse": "Non, contrairement à d'autres sûretés réelles, le nantissement de fonds de commerce ne permet pas au créancier de demander l'attribution judiciaire du fonds en paiement. Il doit provoquer la vente forcée du fonds."
+  },
+  {
+    "chapitre": 5,
+    "question": "Qu'est-ce que la location-gérance (ou gérance libre) ?",
+    "reponse": "C'est un contrat par lequel le propriétaire d'un fonds de commerce (le loueur) en concède totalement ou partiellement la location à un gérant (le locataire-gérant) qui l'exploite à ses risques et périls, moyennant le paiement d'une redevance."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quelle est la principale différence entre la location-gérance et le bail commercial ?",
+    "reponse": "La location-gérance porte sur le fonds de commerce lui-même (bien meuble incorporel), tandis que le bail commercial porte sur le local (immeuble) dans lequel le fonds est exploité."
+  },
+  {
+    "chapitre": 5,
+    "question": "Le locataire-gérant acquiert-il la qualité de commerçant ?",
+    "reponse": "Oui, puisqu'il exploite le fonds à ses risques et périls, il acquiert la qualité de commerçant et doit s'immatriculer au RCS. Le loueur, quant à lui, perd cette qualité s'il ne l'était qu'au titre de ce fonds."
+  },
+  {
+    "chapitre": 5,
+    "question": "Quelle obligation de solidarité pèse sur le loueur du fonds mis en gérance ?",
+    "reponse": "Jusqu'à la publication du contrat de location-gérance et pendant les 6 mois suivants, le loueur est solidairement responsable avec le locataire-gérant des dettes contractées par ce dernier à l'occasion de l'exploitation du fonds. La loi de 2016 a limité cette solidarité aux dettes nées *antérieurement* à la publication."
+  },
+  {
+    "chapitre": 6,
+    "question": "Qu'est-ce que la 'propriété commerciale' ?",
+    "reponse": "C'est une expression (juridiquement impropre) désignant le statut protecteur des baux commerciaux (L145-1 et s. C.com). Il confère au locataire (preneur) une grande stabilité, notamment par le droit au renouvellement du bail à son échéance."
+  },
+  {
+    "chapitre": 6,
+    "question": "Pourquoi le statut des baux commerciaux a-t-il été créé ?",
+    "reponse": "Pour protéger le locataire commerçant dont le fonds de commerce dépend souvent de la localisation. Sans ce statut, le bailleur pourrait refuser le renouvellement et s'approprier indirectement la clientèle et la valeur du fonds créées par le locataire."
+  },
+  {
+    "chapitre": 6,
+    "question": "Le statut des baux commerciaux est-il d'ordre public ?",
+    "reponse": "Oui, il s'agit d'un dispositif largement impératif, visant à protéger le locataire. Les parties ne peuvent y déroger par des clauses contraires, sauf dans les cas expressément prévus par la loi."
+  },
+  {
+    "chapitre": 6,
+    "question": "Qui est le bailleur dans un bail commercial ?",
+    "reponse": "C'est le propriétaire du local loué. Conclure un bail commercial étant un acte grave (potentiellement de disposition), son consentement est essentiel. Si le bien est commun entre époux ou en démembrement, l'accord des co-titulaires est requis."
+  },
+  {
+    "chapitre": 6,
+    "question": "Quelle est la condition principale concernant le preneur pour bénéficier du statut ?",
+    "reponse": "Le preneur (locataire) doit être un commerçant immatriculé au RCS ou un artisan immatriculé au RNE. Cette immatriculation est en principe une condition d'accès au statut."
+  },
+  {
+    "chapitre": 6,
+    "question": "Existe-t-il des exceptions à l'exigence d'immatriculation du preneur ?",
+    "reponse": "Oui, la loi prévoit des exceptions : le propriétaire du fonds donné en location-gérance, les cohéritiers ou copreneurs si l'un d'eux est immatriculé, ou encore certaines entités non commerçantes auxquelles la loi étend le bénéfice du statut (EPIC, établissements d'enseignement...). "
+  },
+  {
+    "chapitre": 6,
+    "question": "Quel doit être l'objet du bail pour relever du statut des baux commerciaux ?",
+    "reponse": "Le bail doit porter sur un immeuble ou un local dans lequel est exploité un fonds de commerce, industriel ou artisanal. Il faut donc un lieu clos et couvert permettant l'accueil d'une clientèle et l'exploitation effective d'un fonds."
+  },
+  {
+    "chapitre": 6,
+    "question": "Le statut s'applique-t-il aux terrains nus ?",
+    "reponse": "Non, en principe. Sauf si des constructions à usage commercial, industriel ou artisanal y ont été édifiées avant ou après la conclusion du bail, avec le consentement exprès du propriétaire."
+  },
+  {
+    "chapitre": 6,
+    "question": "Quelle est la durée minimale d'un bail commercial ?",
+    "reponse": "La durée du bail commercial ne peut être inférieure à 9 ans. Cette durée minimale est une règle d'ordre public."
+  },
+  {
+    "chapitre": 6,
+    "question": "Quels sont les baux exclus du statut en raison de leur durée ?",
+    "reponse": "Sont exclus : les baux de longue durée (plus de 9 ans, comme le bail emphytéotique ou à construction) et les conventions d'occupation de courte durée (bail dérogatoire d'une durée max de 3 ans, conventions d'occupation précaire justifiées par des circonstances particulières)."
+  },
+  {
+    "chapitre": 6,
+    "question": "Qu'est-ce que la déspécialisation partielle ?",
+    "reponse": "C'est la faculté pour le preneur d'adjoindre à l'activité prévue au bail une activité connexe ou complémentaire. C'est un droit d'ordre public que le bailleur ne peut interdire, mais il doit en être informé et peut contester le caractère connexe/complémentaire."
+  },
+  {
+    "chapitre": 6,
+    "question": "Qu'est-ce que la déspécialisation totale (ou plénière) ?",
+    "reponse": "C'est la faculté pour le preneur de demander l'autorisation d'exercer une ou plusieurs activités différentes de celles prévues au bail. Elle est soumise à des conditions plus strictes (conjoncture économique, nature de l'immeuble) et nécessite une autorisation du bailleur ou, à défaut, du juge."
+  },
+  {
+    "chapitre": 6,
+    "question": "Comment le loyer initial d'un bail commercial est-il fixé ?",
+    "reponse": "La fixation du loyer initial est libre, laissée à la négociation des parties. En pratique, il peut inclure le paiement d'un 'pas-de-porte' ou 'droit d'entrée' par le locataire."
+  },
+  {
+    "chapitre": 6,
+    "question": "Qu'est-ce que la révision triennale du loyer ?",
+    "reponse": "Le loyer d'un bail commercial peut être révisé tous les 3 ans, à la demande de l'une ou l'autre des parties. La révision vise à ajuster le loyer à la valeur locative du bien, mais elle est en principe plafonnée."
+  },
+  {
+    "chapitre": 6,
+    "question": "Comment fonctionne le plafonnement de la révision triennale ?",
+    "reponse": "La variation du loyer résultant de la révision ne peut excéder la variation d'un indice de référence (ILC pour les activités commerciales/artisanales ou ILAT pour les activités tertiaires) publié par l'INSEE, intervenu depuis la dernière fixation du loyer."
+  },
+  {
+    "chapitre": 6,
+    "question": "Qu'est-ce que le déplafonnement du loyer lors de la révision triennale ?",
+    "reponse": "Le plafonnement est écarté (déplafonnement) si le bailleur prouve une modification matérielle des facteurs locaux de commercialité ayant entraîné par elle-même une variation de plus de 10% de la valeur locative. Le loyer est alors fixé à cette nouvelle valeur locative."
+  },
+  {
+    "chapitre": 6,
+    "question": "Qu'est-ce qu'une clause d'échelle mobile (ou clause d'indexation) ?",
+    "reponse": "C'est une clause prévoyant que le loyer variera automatiquement en fonction d'un indice choisi par les parties (généralement ILC ou ILAT). Si cette variation entraîne une hausse ou baisse de plus de 25% par rapport au loyer précédent, une révision judiciaire peut être demandée pour le ramener à la valeur locative."
+  },
+  {
+    "chapitre": 6,
+    "question": "Le preneur peut-il céder librement son droit au bail ?",
+    "reponse": "Oui, si la cession du bail intervient en même temps que la cession du fonds de commerce exploité dans les lieux, toute clause interdisant cette cession est réputée non écrite (L145-16). Le bailleur ne peut s'y opposer mais peut l'encadrer (ex: clause d'agrément)."
+  },
+  {
+    "chapitre": 6,
+    "question": "La sous-location du local commercial est-elle autorisée ?",
+    "reponse": "Non, la sous-location (totale ou partielle) est en principe interdite, sauf si le bailleur l'a expressément autorisée dans le bail ou par un acte postérieur. Le bailleur doit également être appelé à concourir à l'acte de sous-location."
+  },
+  {
+    "chapitre": 6,
+    "question": "Qu'est-ce que le droit au renouvellement du bail commercial ?",
+    "reponse": "C'est le droit fondamental pour le preneur, à l'expiration du bail (au moins 9 ans), d'obtenir le renouvellement de celui-ci. Le bailleur ne peut refuser le renouvellement que dans des cas limités ou en versant une indemnité d'éviction."
+  },
+  {
+    "chapitre": 6,
+    "question": "Comment s'exerce le droit au renouvellement ?",
+    "reponse": "Le preneur doit demander le renouvellement par acte extrajudiciaire dans les 6 mois précédant l'expiration du bail. Le bailleur peut aussi prendre l'initiative en donnant congé avec offre de renouvellement (ou refus)."
+  },
+  {
+    "chapitre": 6,
+    "question": "Qu'est-ce que l'indemnité d'éviction ?",
+    "reponse": "C'est la compensation financière due par le bailleur au preneur lorsqu'il refuse le renouvellement du bail sans motif légitime. Elle vise à réparer l'intégralité du préjudice subi par le preneur du fait de la perte du fonds ou de son déplacement."
+  },
+  {
+    "chapitre": 6,
+    "question": "Comment est calculée l'indemnité d'éviction ?",
+    "reponse": "Elle comprend principalement la valeur marchande du fonds de commerce perdu (indemnité de remplacement) ou, si le fonds peut être transféré sans perte significative de clientèle, les frais de déménagement et de réinstallation (indemnité de déplacement), ainsi que divers frais accessoires."
+  },
+  {
+    "chapitre": 6,
+    "question": "Dans quels cas le bailleur peut-il refuser le renouvellement sans payer d'indemnité d'éviction ?",
+    "reponse": "Principalement en cas de motif grave et légitime à l'encontre du preneur (ex: manquements répétés à ses obligations), si l'immeuble doit être démoli en raison de son insalubrité ou de sa dangerosité, ou s'il exerce son droit de reprise pour habiter les locaux accessoires."
+  },
+  {
+    "chapitre": 7,
+    "question": "Quelle est la juridiction de principe pour les litiges commerciaux en France métropolitaine ?",
+    "reponse": "La juridiction de principe est le tribunal de commerce (TC). C'est une juridiction d'exception spécialisée, principalement composée de juges non professionnels élus par leurs pairs commerçants (juges consulaires)."
+  },
+  {
+    "chapitre": 7,
+    "question": "Quelle est l'origine historique des tribunaux de commerce ?",
+    "reponse": "Ils remontent aux juridictions consulaires du Moyen Âge et ont été officiellement établis en France par un édit de Charles IX en 1563 à Paris, avec des juges marchands élus. Leur existence a été consacrée par le Code de commerce de 1807."
+  },
+  {
+    "chapitre": 7,
+    "question": "Quel est le rôle du greffe du tribunal de commerce ?",
+    "reponse": "Le greffe, dirigé par un greffier (officier public et ministériel), assure la gestion administrative du tribunal, la tenue des registres (RCS, registres des sûretés), la réception des actes, l'assistance aux audiences et la conservation des décisions. Il est essentiel à la vie juridique des entreprises."
+  },
+  {
+    "chapitre": 7,
+    "question": "Qu'est-ce que l'expérimentation du Tribunal des Activités Économiques (TAE) ?",
+    "reponse": "Lancée en 2023 pour 4 ans dans certains TC, elle vise à élargir leur compétence aux procédures amiables et collectives de *tous* les acteurs économiques (commerçants, artisans, agriculteurs, libéraux), unifiant ainsi le traitement des difficultés d'entreprises."
+  },
+  {
+    "chapitre": 7,
+    "question": "Citez les trois principales catégories de litiges relevant de la compétence matérielle du TC (L721-3 C.com).",
+    "reponse": "1/ Contestations relatives aux engagements entre commerçants, artisans, ou établissements de crédit. 2/ Contestations relatives aux sociétés commerciales. 3/ Contestations relatives aux actes de commerce entre toutes personnes."
+  },
+  {
+    "chapitre": 7,
+    "question": "Le tribunal de commerce est-il compétent pour un litige entre une société commerciale et son dirigeant ?",
+    "reponse": "Oui, la jurisprudence considère que les litiges opposant une société commerciale à ses dirigeants ou associés relèvent de la compétence du TC s'ils portent sur la gestion ou le fonctionnement de la société, même si le dirigeant/associé n'est pas commerçant."
+  },
+  {
+    "chapitre": 7,
+    "question": "Quelle est la règle de compétence en cas d'acte mixte ?",
+    "reponse": "Si le demandeur est non-commerçant, il a le choix entre le tribunal judiciaire et le tribunal de commerce. Si le demandeur est commerçant, il doit saisir le tribunal judiciaire, sauf si le non-commerçant accepte expressément ou tacitement la compétence du TC."
+  },
+  {
+    "chapitre": 7,
+    "question": "Quelle est la règle de compétence territoriale de principe devant le TC ?",
+    "reponse": "C'est celle du droit commun : le tribunal compétent est celui du lieu où demeure le défendeur. Pour une personne morale (société), il s'agit du lieu de son siège social."
+  },
+  {
+    "chapitre": 7,
+    "question": "Quelles options de compétence territoriale existent en matière contractuelle devant le TC ?",
+    "reponse": "Le demandeur peut également choisir le tribunal du lieu de livraison effective de la chose ou celui du lieu d'exécution de la prestation de service."
+  },
+  {
+    "chapitre": 7,
+    "question": "Qu'est-ce qu'une clause attributive de juridiction et quand est-elle valable ?",
+    "reponse": "C'est une clause contractuelle désignant un TC spécifique. Elle n'est valable que si elle est conclue entre commerçants et spécifiée de manière très apparente (Art. 48 CPC). Elle est inopposable à un non-commerçant."
+  },
+  {
+    "chapitre": 7,
+    "question": "Définissez l'arbitrage commercial.",
+    "reponse": "C'est un mode privé de règlement des litiges où les parties conviennent de soumettre leur différend à un ou plusieurs arbitres (juges privés), dont la sentence aura force obligatoire entre elles, se substituant à une décision judiciaire étatique."
+  },
+  {
+    "chapitre": 7,
+    "question": "Quelle est la différence entre arbitrage institutionnel et arbitrage ad hoc ?",
+    "reponse": "L'arbitrage institutionnel est administré par un centre d'arbitrage selon son règlement (ex: CCI). L'arbitrage ad hoc est organisé directement par les parties et les arbitres, sans institution d'appui, offrant plus de flexibilité mais moins de cadre."
+  },
+  {
+    "chapitre": 7,
+    "question": "Qu'est-ce que la clause compromissoire ?",
+    "reponse": "C'est la convention, insérée dans un contrat, par laquelle les parties s'engagent *à l'avance* à soumettre à l'arbitrage les litiges *futurs* qui pourraient naître de ce contrat."
+  },
+  {
+    "chapitre": 7,
+    "question": "Qu'est-ce que le compromis d'arbitrage ?",
+    "reponse": "C'est la convention par laquelle les parties, *une fois le litige né*, décident de le soumettre à l'arbitrage. Il doit définir l'objet du litige et désigner les arbitres ou prévoir leur mode de désignation."
+  },
+  {
+    "chapitre": 7,
+    "question": "Quels sont les principaux avantages de l'arbitrage ?",
+    "reponse": "Confidentialité, rapidité (supposée), expertise des arbitres choisis, flexibilité de la procédure, et neutralité (particulièrement en international)."
+  },
+  {
+    "chapitre": 7,
+    "question": "Qu'est-ce que le principe de 'compétence-compétence' ?",
+    "reponse": "Ce principe fondamental signifie que l'arbitre est le premier juge de sa propre compétence. Si sa compétence est contestée, c'est à lui qu'il appartient de statuer sur la validité ou l'étendue de la convention d'arbitrage."
+  },
+  {
+    "chapitre": 7,
+    "question": "Expliquez le principe d'autonomie de la clause compromissoire.",
+    "reponse": "La clause compromissoire est juridiquement indépendante du contrat qui la contient. La nullité ou l'inefficacité du contrat principal n'entraîne pas automatiquement la nullité de la clause, qui peut donc 'survivre' pour fonder la compétence de l'arbitre."
+  },
+  {
+    "chapitre": 7,
+    "question": "Comment une sentence arbitrale obtient-elle la force exécutoire ?",
+    "reponse": "La sentence a l'autorité de la chose jugée mais pas la force exécutoire. Pour permettre l'exécution forcée, la partie diligente doit demander l'exequatur au président du tribunal judiciaire, qui effectue un contrôle limité (principalement ordre public)."
+  },
+  {
+    "chapitre": 7,
+    "question": "Quels sont les modes amiables de règlement des différends (MARD) ?",
+    "reponse": "Ce sont des processus non judiciaires visant à résoudre un litige par la négociation et l'accord des parties, souvent avec l'aide d'un tiers neutre. Les principaux sont la médiation et la conciliation."
+  },
+  {
+    "chapitre": 7,
+    "question": "Quelle est la différence entre médiation et conciliation ?",
+    "reponse": "La distinction est ténue. Traditionnellement, le conciliateur peut proposer une solution, tandis que le médiateur aide surtout les parties à trouver *elles-mêmes* leur solution. En pratique, les rôles sont similaires : faciliter un accord."
+  },
+  {
+    "chapitre": 7,
+    "question": "Une clause de médiation préalable est-elle obligatoire ?",
+    "reponse": "Si une clause contractuelle prévoit une tentative de médiation obligatoire avant toute action en justice, elle constitue une fin de non-recevoir. Le demandeur doit prouver qu'il a tenté la médiation pour que son action judiciaire soit recevable."
+  },
+  {
+    "chapitre": 7,
+    "question": "Dans quel cas le juge administratif est-il compétent pour un litige économique ?",
+    "reponse": "Lorsque l'administration (État, collectivité publique, EPIC...) est partie au litige ou qu'un acte administratif est en cause (ex: contrat public, décision d'une autorité de régulation, police administrative). Il applique aussi le droit de la concurrence aux entités publiques."
+  },
+  {
+    "chapitre": 7,
+    "question": "Qu'est-ce qu'une autorité de régulation économique ?",
+    "reponse": "C'est une Autorité Administrative Indépendante (AAI) chargée de surveiller et d'encadrer le fonctionnement d'un secteur économique spécifique (énergie, télécoms, finance...), souvent dans un contexte d'ouverture à la concurrence."
+  },
+  {
+    "chapitre": 7,
+    "question": "Citez trois types de pouvoirs détenus par les autorités de régulation.",
+    "reponse": "1/ Pouvoir réglementaire (édicter des normes sectorielles). 2/ Pouvoir de sanction (infliger des amendes administratives). 3/ Pouvoir de règlement des différends (trancher les litiges entre opérateurs du secteur)."
+  },
+  {
+    "chapitre": 7,
+    "question": "Qu'est-ce que le 'private enforcement' du droit de la concurrence ?",
+    "reponse": "C'est l'application du droit de la concurrence par les juridictions civiles ou commerciales, via des actions intentées par les victimes (entreprises ou consommateurs) de pratiques anticoncurrentielles (ententes, abus de position dominante) pour obtenir des dommages et intérêts."
+  },
+  {
+    "chapitre": 8,
+    "question": "Qu'est-ce que la 'propriété commerciale' ?",
+    "reponse": "C'est une expression désignant le droit pour le locataire d'un bail commercial d'obtenir le renouvellement de son bail à l'expiration de celui-ci, ou, à défaut, une indemnité d'éviction. C'est la clé de voûte du statut protecteur des baux commerciaux (L145-1 et s. C.com)."
+  },
+  {
+    "chapitre": 8,
+    "question": "Pourquoi le statut des baux commerciaux est-il d'ordre public ?",
+    "reponse": "Il vise à protéger la pérennité du fonds de commerce du locataire, souvent liée au lieu d'exploitation. Les règles essentielles (durée minimale de 9 ans, droit au renouvellement) sont impératives pour éviter que le bailleur ne puisse priver le locataire de la valeur de son fonds sans contrepartie."
+  },
+  {
+    "chapitre": 8,
+    "question": "Quelles sont les conditions relatives au preneur pour bénéficier du statut ?",
+    "reponse": "Le preneur doit être commerçant immatriculé au RCS ou artisan au RNE. L'immatriculation doit être effective au moment de la délivrance du congé par le bailleur ou de la demande de renouvellement par le preneur."
+  },
+  {
+    "chapitre": 8,
+    "question": "Quelles sont les conditions relatives à l'objet du bail ?",
+    "reponse": "Le bail doit porter sur un immeuble ou un local stable et permanent, clos et couvert, où est exploité un fonds de commerce, industriel ou artisanal appartenant au locataire."
+  },
+  {
+    "chapitre": 8,
+    "question": "Quelle est la durée minimale légale d'un bail commercial ?",
+    "reponse": "La durée contractuelle ne peut être inférieure à 9 ans. C'est une durée d'ordre public. Le preneur a cependant la faculté de résilier le bail à l'expiration de chaque période triennale."
+  },
+  {
+    "chapitre": 8,
+    "question": "Qu'est-ce qu'un bail dérogatoire (ou 'bail de courte durée') ?",
+    "reponse": "C'est un bail portant sur un local commercial mais échappant au statut si sa durée totale (renouvellements inclus) n'excède pas 3 ans. Les parties doivent clairement manifester leur intention de déroger au statut lors de la conclusion du bail."
+  },
+  {
+    "chapitre": 8,
+    "question": "Qu'est-ce qu'une convention d'occupation précaire ?",
+    "reponse": "C'est une convention qui accorde une jouissance précaire d'un local, moyennant une faible contrepartie, en raison de circonstances particulières indépendantes de la volonté des parties (ex: attente d'une expropriation). Elle n'est pas soumise au statut des baux commerciaux."
+  },
+  {
+    "chapitre": 8,
+    "question": "Le preneur peut-il changer l'activité exercée dans les lieux loués ?",
+    "reponse": "Oui, via la procédure de déspécialisation. Il peut adjoindre une activité connexe ou complémentaire (déspécialisation partielle, de droit) ou demander à exercer une activité totalement différente (déspécialisation plénière, soumise à autorisation)."
+  },
+  {
+    "chapitre": 8,
+    "question": "Comment le loyer du bail renouvelé est-il fixé ?",
+    "reponse": "En principe, le loyer du bail renouvelé correspond à la valeur locative. Cependant, sauf exceptions (ex: modification notable des facteurs locaux de commercialité), sa variation est plafonnée à la variation de l'indice ILC ou ILAT sur la durée du bail expiré."
+  },
+  {
+    "chapitre": 8,
+    "question": "Qu'est-ce que le 'pas-de-porte' ?",
+    "reponse": "C'est une somme versée par le locataire au bailleur lors de l'entrée dans les lieux. Sa nature juridique est discutée : supplément de loyer payé d'avance ou indemnité compensant la perte de valeur du local pour le bailleur du fait du statut protecteur."
+  },
+  {
+    "chapitre": 8,
+    "question": "Quelles sont les obligations principales du preneur ?",
+    "reponse": "Payer le loyer et les charges, user de la chose louée raisonnablement et selon la destination prévue au bail, et effectuer les réparations locatives."
+  },
+  {
+    "chapitre": 8,
+    "question": "Quelles sont les obligations principales du bailleur ?",
+    "reponse": "Délivrer la chose louée, en assurer la jouissance paisible au preneur (garantie d'éviction), et entretenir le bien en état de servir à l'usage prévu (grosses réparations - Art. 606 C.civ)."
+  },
+  {
+    "chapitre": 8,
+    "question": "Une clause du bail peut-elle mettre les grosses réparations à la charge du preneur ?",
+    "reponse": "Non, depuis la loi Pinel de 2014, les clauses transférant au locataire la charge des grosses réparations de l'article 606 du Code civil sont réputées non écrites."
+  },
+  {
+    "chapitre": 8,
+    "question": "Le preneur peut-il librement céder son bail ?",
+    "reponse": "Si la cession du bail s'accompagne de la cession du fonds de commerce, toute clause l'interdisant est nulle. Le bailleur peut cependant encadrer la cession (clause d'agrément, garantie solidaire du cédant)."
+  },
+  {
+    "chapitre": 8,
+    "question": "Le preneur peut-il librement sous-louer le local ?",
+    "reponse": "Non, la sous-location est interdite sauf autorisation expresse du bailleur. De plus, le bailleur doit être appelé à concourir à l'acte de sous-location. Si le loyer de sous-location est supérieur, le bailleur peut demander un réajustement du loyer principal."
+  },
+  {
+    "chapitre": 8,
+    "question": "Comment le droit au renouvellement s'exerce-t-il ?",
+    "reponse": "Soit le preneur demande le renouvellement par acte extrajudiciaire (dans les 6 mois avant terme), soit le bailleur donne congé avec offre de renouvellement (au moins 6 mois avant terme)."
+  },
+  {
+    "chapitre": 8,
+    "question": "Le silence des parties à l'échéance du bail vaut-il renouvellement ?",
+    "reponse": "Non, il entraîne la tacite prolongation du bail pour une durée indéterminée, aux mêmes clauses et conditions. Le statut continue de s'appliquer, mais chaque partie peut y mettre fin à tout moment avec un préavis de 6 mois."
+  },
+  {
+    "chapitre": 8,
+    "question": "Qu'est-ce que l'indemnité d'éviction ?",
+    "reponse": "C'est la somme que le bailleur doit verser au locataire lorsqu'il refuse le renouvellement du bail sans motif légitime. Elle doit couvrir l'intégralité du préjudice causé par ce refus (perte du fonds ou frais de transfert)."
+  },
+  {
+    "chapitre": 8,
+    "question": "Comment distingue-t-on l'indemnité de remplacement et l'indemnité de déplacement ?",
+    "reponse": "Si le refus de renouvellement entraîne la perte du fonds (clientèle non transférable), l'indemnité est égale à la valeur du fonds (remplacement). Si le fonds peut être transféré sans perte significative de clientèle, l'indemnité couvre les frais de déménagement, de réinstallation et la valeur du droit au bail perdu (déplacement)."
+  },
+  {
+    "chapitre": 8,
+    "question": "Citez deux motifs légitimes permettant au bailleur de refuser le renouvellement sans indemnité.",
+    "reponse": "1/ Un motif grave et légitime à l'encontre du preneur (ex: non-paiement répété des loyers après mise en demeure). 2/ L'état de l'immeuble nécessitant sa démolition totale pour insalubrité ou dangerosité reconnue par l'autorité administrative."
+  },
+  {
+    "chapitre": 8,
+    "question": "Qu'est-ce que le droit de repentir du bailleur ?",
+    "reponse": "Après avoir refusé le renouvellement et si l'indemnité d'éviction fixée (par accord ou par le juge) lui paraît trop élevée, le bailleur peut 'se repentir' et accepter le renouvellement, tant que le locataire est encore dans les lieux et n'a pas déjà loué ou acheté un autre local."
+  },
+  {
+    "chapitre": 8,
+    "question": "Le locataire évincé a-t-il un droit au maintien dans les lieux ?",
+    "reponse": "Oui, tant que l'indemnité d'éviction ne lui a pas été versée, le locataire a le droit de se maintenir dans les lieux loués aux clauses et conditions du bail expiré. Il verse alors une indemnité d'occupation (souvent égale au loyer)."
+  },
+  {
+    "chapitre": 8,
+    "question": "Quelle est la juridiction compétente pour les litiges relatifs aux baux commerciaux ?",
+    "reponse": "Le tribunal judiciaire du lieu de situation de l'immeuble est compétent. Toutefois, le président de ce tribunal (statuant comme 'juge des loyers commerciaux') a une compétence exclusive pour la fixation du prix du bail révisé ou renouvelé."
+  },
+  {
+    "chapitre": 8,
+    "question": "Quel est le délai de prescription des actions relatives aux baux commerciaux ?",
+    "reponse": "L'article L145-60 du Code de commerce prévoit une prescription de deux ans pour toutes les actions exercées en vertu du statut des baux commerciaux."
+  },
+  {
+    "chapitre": 8,
+    "question": "La fixation du loyer lors du renouvellement est-elle toujours plafonnée ?",
+    "reponse": "Le principe est le plafonnement à la variation de l'indice ILC/ILAT. Cependant, le loyer est déplafonné (fixé à la valeur locative) notamment si la durée du bail expiré a été supérieure à 9 ans (par l'effet d'une tacite prolongation) ou en cas de modification notable des éléments de la valeur locative."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quel rôle le juge administratif (JA) joue-t-il dans le contentieux économique ?",
+    "reponse": "Le JA est compétent pour trancher les litiges impliquant l'administration (État, collectivités, EPIC...) ou contestant des actes administratifs. Son rôle économique s'est accru avec l'intervention publique dans l'économie et l'application du droit de la concurrence aux actions de l'administration."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quelles conditions la jurisprudence pose-t-elle pour l'intervention économique d'une personne publique ?",
+    "reponse": "Selon la JP 'Chambre syndicale du commerce en détail de Nevers', une personne publique ne peut intervenir dans un domaine économique que si elle justifie d'un intérêt public (légitimité du besoin) et démontre une carence de l'initiative privée pour satisfaire ce besoin."
+  },
+  {
+    "chapitre": 9,
+    "question": "Le juge administratif applique-t-il le droit de la concurrence ?",
+    "reponse": "Oui, le JA contrôle la conformité des actes administratifs (décisions, règlements, contrats) aux règles de concurrence (nationales et européennes). Il peut annuler un acte ou engager la responsabilité de l'administration pour pratique anticoncurrentielle."
+  },
+  {
+    "chapitre": 9,
+    "question": "Comment le Conseil Constitutionnel (CC) intervient-il en matière économique ?",
+    "reponse": "Le CC intervient via le contrôle a priori des lois ou par la QPC. Il vérifie la conformité des lois économiques aux droits et libertés constitutionnels (liberté d'entreprendre, droit de propriété, égalité...) et peut censurer des dispositions jugées contraires à la Constitution."
+  },
+  {
+    "chapitre": 9,
+    "question": "Citez un exemple de décision du CC concernant le droit des sociétés.",
+    "reponse": "Dans une décision de 2022 (relative à la loi Soilihi), le CC a validé la conformité à la Constitution d'une disposition permettant l'insertion ou la modification de clauses d'exclusion ou d'agrément dans les statuts de SAS par une décision majoritaire (et non plus unanime), ne jugeant pas l'atteinte à la propriété disproportionnée."
+  },
+  {
+    "chapitre": 9,
+    "question": "Qu'est-ce qu'une Autorité Administrative Indépendante (AAI) de régulation ?",
+    "reponse": "C'est une instance publique, distincte de l'administration classique, chargée par la loi de réguler un secteur économique spécifique (télécoms, énergie, finance, etc.), souvent après son ouverture à la concurrence, en disposant d'une certaine autonomie."
+  },
+  {
+    "chapitre": 9,
+    "question": "Pourquoi les autorités de régulation ont-elles été créées ?",
+    "reponse": "Elles ont été créées pour encadrer les marchés ouverts à la concurrence (anciens monopoles), en assurant une régulation technique neutre et experte que ni le marché seul (auto-régulation) ni l'administration traditionnelle (potentiellement juge et partie) ne pouvaient garantir efficacement."
+  },
+  {
+    "chapitre": 9,
+    "question": "Citez au moins trois autorités de régulation sectorielles.",
+    "reponse": "Exemples : l'ARCEP (communications électroniques et postes), la CRE (énergie), l'AMF (marchés financiers), l'ACPR (banque et assurance), l'ART (transports), l'ARCOM (audiovisuel et numérique)."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quelle est l'autorité de régulation ayant une vocation générale en matière de concurrence ?",
+    "reponse": "C'est l'Autorité de la concurrence (AdlC), qui surveille l'ensemble des marchés (hors régulations sectorielles spécifiques), sanctionne les pratiques anticoncurrentielles (ententes, abus de position dominante) et contrôle les opérations de concentration."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quelle est la particularité de la composition des collèges des AAI ?",
+    "reponse": "Leur composition est souvent mixte, incluant des représentants de l'État (hauts fonctionnaires, magistrats) mais aussi des professionnels ou experts du secteur concerné, visant à assurer à la fois l'indépendance et l'expertise technique."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quel est le risque de 'capture' des régulateurs ?",
+    "reponse": "C'est le risque que l'autorité de régulation, par sa proximité ou sa dépendance envers les acteurs du secteur qu'elle supervise, finisse par privilégier les intérêts de ces derniers au détriment de l'intérêt général, de la concurrence ou des consommateurs."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quel pouvoir quasi-réglementaire détiennent certaines AAI ?",
+    "reponse": "Certaines AAI (comme l'AMF ou l'ARCEP) ont le pouvoir d'édicter des normes techniques ou déontologiques (règlements généraux, décisions à caractère général) qui complètent la loi et s'imposent aux acteurs du secteur."
+  },
+  {
+    "chapitre": 9,
+    "question": "Comment les AAI utilisent-elles le 'droit mou' (soft law) ?",
+    "reponse": "Elles publient fréquemment des lignes directrices, recommandations, avis ou communications pour clarifier leur interprétation des règles, guider les pratiques des acteurs et annoncer leur politique de contrôle ou de sanction, sans créer de norme directement contraignante."
+  },
+  {
+    "chapitre": 9,
+    "question": "Une recommandation d'une AAI peut-elle devenir du 'droit dur' ?",
+    "reponse": "Oui, parfois le droit mou prépare le droit dur. Une recommandation peut, si elle s'avère insuffisante ou si le besoin de contrainte émerge, être ensuite transformée en règle obligatoire par l'autorité elle-même (si elle a le pouvoir réglementaire) ou par le législateur. Exemple : recommandation du HCSF sur le crédit immobilier."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quel pouvoir décisionnel individuel les AAI peuvent-elles exercer ?",
+    "reponse": "Elles peuvent délivrer des autorisations, agréments ou licences nécessaires pour exercer certaines activités réglementées (ex: licence bancaire par la BCE/ACPR, licence télécom par l'ARCEP). Elles peuvent aussi les retirer."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quel pouvoir de sanction les AAI détiennent-elles généralement ?",
+    "reponse": "La plupart des AAI ont un pouvoir de sanction administrative pour réprimer les manquements aux règles du secteur. Les sanctions peuvent aller de l'avertissement ou blâme à l'amende pécuniaire (parfois très élevée), voire au retrait d'agrément."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quel est le rôle de la Commission des sanctions au sein de certaines AAI (comme l'AMF ou l'ACPR) ?",
+    "reponse": "Pour garantir l'impartialité, la fonction de poursuite est souvent séparée de la fonction de jugement. La Commission des sanctions est un organe distinct au sein de l'AAI qui prononce les sanctions après instruction du dossier par les services de l'autorité."
+  },
+  {
+    "chapitre": 9,
+    "question": "Certaines AAI ont-elles un pouvoir de règlement des différends ?",
+    "reponse": "Oui, certaines AAI (comme la CRE pour l'énergie ou l'ARCEP pour les télécoms) sont compétentes pour trancher les litiges techniques ou économiques entre opérateurs du secteur, notamment concernant l'accès aux réseaux ou l'interconnexion."
+  },
+  {
+    "chapitre": 9,
+    "question": "Qu'est-ce que l'exception d'entreprise défaillante en matière de contrôle des concentrations ?",
+    "reponse": "C'est une exception permettant à l'Autorité de la concurrence (ou la Commission européenne) d'autoriser une opération de concentration qui serait normalement jugée anticoncurrentielle, si la cible est en grande difficulté et que sa disparition du marché causerait un dommage plus grand que la concentration elle-même (ex: affaire Moulinex/SEB validée par le CE)."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quelle est la différence entre 'public enforcement' et 'private enforcement' du droit de la concurrence ?",
+    "reponse": "Le 'public enforcement' est l'application par les autorités publiques (AdlC, Commission UE) via des sanctions administratives. Le 'private enforcement' est l'application par les juridictions (civiles/commerciales) via des actions en dommages-intérêts intentées par les victimes des pratiques anticoncurrentielles."
+  },
+  {
+    "chapitre": 9,
+    "question": "Une collectivité publique peut-elle demander réparation pour une entente sur un marché public ?",
+    "reponse": "Oui, si une collectivité (État, région, commune...) a subi un préjudice (ex: surcoût) du fait d'une entente entre les entreprises ayant répondu à son appel d'offres, elle peut agir en justice (souvent devant le JA) pour obtenir des dommages-intérêts."
+  },
+  {
+    "chapitre": 9,
+    "question": "Qu'est-ce qu'une injonction structurelle pouvant être prononcée par l'Autorité de la concurrence ?",
+    "reponse": "C'est une mesure corrective très forte qui peut être imposée à une entreprise dominante ayant abusé de sa position. Elle peut consister à obliger l'entreprise à céder une partie de ses actifs, une filiale, ou à modifier sa structure pour restaurer la concurrence."
+  },
+  {
+    "chapitre": 9,
+    "question": "Quel est l'objectif principal de la régulation économique par les AAI ?",
+    "reponse": "Assurer le bon fonctionnement concurrentiel et l'efficacité des marchés régulés, garantir un accès équitable aux infrastructures essentielles, protéger les consommateurs et l'intérêt général, en suppléant aux défaillances du marché ou de l'administration classique."
+  },
+  {
+    "chapitre": 9,
+    "question": "Le droit mou produit-il des effets juridiques ?",
+    "reponse": "Bien que non directement contraignant, il peut en produire : il guide l'interprétation de la loi par le juge, influence les comportements des acteurs (qui cherchent à s'y conformer pour éviter les sanctions), et peut même fonder un recours si l'AAI ne respecte pas ses propres lignes directrices ou si celles-ci ont un caractère impératif."
+  },
+  {
+    "chapitre": 9,
+    "question": "En quoi consiste la tendance générale du droit des affaires contemporain ?",
+    "reponse": "Il est caractérisé par une adaptation constante aux évolutions économiques et technologiques, une influence croissante du droit européen et international, un recours accru aux modes alternatifs de règlement des litiges, et une importance grandissante de la régulation sectorielle par des autorités indépendantes."
+  },
+  {
+    "chapitre": 10,
+    "question": "Comment le Conseil Constitutionnel intervient-il dans le champ du droit des affaires ?",
+    "reponse": "Il intervient principalement via le contrôle de constitutionnalité des lois (a priori ou par QPC), en vérifiant leur conformité aux droits et libertés fondamentaux comme la liberté d'entreprendre ou le droit de propriété, qui sont essentiels en matière économique."
+  },
+  {
+    "chapitre": 10,
+    "question": "Le Conseil Constitutionnel peut-il annuler une loi relative aux sociétés commerciales ?",
+    "reponse": "Oui, s'il estime que la loi porte une atteinte disproportionnée à un droit ou une liberté constitutionnelle. Par exemple, il a examiné (et validé) des dispositions de la loi Soilihi modifiant les règles de majorité pour les clauses d'exclusion dans les SAS."
+  },
+  {
+    "chapitre": 10,
+    "question": "Quelle est la justification principale de la création des autorités de régulation ?",
+    "reponse": "Elles répondent au besoin d'encadrer des secteurs économiques complexes ou récemment ouverts à la concurrence, là où ni l'autorégulation par le marché ni l'intervention directe de l'État ne semblaient adéquates ou suffisantes pour garantir l'intérêt général et le bon fonctionnement du marché."
+  },
+  {
+    "chapitre": 10,
+    "question": "Qu'est-ce qui caractérise le statut d'Autorité Administrative Indépendante (AAI) ?",
+    "reponse": "Les AAI sont des organismes publics qui ne sont pas soumis à l'autorité hiérarchique directe du gouvernement, leur conférant une indépendance (théorique) dans l'exercice de leurs missions de régulation sectorielle."
+  },
+  {
+    "chapitre": 10,
+    "question": "Citez l'autorité de régulation générale et deux autorités sectorielles.",
+    "reponse": "L'Autorité de la concurrence a une vocation générale. Exemples d'autorités sectorielles : l'ARCEP (télécoms/postes), la CRE (énergie), l'AMF (marchés financiers)."
+  },
+  {
+    "chapitre": 10,
+    "question": "Quel est le risque de 'capture' pour une autorité de régulation ?",
+    "reponse": "C'est le risque que l'autorité devienne trop proche des entreprises qu'elle régule (parfois en raison de la présence d'experts du secteur dans ses instances) et finisse par défendre leurs intérêts plutôt que l'intérêt général ou celui des consommateurs."
+  },
+  {
+    "chapitre": 10,
+    "question": "Les autorités de régulation peuvent-elles créer des règles de droit ?",
+    "reponse": "Oui, certaines disposent d'un pouvoir réglementaire délégué pour édicter des normes techniques ou déontologiques précises (ex: règlement général de l'AMF). Elles utilisent aussi beaucoup le 'droit mou' (lignes directrices, recommandations)."
+  },
+  {
+    "chapitre": 10,
+    "question": "Comment le 'droit mou' (soft law) des AAI influence-t-il les acteurs économiques ?",
+    "reponse": "Bien que non directement contraignant, il fournit des interprétations, clarifie les attentes du régulateur et guide les comportements. Les entreprises s'y conforment souvent pour éviter les sanctions ou les litiges, lui donnant une effectivité indirecte."
+  },
+  {
+    "chapitre": 10,
+    "question": "Donnez un exemple de recommandation d'une AAI devenue règle obligatoire.",
+    "reponse": "La recommandation du Haut Conseil de Stabilité Financière (HCSF) sur les conditions d'octroi des crédits immobiliers (taux d'effort, durée) a d'abord été du droit mou avant d'être rendue obligatoire par une décision de cette même autorité."
+  },
+  {
+    "chapitre": 10,
+    "question": "Quel type de pouvoir décisionnel individuel les AAI exercent-elles souvent ?",
+    "reponse": "Elles délivrent souvent des autorisations, agréments ou licences indispensables pour exercer une activité dans le secteur régulé (ex: agrément bancaire par l'ACPR, autorisation de fréquence par l'ARCEP)."
+  },
+  {
+    "chapitre": 10,
+    "question": "Quel est le principal outil de sanction des autorités de régulation ?",
+    "reponse": "Leur principal outil est le pouvoir d'infliger des sanctions administratives, notamment des amendes pécuniaires, qui peuvent être très importantes pour dissuader les manquements aux règles sectorielles ou de concurrence."
+  },
+  {
+    "chapitre": 10,
+    "question": "Certaines AAI peuvent-elles retirer un agrément ou une licence ?",
+    "reponse": "Oui, en cas de manquements graves ou répétés, certaines AAI (notamment dans les secteurs bancaire et financier) ont le pouvoir de retirer l'agrément nécessaire à l'exercice de l'activité, ce qui constitue la sanction la plus sévère."
+  },
+  {
+    "chapitre": 10,
+    "question": "Quel est le rôle du pouvoir de règlement des différends de certaines AAI ?",
+    "reponse": "Il permet à l'AAI (ex: CRE, ARCEP) de trancher les litiges spécifiques entre opérateurs du secteur (ex: sur l'accès aux réseaux, les tarifs d'interconnexion), offrant une alternative plus rapide et technique que la justice ordinaire."
+  },
+  {
+    "chapitre": 10,
+    "question": "Expliquez l'exception de l'entreprise défaillante ('failing firm defense').",
+    "reponse": "En contrôle des concentrations, c'est une exception qui permet d'autoriser une fusion/acquisition normalement anticoncurrentielle si l'entreprise cible est vouée à disparaître du marché et que le rachat est la seule solution pour éviter un préjudice économique plus grand."
+  },
+  {
+    "chapitre": 10,
+    "question": "Quelle est la différence fondamentale entre 'public' et 'private enforcement' ?",
+    "reponse": "Le 'public enforcement' est l'action des autorités publiques (amendes, injonctions). Le 'private enforcement' est l'action des victimes devant les tribunaux (dommages-intérêts)."
+  },
+  {
+    "chapitre": 10,
+    "question": "Le 'private enforcement' est-il encouragé par les autorités de concurrence ?",
+    "reponse": "Oui, car il est vu comme un complément nécessaire au 'public enforcement'. Il permet d'indemniser les victimes et a un effet dissuasif supplémentaire sur les entreprises tentées par des pratiques anticoncurrentielles."
+  },
+  {
+    "chapitre": 10,
+    "question": "Une action en 'private enforcement' peut-elle être fondée sur une décision de l'Autorité de la concurrence ?",
+    "reponse": "Oui, une décision de l'Autorité de la concurrence constatant une infraction peut servir de base à une action en dommages-intérêts par les victimes devant le tribunal de commerce. La décision de l'Autorité facilite la preuve de la faute."
+  },
+  {
+    "chapitre": 10,
+    "question": "Qu'est-ce qu'une injonction structurelle ?",
+    "reponse": "C'est une mesure corrective qu'une autorité de concurrence peut imposer à une entreprise en cas d'abus de position dominante grave, l'obligeant à modifier sa structure (ex: céder une filiale, vendre des actifs) pour restaurer la concurrence."
+  },
+  {
+    "chapitre": 10,
+    "question": "Quel est l'objectif de la régulation dans les secteurs en réseau (télécoms, énergie, transport) ?",
+    "reponse": "L'objectif principal est de garantir un accès juste, raisonnable et non discriminatoire des nouveaux entrants aux infrastructures essentielles (le réseau) détenues par l'opérateur historique, afin de permettre une concurrence effective."
+  },
+  {
+    "chapitre": 10,
+    "question": "Comment le droit des affaires s'adapte-t-il à la montée en puissance des géants du numérique (GAFAM) ?",
+    "reponse": "L'adaptation passe par de nouvelles réglementations (ex: règlements européens DMA/DSA), des actions des autorités de concurrence visant les abus spécifiques (ex: auto-préférence, contrôle des données), et des réflexions sur des mesures structurelles (démantèlement)."
+  },
+  {
+    "chapitre": 10,
+    "question": "Le législateur reprend-il parfois 'la main' face aux autorités de régulation ?",
+    "reponse": "Oui, bien que les AAI aient une grande autonomie, le législateur peut toujours intervenir pour modifier leurs pouvoirs, leurs missions, ou encadrer directement certains aspects du secteur, surtout si la régulation par l'AAI est jugée insuffisante ou si des enjeux politiques majeurs apparaissent."
+  },
+  {
+    "chapitre": 10,
+    "question": "Comment peut-on caractériser l'évolution récente du rôle de l'État dans l'économie via la régulation ?",
+    "reponse": "L'État intervient moins directement comme opérateur ou fixateur de règles rigides, mais davantage comme un architecte et un superviseur des marchés, via des AAI chargées d'assurer un équilibre entre concurrence, innovation et objectifs d'intérêt général."
+  },
+  {
+    "chapitre": 10,
+    "question": "Les décisions des AAI sont-elles soumises à un contrôle juridictionnel ?",
+    "reponse": "Oui, leurs décisions (réglementaires, individuelles, sanctions, règlements de différends) peuvent faire l'objet de recours devant les juridictions administratives (Conseil d'État ou Cour administrative d'appel selon les cas) ou judiciaires (Cour d'appel de Paris pour les décisions de l'AdlC)."
+  },
+  {
+    "chapitre": 10,
+    "question": "La multiplication des AAI ne pose-t-elle pas un problème de cohérence et de lisibilité du paysage institutionnel ?",
+    "reponse": "Si, la prolifération des régulateurs sectoriels peut entraîner des chevauchements de compétences, des approches différentes pour des problèmes similaires, et une complexité accrue pour les entreprises opérant sur plusieurs marchés régulés."
+  },
+  {
+    "chapitre": 10,
+    "question": "En conclusion, quelle est la caractéristique la plus saillante du droit des affaires moderne ?",
+    "reponse": "Sa faculté d'adaptation permanente et son renouvellement constant pour encadrer des pratiques économiques en évolution rapide, en intégrant des influences diverses (technologie, droit européen, régulation, MARD) au service de la vie des affaires."
+  }
+]

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards Droit des Affaires</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <header class="app-header">
+             <h1>Flashcards - Droit des Affaires</h1>
+             <button id="back-to-chapters-btn" class="nav-button back-button" style="display: none;" title="Retour à la sélection">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20px" height="20px"><path d="M11.828 12l4.95-4.95-1.414-1.414L9 12l6.364 6.364 1.414-1.414z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
+                Sélection
+            </button>
+        </header>
+
+        <div id="chapter-selection" class="page-section chapter-selection-container">
+            <h2>Choisissez un chapitre ou un mode :</h2>
+            <div id="chapter-buttons" class="chapter-buttons-grid">
+                 <p>Chargement des chapitres...</p>
+            </div>
+             <button id="start-favorites-btn" class="start-button favorites-button" title="Voir uniquement les cartes marquées comme favorites">
+                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                 Commencer avec les Favoris (<span id="favorite-count">0</span>)
+             </button>
+             <button id="start-all-chapters-btn" class="start-button">Commencer avec TOUS les chapitres</button>
+             <button id="reset-all-progress-btn" class="utility-button reset-button" title="Réinitialiser la progression de toutes les cartes">
+                 <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+                 Oublier TOUTE la progression
+             </button>
+        </div>
+
+        <div id="flashcard-section" class="page-section" style="display: none;">
+            <div class="flashcard-container">
+                <div id="question-reminder" class="question-reminder-container" style="display: none;">
+                    <p id="question-reminder-text"></p>
+                </div>
+                <div class="flashcard">
+                    <div class="heart-animation" aria-hidden="true">
+                        <svg viewBox="0 0 32 29.6">
+                          <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2 c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+                        </svg>
+                    </div>
+                    <div class="card-face card-question">
+                        <button id="toggle-favorite-btn" class="favorite-toggle-btn" title="Ajouter/Retirer des favoris">
+                            <svg class="star-icon star-outline" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27zM12 4.8l1.88 5.83 6.12.56-4.62 4.03L16.6 21 12 18.36 7.4 21l1.21-5.87L4 11.19l6.12-.56L12 4.8z"/></svg>
+                            <svg class="star-icon star-filled" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </button>
+                        <h2>Question</h2>
+                        <div class="card-content-wrapper">
+                           <p id="question-text">Chargement...</p>
+                        </div>
+                    </div>
+                    <div class="card-face card-answer">
+                        <h2>Réponse <small id="answer-chapter-info" class="card-chapter-info-header"></small></h2>
+                        <div class="card-content-wrapper">
+                            <p id="answer-text"></p>
+                            <div class="diagram-container" id="answer-diagram">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="session-complete-message" class="session-complete" style="display: none;">
+                <p id="session-complete-text">🎉 Session terminée ! 🎉</p>
+                <button id="restart-session-btn" class="utility-button">Recommencer</button>
+            </div>
+
+            <div class="progress-bar-container" id="progress-visual-container">
+                <div class="progress-bar-inner" id="progress-bar"></div>
+            </div>
+            <div class="progress-indicator" id="progress">
+                Carte 0 / 0 (Restantes: 0)
+            </div>
+
+            <div class="controls">
+                 <button id="prev-btn" class="nav-button prev-btn" title="Carte précédente (←)">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18px" height="18px"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                     Préc.
+                </button>
+                <button id="flip-btn" class="nav-button flip-btn" title="Révéler/Cacher la réponse (Espace/↑)">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18px" height="18px"><path d="M12 6.5c-2.49 0-4.7 1.11-6.26 3.15C4.11 11.89 3 14.19 3 16.5h18c0-2.31-1.11-4.61-2.74-6.85C16.7 7.61 14.49 6.5 12 6.5zm0 12c-1.81 0-3.44-.64-4.77-1.72L8.6 15.41c.85.63 1.88 1.01 3.01 1.01 1.12 0 2.15-.37 2.99-.99l1.38 1.38C15.44 17.86 13.81 18.5 12 18.5z" opacity=".3"/><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 14c-1.81 0-3.44-.64-4.77-1.72L8.6 15.41c.85.63 1.88 1.01 3.01 1.01 1.12 0 2.15-.37 2.99-.99l1.38 1.38C15.44 17.86 13.81 18.5 12 18.5zm0-5.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm6.26-5.35C16.7 7.61 14.49 6.5 12 6.5c-2.49 0-4.7 1.11-6.26 3.15C4.11 11.89 3 14.19 3 16.5h18c0-2.31-1.11-4.61-2.74-6.85z"/></svg>
+                     Retourner
+                </button>
+                <div id="match-pass-controls" class="match-pass-group" style="display: none;">
+                    <button id="pass-btn" class="nav-button pass-btn" title="Revoir cette carte (↓)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18px" height="18px"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                         Passer
+                     </button>
+                    <button id="match-btn" class="nav-button match-btn" title="Carte maîtrisée ! (→)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18px" height="18px"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                         Maîtrisé
+                    </button>
+                 </div>
+            </div>
+             <div class="utility-controls-container">
+                <button id="shuffle-btn" class="utility-button" title="Mélanger les cartes restantes">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18px" height="18px"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                     Mélanger
+                 </button>
+                 <button id="reset-current-progress-btn" class="utility-button reset-button" title="Réinitialiser la progression pour ce chapitre/sélection">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+                    Oublier progression (Chapitre)
+                 </button>
+             </div>
+         </div><!-- Fin #flashcard-section -->
+     </div> <!-- Fin .main-container -->
+
+    <script src="script.js"></script>
+</body>
+</html>
