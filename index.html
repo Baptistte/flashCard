@@ -48,7 +48,7 @@
                         </svg>
                     </div>
                     <div class="card-face card-question">
-                        <button id="toggle-favorite-btn" class="favorite-toggle-btn" title="Ajouter/Retirer des favoris">
+                        <button id="toggle-favorite-btn-question" class="favorite-toggle-btn" title="Ajouter/Retirer des favoris (F)">
                             <svg class="star-icon star-outline" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27zM12 4.8l1.88 5.83 6.12.56-4.62 4.03L16.6 21 12 18.36 7.4 21l1.21-5.87L4 11.19l6.12-.56L12 4.8z"/></svg>
                             <svg class="star-icon star-filled" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                         </button>
@@ -58,6 +58,11 @@
                         </div>
                     </div>
                     <div class="card-face card-answer">
+                         <!-- MODIFICATION: Ajout du bouton favori ici aussi -->
+                        <button id="toggle-favorite-btn-answer" class="favorite-toggle-btn" title="Ajouter/Retirer des favoris (F)">
+                            <svg class="star-icon star-outline" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27zM12 4.8l1.88 5.83 6.12.56-4.62 4.03L16.6 21 12 18.36 7.4 21l1.21-5.87L4 11.19l6.12-.56L12 4.8z"/></svg>
+                            <svg class="star-icon star-filled" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </button>
                         <h2>Réponse <small id="answer-chapter-info" class="card-chapter-info-header"></small></h2>
                         <div class="card-content-wrapper">
                             <p id="answer-text"></p>
@@ -113,6 +118,6 @@
          </div><!-- Fin #flashcard-section -->
      </div> <!-- Fin .main-container -->
 
-    <script src="script.js"></script>
+    <script src="js/app.js" type="module"></script>
 </body>
 </html>
