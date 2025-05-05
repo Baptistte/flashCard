@@ -685,6 +685,27 @@ h1 {
     text-align: center;
 }
 
+.chapter-selection-container h2 {
+    margin-bottom: 15px; /* Réduire espace si description suit */
+}
+
+
+/* Style pour la description de la matière (inchangé) */
+.subject-description-text {
+    font-size: 0.95em;
+    color: var(--text-color-darker);
+    margin-bottom: 25px;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 3px solid var(--button-subject-bg);
+    text-align: left;
+    line-height: 1.5;
+}
+.subject-description-text:empty {
+    display: none;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -698,6 +719,34 @@ h1 {
      .question-reminder-container { margin-bottom: -2px;}
      .utility-controls-container { flex-direction: column; gap: 10px; } /* Empiler shuffle et reset */
      .utility-controls-container button { width: 100%; max-width: 300px; margin: 0 auto;} /* Centrer et limiter largeur */
+     .subject-description-text {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+    .subject-selection-container h2 {
+        font-size: 1.4em;
+    }
+    .subject-selection-intro {
+        font-size: 1em;
+        margin-bottom: 25px;
+    }
+    .subject-buttons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Widgets un peu moins larges */
+        gap: 15px;
+    }
+    .subject-widget {
+        padding: 20px;
+    }
+     .subject-widget h3 {
+        font-size: 1.1em;
+    }
+     .subject-widget p {
+        font-size: 0.9em;
+    }
+    #reset-all-progress-btn {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -721,6 +770,12 @@ h1 {
     .question-reminder-container p { font-size: 0.8em; }
     .favorite-toggle-btn { right: 10px; }
     .utility-controls-container button { min-width: unset; font-size: 0.9em; }
+    .selection-container { padding: 20px; } /* Appliquer padding réduit */
+    .subject-selection-container h2 { font-size: 1.3em; margin-bottom: 10px;}
+    .subject-selection-intro { font-size: 0.95em; margin-bottom: 20px;}
+    .subject-buttons-grid { grid-template-columns: 1fr; gap: 15px;} /* Une colonne */
+    .subject-widget { padding: 15px; }
+    #reset-all-progress-btn { width: 100%; max-width: 300px;} /* Prend plus de largeur */
 }
 
 @media (max-width: 400px) {
@@ -732,6 +787,18 @@ h1 {
     }
     .app-header { flex-direction: column; align-items: center; }
     .app-header h1 { margin: 0 0 10px 0; padding: 0; text-align: center; order: 2;}
+    .info-widget {
+        padding: 15px;
+        margin-bottom: 25px;
+    }
+    .info-widget p, .info-widget li {
+        font-size: 0.9em;
+    }
+     .subject-selection-container h3 {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+        padding-top: 20px;
+    }
 }
 
 /* Prefers reduced motion */
@@ -740,4 +807,388 @@ h1 {
   .flashcard { transition: none !important; }
   .progress-bar-inner { transition: none !important; }
   .question-reminder-container { transition: none !important; }
+}
+
+/* Ajustements responsives pour la liste */
+@media (max-width: 600px) {
+    .chapter-description-list li {
+        flex-direction: column; /* Empiler bouton et texte */
+        align-items: flex-start; /* Aligner à gauche */
+        gap: 5px;
+    }
+    .chapter-description-list .chapter-button {
+        width: 100%; /* Bouton prend toute la largeur */
+        margin-bottom: 5px;
+    }
+    .chapter-description-text {
+        padding-left: 5px; /* Léger retrait */
+    }
+}
+
+/* Enlever la grille pour les boutons chapitre, on utilise une liste maintenant */
+.chapter-buttons-grid {
+    display: block; /* Ou flex si vous voulez un autre layout */
+    /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); */ /* Supprimé */
+    /* gap: 15px; */ /* Supprimé */
+    margin-bottom: 25px;
+    text-align: left; /* Aligner la liste à gauche */
+}
+.chapter-buttons-grid p { /* Style pour message "Aucun chapitre..." */
+    /* grid-column: 1 / -1; */ /* Supprimé */
+    color: var(--button-secondary-bg);
+    font-style: italic;
+    text-align: center; /* Centrer ce message spécifique */
+}
+
+
+/* Style pour la liste des chapitres */
+.chapter-description-list {
+    list-style: none; /* Enlever les puces */
+    padding: 0;
+    margin: 0;
+}
+
+.chapter-description-list li {
+    display: flex; /* Aligner bouton et texte */
+    align-items: center; /* Centrer verticalement */
+    gap: 15px; /* Espace entre bouton et texte */
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color); /* Séparateur léger */
+}
+.chapter-description-list li:last-child {
+    border-bottom: none; /* Pas de bordure pour le dernier */
+}
+
+/* Style pour le bouton dans la liste */
+.chapter-description-list .chapter-button {
+    flex-shrink: 0; /* Empêcher le bouton de rétrécir */
+    width: 130px; /* Donner une largeur fixe au bouton */
+    margin: 0; /* Enlever marges par défaut */
+    padding: 8px 10px; /* Ajuster padding si nécessaire */
+    font-size: 0.9em;
+}
+
+/* Style pour le texte de description du chapitre */
+.chapter-description-text {
+    font-size: 0.9em;
+    color: var(--text-color-darker);
+    line-height: 1.4;
+    margin: 0; /* Enlever marges par défaut */
+    flex-grow: 1; /* Prend l'espace restant */
+}
+
+.subject-selection-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%); /* Dégradé léger */
+    padding: 40px 30px; /* Plus de padding */
+    border-radius: var(--border-radius);
+    box-shadow: 0 6px 20px rgba(0, 50, 100, 0.1); /* Ombre plus douce */
+    border: 1px solid #e0eaf1; /* Bordure subtile */
+    text-align: center;
+    margin-bottom: 40px; /* Plus d'espace en dessous */
+    width: 100%;
+    max-width: var(--max-width); /* S'assurer qu'il respecte la largeur max */
+    display: flex; /* Utiliser flex pour mieux contrôler les enfants */
+    flex-direction: column;
+    align-items: center; /* Centrer les éléments enfants */
+}
+
+.subject-selection-container h2 {
+    color: var(--header-color);
+    margin-bottom: 15px; /* Espace réduit avant intro */
+    font-size: 1.6em; /* Taille augmentée */
+    font-weight: 700; /* Plus gras */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.subject-selection-container h2 .section-icon {
+    font-size: 1.3em;
+    vertical-align: middle;
+}
+
+/* NOUVEAU: Paragraphe d'introduction */
+.subject-selection-intro {
+    font-size: 1.05em;
+    color: var(--text-color-darker);
+    line-height: 1.6;
+    margin-bottom: 30px; /* Espace avant les widgets */
+    max-width: 600px; /* Limiter la largeur du texte */
+    text-align: center; /* Centrer le texte d'intro */
+}
+
+
+
+/* Grille pour les widgets/boutons de matière */
+.subject-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Widgets un peu plus larges */
+    gap: 25px; /* Plus d'espace */
+    margin-bottom: 35px; /* Espace avant le bouton reset */
+    width: 100%; /* Prend toute la largeur du conteneur */
+}
+
+/* Style pour le message de chargement/vide */
+.subject-buttons-grid p {
+    grid-column: 1 / -1;
+    color: var(--button-secondary-bg);
+    font-style: italic;
+    padding: 20px 0; /* Ajouter de l'espace vertical */
+}
+.subject-widget {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--subject-widget-bg);
+    /* MODIFIÉ: Bordure initiale un peu plus visible */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out;
+    box-shadow: 0 3px 8px var(--subject-widget-shadow);
+    height: 100%;
+}
+.subject-widget:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 8px 20px var(--subject-widget-hover-shadow);
+    /* MODIFIÉ: Bordure au survol plus épaisse et colorée */
+    /* Ajustement padding pour compenser l'épaisseur de la bordure */
+    padding: 24px; /* 25px - 1px */
+}
+
+
+/* Titre du Widget Matière */
+.subject-widget h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--subject-widget-title-color);
+    margin-bottom: 10px;
+    padding-bottom: 5px; /* Réduire padding si bordure enlevée */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+/* Option: .subject-widget h3::before { content: '📘'; margin-right: 8px; } */
+
+/* Description dans le Widget Matière */
+.subject-widget p {
+    font-size: 0.95em;
+    color: var(--subject-widget-text-color);
+    line-height: 1.55;
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+/* Bouton Reset Global */
+#reset-all-progress-btn {
+     padding: 12px 20px; /* Padding légèrement augmenté */
+     font-weight: 500;
+     color: #fff;
+     border: none;
+     border-radius: 6px;
+     cursor: pointer;
+     transition: background-color 0.3s ease, transform 0.1s ease, opacity 0.3s ease;
+     text-align: center;
+     display: inline-flex; /* Reste inline-flex */
+     align-items: center;
+     justify-content: center;
+     gap: 5px;
+     line-height: 1.2;
+     width: auto; /* Largeur auto */
+     max-width: none; /* Pas de max-width */
+     margin: 25px auto 0 auto; /* Marge top augmentée */
+     background-color: var(--button-reset-bg);
+     font-size: 0.95em; /* Taille légèrement augmentée */
+}
+#reset-all-progress-btn svg {
+    margin-right: 5px; /* Espace icône/texte */
+}
+#reset-all-progress-btn:hover:not(:disabled) {
+     background-color: var(--button-reset-hover-bg);
+     opacity: 1;
+}
+#reset-all-progress-btn:disabled {
+    background-color: #adb5bd !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
+.chapter-selection-container {
+    /* ... (styles existants) ... */
+    display: none; /* Assurer qu'il est caché initialement */
+}
+
+
+/* --- Boutons (Classes de base) --- */
+.styled-button {
+    padding: 12px 18px; /* Augmenter légèrement le padding horizontal */
+    font-size: 1em; /* Taille de base pour les boutons principaux */
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    border-radius: 8px; /* Bordures un peu plus arrondies */
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.1s ease, box-shadow 0.25s ease, opacity 0.3s ease; /* Transitions plus douces */
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espace icône/texte */
+    line-height: 1.3;
+    box-shadow: 0 2px 4px rgba(0,0,0, 0.1); /* Légère ombre initiale */
+    text-decoration: none; /* Au cas où utilisé sur un <a> stylé comme bouton */
+}
+.styled-button:hover:not(:disabled) {
+    opacity: 0.95; /* Légère transparence au survol */
+    box-shadow: 0 4px 8px rgba(0,0,0, 0.15); /* Ombre plus prononcée */
+}
+.styled-button:active:not(:disabled) {
+    transform: scale(0.98); /* Effet d'enfoncement */
+    box-shadow: 0 1px 2px rgba(0,0,0, 0.1); /* Ombre réduite */
+}
+.styled-button:disabled {
+    background-color: #adb5bd !important;
+    cursor: not-allowed;
+    opacity: 0.65;
+    box-shadow: none; /* Pas d'ombre si désactivé */
+}
+.styled-button svg { /* Styles communs pour les icônes dans les boutons */
+    vertical-align: middle;
+    width: 18px; /* Taille par défaut icône */
+    height: 18px;
+    margin-right: 4px; /* Espace après icône */
+}
+
+
+/* --- Style Spécifique pour les Boutons de Matière --- */
+.subject-button {
+    /* Utilise .styled-button comme base */
+    background: linear-gradient(145deg, var(--button-subject-bg), var(--button-subject-hover-bg)); /* Dégradé subtil */
+    font-weight: 700; /* Texte un peu plus gras */
+    font-size: 1.05em; /* Un peu plus grand */
+    min-height: 60px; /* Hauteur minimale pour uniformité */
+    /* S'assurer que les styles de base sont appliqués si composes ne marche pas */
+    padding: 12px 18px; color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.25s ease, transform 0.1s ease, box-shadow 0.25s ease, opacity 0.3s ease; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 8px; line-height: 1.3; box-shadow: 0 2px 4px rgba(0,0,0, 0.1);
+}
+
+.subject-button:hover:not(:disabled) {
+    background: linear-gradient(145deg, var(--button-subject-hover-bg), var(--button-subject-bg)); /* Inverser dégradé au survol */
+    opacity: 1; /* Pleine opacité au survol */
+    box-shadow: 0 5px 12px rgba(0,0,0, 0.2); /* Ombre plus marquée */
+    transform: translateY(-2px); /* Léger soulèvement */
+}
+.subject-button:active:not(:disabled) {
+    transform: scale(0.97) translateY(0px); /* Enfoncement */
+    box-shadow: 0 1px 3px rgba(0,0,0, 0.15);
+}
+
+/* Optionnel: Ajouter une icône par défaut aux boutons matière */
+/* .subject-button::before {
+    content: '📖';
+    margin-right: 8px;
+    font-size: 1.2em;
+} */
+
+
+/* --- Autres styles de boutons (inchangés, mais rappel pour contexte) --- */
+.chapter-button {
+    background-color: var(--button-secondary-bg);
+}
+.chapter-button:hover:not(:disabled) { background-color: var(--button-secondary-hover-bg); opacity: 1;}
+
+.start-button {
+    background-color: var(--button-primary-bg);
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 15px auto 0 auto; /* Augmenter marge top */
+    font-size: 1em;
+}
+.start-button:hover:not(:disabled) { background-color: var(--button-primary-hover-bg); opacity: 1;}
+
+.favorites-button { background-color: var(--button-favorite-bg); }
+.favorites-button:hover:not(:disabled) { background-color: var(--button-favorite-hover-bg); opacity: 1;}
+.favorites-button svg { color: var(--favorite-star-color); }
+
+.reset-button {
+    background-color: var(--button-reset-bg);
+    font-size: 0.9em;
+}
+.reset-button svg { margin-right: 4px; }
+.reset-button:hover:not(:disabled) { background-color: var(--button-reset-hover-bg); opacity: 1;}
+
+#reset-all-progress-btn {
+     padding: 12px 20px; font-weight: 500; color: #fff; border: none; border-radius: 8px; /* Utiliser le radius standard */ cursor: pointer; transition: background-color 0.3s ease, transform 0.1s ease, opacity 0.3s ease; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 8px; line-height: 1.3; display: block; width: 100%; margin: 25px auto 0 auto;
+     background-color: var(--button-reset-bg);
+     max-width: 350px;
+     font-size: 0.95em;
+}
+#reset-all-progress-btn:hover:not(:disabled) {
+     background-color: var(--button-reset-hover-bg); opacity: 1;
+}
+
+.subject-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+
+/* --- Widget d'information sur l'écran de sélection --- */
+.info-widget {
+    background-color: #f8f9fa; /* Fond très léger */
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--button-primary-bg); /* Bordure bleue distinctive */
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-top: 10px; /* Espace après le H2 */
+    margin-bottom: 30px; /* Espace avant le H3 des matières */
+    text-align: left; /* Aligner le texte à gauche */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.info-widget p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: var(--text-color-darker);
+    margin-bottom: 10px; /* Espace entre paragraphes */
+}
+.info-widget p:last-child {
+    margin-bottom: 0; /* Pas de marge pour le dernier paragraphe */
+}
+
+.info-widget ul {
+    list-style: disc; /* Puces standard */
+    margin-left: 20px; /* Indentation de la liste */
+    margin-bottom: 10px;
+    padding-left: 15px;
+}
+
+.info-widget li {
+    font-size: 0.9em;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+/* Ajustement titre H3 après le widget */
+.subject-selection-container h3 {
+    color: var(--header-color);
+    margin-bottom: 15px; /* Espace avant la grille des matières */
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: center; /* Centrer ce sous-titre */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-top: 1px solid var(--border-color); /* Séparateur léger */
+    padding-top: 25px; /* Espace après le widget info */
+}
+.subject-selection-container h3 .section-icon {
+    font-size: 1.1em;
 }

@@ -1,152 +1,178 @@
 // js/dataManager.js
 import { isValidChapter } from './utils/helpers.js';
 
-let allFlashcardsData = [];
-let masteredCards = {}; // { chapKey: [cardId1, cardId2], ... }
-let favoriteCards = []; // [cardId1, cardId2, ...]
-let chapters = new Set();
+let AVAILABLE_SUBJECTS = []; // Sera chargé depuis JSON
+let currentSubjectConfig = null; // Stocke la config de la matière active
+let allSubjectsData = {}; // Cache pour les données JSON de chaque matière
+let masteredCards = {}; // Progression pour la matière courante
+let favoriteCards = []; // Favoris pour la matière courante
+let currentSubjectFile = null;
 
-const LOCAL_STORAGE_KEY_MASTERED = 'flashcardsMasteredCards';
-const LOCAL_STORAGE_KEY_FAVORITES = 'flashcardsFavoriteCards';
+const LOCAL_STORAGE_KEY_MASTERED_PREFIX = 'flashcardsMastered_';
+const LOCAL_STORAGE_KEY_FAVORITES_PREFIX = 'flashcardsFavorites_';
 
-// --- Chargement / Sauvegarde LocalStorage ---
+function getMasteredStorageKey(subjectFile) { return subjectFile ? `${LOCAL_STORAGE_KEY_MASTERED_PREFIX}${subjectFile}` : null; }
+function getFavoritesStorageKey(subjectFile) { return subjectFile ? `${LOCAL_STORAGE_KEY_FAVORITES_PREFIX}${subjectFile}` : null; }
 
-function loadMasteredCards() {
-    const storedMastered = localStorage.getItem(LOCAL_STORAGE_KEY_MASTERED);
-    if (storedMastered) {
+function loadMasteredCardsForSubject(subjectFile) {
+    const key = getMasteredStorageKey(subjectFile);
+    if (!key) return {};
+    const stored = localStorage.getItem(key);
+    let data = {};
+    if (stored) {
         try {
-            masteredCards = JSON.parse(storedMastered);
-            if (typeof masteredCards !== 'object' || masteredCards === null) masteredCards = {};
-            Object.keys(masteredCards).forEach(chapKey => {
-                if (!Array.isArray(masteredCards[chapKey])) masteredCards[chapKey] = [];
-            });
-        } catch (e) {
-            console.error("Erreur parsing mastered localStorage:", e);
-            masteredCards = {};
-        }
-    } else {
-        masteredCards = {};
+            data = JSON.parse(stored);
+            if (typeof data !== 'object' || data === null) data = {};
+            Object.keys(data).forEach(k => { if (!Array.isArray(data[k])) data[k] = []; });
+        } catch (e) { data = {}; console.error("Err parse mastered:", key, e); }
     }
+    return data;
 }
 
 function saveMasteredCards() {
-    try {
-        localStorage.setItem(LOCAL_STORAGE_KEY_MASTERED, JSON.stringify(masteredCards));
-    } catch (e) {
-        console.error("Erreur sauvegarde mastered localStorage:", e);
-    }
+    const key = getMasteredStorageKey(currentSubjectFile);
+    if (!key) return;
+    try { localStorage.setItem(key, JSON.stringify(masteredCards)); }
+    catch (e) { console.error("Err save mastered:", key, e); }
 }
 
-function loadFavorites() {
-    const storedFavorites = localStorage.getItem(LOCAL_STORAGE_KEY_FAVORITES);
-    if (storedFavorites) {
+function loadFavoritesForSubject(subjectFile) {
+    const key = getFavoritesStorageKey(subjectFile);
+    if(!key) return [];
+    const stored = localStorage.getItem(key);
+    let data = [];
+    if (stored) {
         try {
-            favoriteCards = JSON.parse(storedFavorites);
-            if (!Array.isArray(favoriteCards)) favoriteCards = [];
-        } catch (e) {
-            console.error("Erreur parsing favorites localStorage:", e);
-            favoriteCards = [];
-        }
-    } else {
-        favoriteCards = [];
+            data = JSON.parse(stored);
+            if (!Array.isArray(data)) data = [];
+        } catch (e) { data = []; console.error("Err parse favorites:", key, e); }
     }
+    return data;
 }
 
 function saveFavorites() {
-    try {
-        localStorage.setItem(LOCAL_STORAGE_KEY_FAVORITES, JSON.stringify(favoriteCards));
-    } catch (e) {
-        console.error("Erreur sauvegarde favorites localStorage:", e);
-    }
+    const key = getFavoritesStorageKey(currentSubjectFile);
+    if(!key) return;
+    try { localStorage.setItem(key, JSON.stringify(favoriteCards)); }
+    catch (e) { console.error("Err save favorites:", key, e); }
 }
 
-// --- Fonctions d'accès/modification des données ---
+// Charge la CONFIGURATION des matières au début
+export async function loadAllData() {
+    console.log("Initialisation dataManager...");
+    try {
+        const response = await fetch('subjectsConfig.json'); // Charger la config
+        if (!response.ok) throw new Error(`Config HTTP error! status: ${response.status}`);
+        AVAILABLE_SUBJECTS = await response.json();
+        if (!Array.isArray(AVAILABLE_SUBJECTS)) {
+             console.error("Format subjectsConfig.json invalide.");
+             AVAILABLE_SUBJECTS = [];
+        }
+         console.log("Subject config loaded:", AVAILABLE_SUBJECTS);
+    } catch(error) {
+        console.error("Erreur chargement subjectsConfig.json:", error);
+        AVAILABLE_SUBJECTS = []; // Fallback
+    }
+    return AVAILABLE_SUBJECTS; // Retourne la liste chargée
+}
 
-export async function loadAllData(forceReload = false) {
-    if (allFlashcardsData.length > 0 && !forceReload) {
-        return allFlashcardsData; // Utiliser le cache si déjà chargé et pas de rechargement forcé
+// Charge les données spécifiques d'UNE matière
+export async function loadSubjectData(subjectFile) {
+    if (!subjectFile) return [];
+
+    currentSubjectFile = subjectFile;
+    currentSubjectConfig = AVAILABLE_SUBJECTS.find(s => s.file === subjectFile); // Trouver la config
+
+    if (!currentSubjectConfig) {
+        console.error(`Configuration non trouvée pour ${subjectFile}`);
+        return [];
     }
 
-    loadMasteredCards(); // Charger l'état maîtrisé
-    loadFavorites(); // Charger les favoris
+    masteredCards = loadMasteredCardsForSubject(subjectFile);
+    favoriteCards = loadFavoritesForSubject(subjectFile);
+
+    if (allSubjectsData[subjectFile]) { // Utiliser cache si possible
+        console.log(`Données pour ${subjectFile} chargées depuis cache.`);
+        return allSubjectsData[subjectFile];
+    }
 
     try {
-        const response = await fetch('flashcards.json');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        console.log(`Chargement JSON : ${subjectFile}`);
+        const response = await fetch(subjectFile);
+        if (!response.ok) throw new Error(`JSON HTTP error! status: ${response.status} for ${subjectFile}`);
         const jsonData = await response.json();
+        if (!Array.isArray(jsonData)) throw new Error(`Format JSON invalide: not an array.`);
 
-        if (!Array.isArray(jsonData)) {
-             throw new Error("Format JSON invalide: ce n'est pas un tableau.");
-        }
-
-        // Assigner un ID unique et extraire les chapitres
-        chapters.clear();
-        allFlashcardsData = jsonData.map((card, index) => {
+        const subjectDataCache = jsonData.map((card, index) => {
              const chapter = isValidChapter(card.chapitre) ? Number(card.chapitre) : 'unknown';
-             if (chapter !== 'unknown') {
-                 chapters.add(chapter);
-             }
              return {
                  ...card,
-                 chapitre: chapter, // Assurer que c'est un nombre ou 'unknown'
-                 uniqueId: `card-${chapter}-${index}` // ID basé sur chapitre et index original
+                 chapitre: chapter,
+                 uniqueId: `${subjectFile}-card-${chapter}-${index}`
              };
          });
 
-         console.log(`Données JSON chargées: ${allFlashcardsData.length} cartes.`);
-        return allFlashcardsData;
+        allSubjectsData[subjectFile] = subjectDataCache;
+        console.log(`JSON chargé pour ${subjectFile}: ${subjectDataCache.length} cartes.`);
+        return subjectDataCache;
 
     } catch (error) {
-        console.error("Erreur chargement JSON:", error);
-        allFlashcardsData = []; // Assurer que le tableau est vide en cas d'erreur
+        console.error(`Erreur chargement JSON pour ${subjectFile}:`, error);
+        allSubjectsData[subjectFile] = [];
         return [];
     }
 }
 
+export function getAvailableSubjects() { return AVAILABLE_SUBJECTS; }
+
 export function getChapters() {
+    const currentData = allSubjectsData[currentSubjectFile] || [];
+    const chapters = new Set();
+    currentData.forEach(card => { if (card.chapitre !== 'unknown') chapters.add(card.chapitre); });
     return Array.from(chapters).sort((a, b) => a - b);
 }
 
 export function getCardsForChapter(chapterNum) {
-    if (chapterNum === undefined || chapterNum === null) { // Pour 'all' ou cas non défini
-        return allFlashcardsData.filter(card => card.chapitre !== 'unknown');
+    const currentData = allSubjectsData[currentSubjectFile] || [];
+    if (chapterNum === undefined || chapterNum === null) {
+        return currentData.filter(card => card.chapitre !== 'unknown');
     }
-    return allFlashcardsData.filter(card => card.chapitre === chapterNum);
+    return currentData.filter(card => card.chapitre === chapterNum);
 }
 
 export function getFavoriteCardsData() {
-    // Retourne les objets cartes complets qui sont dans la liste des favoris
-    return allFlashcardsData.filter(card => favoriteCards.includes(card.uniqueId));
+    const currentData = allSubjectsData[currentSubjectFile] || [];
+    const currentFavorites = favoriteCards || [];
+    return currentData.filter(card => currentFavorites.includes(card.uniqueId));
 }
 
 export function getFavoriteCount() {
-    // Compte les favoris qui existent réellement dans les données chargées
-    return allFlashcardsData.filter(card => favoriteCards.includes(card.uniqueId)).length;
+    const currentData = allSubjectsData[currentSubjectFile] || [];
+    const currentFavorites = favoriteCards || [];
+    return currentData.filter(card => currentFavorites.includes(card.uniqueId)).length;
+}
+
+export function getSubjectDescription() {
+    return currentSubjectConfig?.description || "";
+}
+
+export function getChapterDescription(chapterNum) {
+    return currentSubjectConfig?.chapterDescriptions?.[String(chapterNum)] || "";
 }
 
 export function isMastered(cardId) {
-    // Trouve la clé de chapitre correspondante ou cherche partout si nécessaire
     for (const chapKey in masteredCards) {
-        if (masteredCards[chapKey].includes(cardId)) {
-            return true;
-        }
+        if (masteredCards[chapKey].includes(cardId)) return true;
     }
     return false;
-     // Version plus directe si on a le chapitre:
-     // const card = allFlashcardsData.find(c => c.uniqueId === cardId);
-     // if (!card || !isValidChapter(card.chapitre)) return false;
-     // const chapKey = `chapitre_${card.chapitre}`;
-     // return masteredCards[chapKey] && masteredCards[chapKey].includes(cardId);
 }
 
 export function addMastered(cardId) {
-     const card = allFlashcardsData.find(c => c.uniqueId === cardId);
-     if (!card || !isValidChapter(card.chapitre)) return; // Ne sauvegarde pas si chapitre invalide
-
+     const currentData = allSubjectsData[currentSubjectFile] || [];
+     const card = currentData.find(c => c.uniqueId === cardId);
+     if (!card || !isValidChapter(card.chapitre)) return;
      const chapKey = `chapitre_${card.chapitre}`;
-     if (!masteredCards[chapKey]) {
-         masteredCards[chapKey] = [];
-     }
+     if (!masteredCards[chapKey]) masteredCards[chapKey] = [];
      if (!masteredCards[chapKey].includes(cardId)) {
          masteredCards[chapKey].push(cardId);
          saveMasteredCards();
@@ -155,41 +181,45 @@ export function addMastered(cardId) {
 
 export function toggleFavorite(cardId) {
      if (!cardId) return;
-     const index = favoriteCards.indexOf(cardId);
-     if (index > -1) {
-         favoriteCards.splice(index, 1);
-     } else {
-         favoriteCards.push(cardId);
-     }
+     const currentFavorites = favoriteCards || [];
+     const index = currentFavorites.indexOf(cardId);
+     if (index > -1) currentFavorites.splice(index, 1);
+     else currentFavorites.push(cardId);
+     favoriteCards = currentFavorites;
      saveFavorites();
-     // Le module UI mettra à jour l'icône
 }
 
 export function isFavorite(cardId) {
-     return favoriteCards.includes(cardId);
+     const currentFavorites = favoriteCards || [];
+     return currentFavorites.includes(cardId);
 }
 
 export function resetMasteredProgress(chapterNum = undefined) {
-     if (chapterNum === undefined) { // Reset tout
-         masteredCards = {};
-         console.log("Progression de toutes les cartes réinitialisée.");
-     } else if (isValidChapter(chapterNum)) { // Chapitre spécifique
+     if (!currentSubjectFile) return;
+     if (chapterNum === undefined) masteredCards = {};
+     else if (isValidChapter(chapterNum)) {
          const chapKey = `chapitre_${chapterNum}`;
-         if (masteredCards[chapKey]) {
-             delete masteredCards[chapKey];
-             console.log(`Progression pour le chapitre ${chapterNum} réinitialisée.`);
-         }
+         if (masteredCards[chapKey]) delete masteredCards[chapKey];
      }
      saveMasteredCards();
-     // Pas besoin de retourner quoi que ce soit, l'état est modifié
+     console.log(`Progression réinitialisée pour ${chapterNum === undefined ? currentSubjectFile : 'chap ' + chapterNum + ' de ' + currentSubjectFile}`);
 }
 
 export function resetFavorites() {
+    if (!currentSubjectFile) return;
     favoriteCards = [];
     saveFavorites();
-    console.log("Favoris réinitialisés.");
+    console.log(`Favoris pour ${currentSubjectFile} réinitialisés.`);
 }
 
-export function getAllData() {
-    return allFlashcardsData; // Pour d'autres modules qui pourraient avoir besoin de tout
+export function resetAllProgressGlobal() {
+    AVAILABLE_SUBJECTS.forEach(subject => {
+        const masteredKey = getMasteredStorageKey(subject.file);
+        const favoritesKey = getFavoritesStorageKey(subject.file);
+        if(masteredKey) localStorage.removeItem(masteredKey);
+        if(favoritesKey) localStorage.removeItem(favoritesKey);
+    });
+    masteredCards = {};
+    favoriteCards = [];
+    console.log("TOUTE la progression (maîtrisées et favoris) a été réinitialisée.");
 }

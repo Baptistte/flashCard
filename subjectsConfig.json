@@ -1,0 +1,33 @@
+[
+    {
+      "file": "dda.json",
+      "name": "Droit des Affaires",
+      "description": "Ce module aborde les fondamentaux du droit commercial, des sociétés, des instruments de paiement/crédit, le fonds de commerce et les principaux contrats d'affaires.",
+      "chapterDescriptions": {
+        "0": "Introduction, sources (internes, internationales, UE, informelles), caractéristiques.",
+        "1": "Actes de commerce (nature, forme, accessoire), critères de commercialité.",
+        "2": "Régime des actes de commerce (prescription, preuve), vente commerciale, actes mixtes.",
+        "3": "Acteurs 1: Commerçant personne physique/morale (sociétés, GIE), conditions, statut, obligations, protection patrimoine.",
+        "4": "Acteurs 2: Artisans, professions libérales, agriculteurs, associations, conjoint.",
+        "5": "Fonds de commerce: Composition, nature, opérations (vente, nantissement, location-gérance).",
+        "6": "Bail commercial: Application, formation, exécution, renouvellement, indemnité d'éviction, cession, sous-location.",
+        "7": "Contentieux 1: Tribunaux de commerce, arbitrage.",
+        "8": "Contentieux 2: MARD, juge administratif/constitutionnel, autorités de régulation.",
+        "9": "Contentieux des affaires (partie 1) : Les tribunaux de commerce (organisation, compétence matérielle/territoriale), l'arbitrage (convention, procédure, sentence).",
+        "10": "Contentieux des affaires (partie 2) : Les modes amiables (MARD), le rôle du juge administratif et du juge constitutionnel, les autorités de régulation."
+      }
+    },
+    {
+      "file": "ojue.json",
+      "name": "Ordre Juridique UE",
+      "description": "Analyse de l'ordre juridique spécifique de l'Union Européenne, ses sources, ses principes (primauté, effet direct) et son articulation avec les droits nationaux.",
+      "chapterDescriptions": {
+        "0": "Introduction historique, concepts (intergouvernemental/supranational), construction européenne (Schuman, Monnet), rôle initial traités/CJUE.",
+        "1": "Spécificité de l'UE (sui generis), comparaison OI/État fédéral, Valeurs (Art 2 TUE), Principes (paix, identité nat., coop. loyale, solidarité - Art 3-4 TUE), Citoyenneté et droits (Art 9 TUE, 20+ TFUE), Adhésion/Retrait (Art 49-50 TUE).",
+        "2": "Compétences d'attribution (spécialité), catégories (exclusive, partagée, appui, coordination, PESC), implicites (*AETR*), flexibilité (Art 352 TFUE), régulation (subsidiarité, proportionnalité, parlements nat. - Protocole 2).",
+        "3": "Sources : Droit primaire (Traités, protocoles, déclarations, adhésion, Charte), Droit dérivé (régime, règlements, directives, décisions, avis/reco - Art 288 TFUE), Principes Généraux du Droit (types), Accords internationaux.",
+        "4": "Portée du droit UE : Effet Direct (concept, conditions, vertical/horizontal, application aux normes - *Van Gend*, *Marshall*), Primauté (concept, portée - *Costa*, *Simmenthal*).",
+        "5": "Rôle du juge national (juge de droit commun, autonomie procédurale limitée), Invocabilités (exclusion, interprétation conforme - *Von Colson*, responsabilité État pour violation droit UE - *Francovich*, conditions *Brasserie*)."
+      }
+    }
+  ]
