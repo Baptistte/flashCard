@@ -31,26 +31,20 @@
       }
     },
     {
-      "file": "hdifs.json",
-      "name": "Histoire du Droit, Institutions & Faits Sociaux",
-      "description": "Explore l'évolution des institutions et du droit depuis l'Antiquité grecque et romaine jusqu'à l'époque moderne, en passant par la période franque et féodale.",
-      "chapterDescriptions": {
-        "0": "La Cité Grecque: Définition (polis, civitas), territoire, organisation achevée, population hétérogène.",
-        "1": "Le Citoyen Grec: Communauté exclusiviste, acquisition citoyenneté (naissance, naturalisation), droits liés, non-citoyens (métèques, barbares, esclaves).",
-        "2": "Origines Grecques Archaïques: Civilisations minoenne et mycénienne, âges sombres, passage à l'aristocratie.",
-        "3": "Crise Sociale et Réformes (Grèce): Conflits (riches/pauvres, anciennes/nouvelles aristocraties), législateurs (Dracon, Solon), tyrannie.",
-        "4": "Le Modèle Athénien: Souveraineté citoyenne (domicile, dèmes, trittyes, tribus), calendrier civique, Ecclésia (Assemblée).",
-        "5": "Institutions Athéniennes: Conseil (Boulè), Magistrats (Archontes, Stratèges...), Justice (Héliée).",
-        "6": "Protection du Citoyen Athénien: Mécanismes contre pouvoir personnel (ostracisme) et arbitraire (graphè paranomon), indemnités (Périclès).",
-        "7": "Le Contre-Modèle Spartiate: Ordre social (égos, périèques, hilotes), Kléros, éducation (Agôgè), dévalorisation famille, mode de vie imposé (syssities, activités militaires), déchéance (atimie).",
-        "8": "Institutions Spartiates: Diarchie (2 rois), Conseil (Gérousia), Assemblée (Apella), Magistrats (éphores).",
-        "9": "Fin de la Cité Grecque: Échecs (ligues, fédérations), guerres (Péloponnèse), conquête par Philippe de Macédoine (Bataille de Chéronée), Ligue de Corinthe.",
-        "10": "L'Empire Hellénistique: Alexandre le Grand (conquête Orient, fusion ethnies), partage de l'Empire (Diadoques), royaumes hellénistiques, fin par conquête romaine.",
-        "11": "Rome - Origines et Royauté: Légendes (Enée, Romulus), genèse (Rome étrusque), institutions royales (Rex, Patres, Populus, réformes Servius Tullius).",
-        "12": "Rome - République: Révolution (-509), conflits plèbe/patriciat (sécession, loi XII Tables), institutions républicaines (Comices, magistratures - cursus honorum, dictature).",
-        "13": "Rome - Le Sénat et les Magistrats Républicains: Sénat (rôle, auctoritas), spécificités magistratures (questure, édilité, préture, consulat, censure), tribunat de la Plèbe.",
-        "14": "Rome - Crise de la République: Impérialisme (guerres puniques, expansion), transformations sociales (crise agraire, révoltes serviles), crise politique (Gracques, Sylla, Pompée, César, Triumvirats).",
-        "15": "Rome - L'Empire: Principat (Auguste, façade républicaine, pouvoirs impériaux, succession), organes impériaux (auxiliaires, chancellerie), Domina (crise IIIe s., Dioclétien, Tétrarchie, division Empire), Christianisme (édit Milan/Thessalonique, droit canonique)."
+        "file": "hdifs.json",
+        "name": "Histoire du Droit, Institutions & Faits Sociaux",
+        "description": "Explore l'évolution des institutions et du droit depuis l'Antiquité grecque et romaine jusqu'à l'époque moderne, en passant par la période franque et féodale.",
+        "chapterDescriptions": {
+          "0": "Grèce Antique: Cité (polis), territoire, organisation sociale, citoyenneté, non-citoyens.",
+          "1": "Grèce Antique: Évolution politique (archaïque, aristocratie), crises sociales, réformateurs, tyrannie.",
+          "2": "Grèce Antique: Modèle Athénien (Clisthène, Ecclésia, Boulè, magistrats, Héliée), protection citoyen.",
+          "3": "Grèce Antique: Contre-modèle Sparte (ordre social, éducation, institutions), fin des cités (Macédoine, Alexandre).",
+          "4": "Rome: Origines et Royauté (-753 à -509) - Légendes, Rome étrusque, institutions royales, réformes Servius Tullius.",
+          "5": "Rome: République (-509 à -27) - Révolution, conflit plèbe/patriciat, institutions (Comices, magistratures, Sénat).",
+          "6": "Rome: Crise de la République - Impérialisme, transformations sociales (Gracques), montée des *imperatores* (Sylla, Pompée, César).",
+          "7": "Rome: Empire (-27 à 476) - Principat (Auguste), Domina (Dioclétien), évolution droit, administration, christianisme.",
+          "8": "Haut Moyen Âge: Période Franque - Mérovingiens (conception pouvoir, personnalité lois), Carolingiens (sacre, empire).",
+          "9": "Haut Moyen Âge: Féodalité (IXe-XIIe) - Morcellement, relation féodo-vassalique, royauté affaiblie, coutumes."
+        }
       }
-    }
 ]
