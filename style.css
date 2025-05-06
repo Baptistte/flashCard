@@ -823,6 +823,14 @@ h1 {
     .chapter-description-text {
         padding-left: 5px; /* Léger retrait */
     }
+
+    .info-contribution-container {
+        flex-direction: column; /* Empiler les widgets */
+        gap: 15px;
+    }
+     .info-widget, .contribution-widget {
+        min-width: unset; /* Enlever largeur min */
+    }
 }
 
 /* Enlever la grille pour les boutons chapitre, on utilise une liste maintenant */
@@ -1138,57 +1146,148 @@ h1 {
 }
 
 
-/* --- Widget d'information sur l'écran de sélection --- */
-.info-widget {
-    background-color: #f8f9fa; /* Fond très léger */
+.info-widget,
+.contribution-widget {
+    background-color: #f8f9fa;
     border: 1px solid var(--border-color);
-    border-left: 4px solid var(--button-primary-bg); /* Bordure bleue distinctive */
     border-radius: var(--border-radius);
     padding: 20px;
-    margin-top: 10px; /* Espace après le H2 */
-    margin-bottom: 30px; /* Espace avant le H3 des matières */
-    text-align: left; /* Aligner le texte à gauche */
+    text-align: left;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    /* MODIFIÉ: Marge inférieure pour espacer les sections */
+    margin-top: 15px; /* Espace après le H2 ou la grille matière */
+    margin-bottom: 25px; /* Espace avant la section suivante */
+    width: 100%; /* Prend toute la largeur */
 }
+.info-widget { border-left: 4px solid var(--button-primary-bg); }
+.contribution-widget { border-left: 4px solid var(--button-favorite-bg); }
 
-.info-widget p {
+
+.info-widget p,
+.contribution-widget p {
     font-size: 0.95em;
     line-height: 1.6;
     color: var(--text-color-darker);
-    margin-bottom: 10px; /* Espace entre paragraphes */
-}
-.info-widget p:last-child {
-    margin-bottom: 0; /* Pas de marge pour le dernier paragraphe */
-}
-
-.info-widget ul {
-    list-style: disc; /* Puces standard */
-    margin-left: 20px; /* Indentation de la liste */
     margin-bottom: 10px;
-    padding-left: 15px;
+}
+.info-widget p:last-child,
+.contribution-widget p:last-child {
+    margin-bottom: 0;
 }
 
-.info-widget li {
+
+
+/* Titre commun pour les widgets */
+.info-widget h3,
+.contribution-widget h3 {
+    font-size: 1.1em; /* Taille cohérente */
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border-color); /* Séparateur léger */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-widget h3 { color: var(--button-primary-bg); } /* Couleur titre Objectif */
+.contribution-widget h3 { color: var(--button-favorite-bg); } /* Couleur titre Contribution */
+
+
+.info-widget ul,
+.contribution-widget ul {
+    list-style: none; /* Enlever puces par défaut */
+    margin-left: 0; /* Pas d'indentation par défaut */
+    margin-bottom: 10px;
+    padding-left: 0; /* Pas de padding par défaut */
+}
+
+.info-widget ul li,
+.contribution-widget ul li {
     font-size: 0.9em;
     color: var(--text-color);
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     line-height: 1.5;
+    position: relative; /* Pour les puces personnalisées */
+    padding-left: 20px; /* Espace pour la puce */
 }
 
-/* Ajustement titre H3 après le widget */
-.subject-selection-container h3 {
+/* Puce personnalisée */
+.info-widget ul li::before,
+.contribution-widget ul li::before {
+    content: '✓'; /* Ou '•', '→', etc. */
+    position: absolute;
+    left: 0;
+    top: 1px; /* Ajustement vertical */
+    color: var(--button-match-bg); /* Couleur verte pour la puce */
+    font-weight: bold;
+}
+
+.contribution-widget ul li::before {
+    color: var(--button-favorite-bg); /* Puce violette pour contribution */
+}
+
+/* Liens dans le widget contribution */
+.contribution-widget a {
+    color: var(--button-primary-bg);
+    text-decoration: none;
+    font-weight: 500;
+}
+.contribution-widget a:hover {
+    text-decoration: underline;
+    color: var(--button-primary-hover-bg);
+}
+
+
+.subject-selection-container h3 { /* Celui avant les boutons matières */
     color: var(--header-color);
-    margin-bottom: 15px; /* Espace avant la grille des matières */
+    margin-bottom: 15px;
     font-size: 1.2em;
     font-weight: 700;
-    text-align: center; /* Centrer ce sous-titre */
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    border-top: 1px solid var(--border-color); /* Séparateur léger */
-    padding-top: 25px; /* Espace après le widget info */
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px; /* Plus d'espace après les widgets */
+    margin-top: 10px; /* Espace après le conteneur des widgets */
 }
 .subject-selection-container h3 .section-icon {
     font-size: 1.1em;
+}
+
+.subject-selection-container h3:nth-of-type(2) { /* Cibler le H3 "Matières disponibles" */
+    color: var(--header-color);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+    margin-top: 0; /* Enlever la marge top si elle vient après le widget */
+}
+
+.subject-selection-container h3:nth-of-type(2) .section-icon {
+    font-size: 1.1em;
+}
+
+
+/* Ajustement bouton Reset All */
+#reset-all-progress-btn {
+    margin-top: 10px; /* Réduire un peu l'espace après le dernier widget */
+}
+
+/* NOUVEAU: Conteneur pour les deux widgets côte à côte */
+.info-contribution-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
+    gap: 20px; /* Espace entre les deux widgets */
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 100%; /* Prend toute la largeur disponible */
 }

@@ -13,7 +13,7 @@
 <body>
     <div class="main-container">
         <header class="app-header">
-             <h1 id="app-title">Flashcards</h1> <!-- Titre qui pourra changer -->
+             <h1 id="app-title">Flashcards Lyon 3</h1> <!-- Titre qui pourra changer -->
              <!-- Bouton Retour unique, son comportement change selon le contexte -->
              <button id="back-btn" class="nav-button back-button" style="display: none;" title="Retour">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20px" height="20px"><path d="M11.828 12l4.95-4.95-1.414-1.414L9 12l6.364 6.364 1.414-1.414z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
@@ -21,34 +21,47 @@
             </button>
         </header>
 
-        <!-- === ÉCRAN 1: Sélection Matière (Visible par défaut) === -->
-        <!-- === ÉCRAN 1: Sélection Matière (Améliorée avec Widget Explicatif) === -->
         <div id="subject-selection" class="page-section subject-selection-container selection-container">
             <h2><span class="section-icon">🎓</span> Bienvenue sur la plateforme Flashcards !</h2>
 
-            <!-- Widget Explicatif -->
-            <div class="info-widget">
-                <p>Cette plateforme est conçue par un étudiant en droit pour centraliser et faciliter la révision des cours universitaires grâce à des flashcards interactives.</p>
+            <!-- 1. Widget Objectif -->
+            <div class="info-widget single-column-widget"> <!-- Ajout classe pour style éventuel -->
+                <h3><span class="section-icon">🎯</span> Objectif & Fonctionnement</h3>
+                <p>Cette plateforme est conçue par un étudiant en droit pour centraliser et faciliter la révision des cours universitaires grâce à des flashcards interactives, basées sur la répétition espacée et le suivi de progression.</p>
                 <ul>
-                    <li>Choisissez une matière pour accéder aux chapitres.</li>
-                    <li>Utilisez le mode "Favoris" pour revoir les cartes importantes.</li>
-                    <li>Suivez votre progression et réinitialisez-la si besoin.</li>
+                    <li>Totalement gratuit !.</li>
+                    <li>Choisissez une matière ci-dessous.</li>
+                    <li>Sélectionnez un chapitre ou un mode (Tous, Favoris).</li>
+                    <li>Utilisez "Maîtrisé" (→) ou "Passer" (↓).</li>
+                    <li>Marquez les cartes clés avec l'étoile (F).</li>
                 </ul>
-                <p>N'hésitez pas à proposer de nouveaux contenus ou améliorations !</p>
             </div>
 
+            <!-- 2. Section Matières -->
             <h3><span class="section-icon">📚</span> Matières disponibles :</h3>
             <div id="subject-buttons" class="subject-buttons-grid buttons-grid">
                  <p>Chargement des matières...</p>
                  <!-- Boutons Matière (widgets) injectés par JS -->
             </div>
-             <!-- Bouton Reset Global -->
+
+            <!-- 3. Widget Contribution/Support -->
+            <div class="contribution-widget single-column-widget"> <!-- Ajout classe pour style éventuel -->
+                <h3><span class="section-icon">🤝</span> Contribuer & Supporter</h3>
+                <p>Ce projet vise à grandir grâce à la communauté ! Si vous souhaitez ajouter vos propres cours ou soutenir le développement :</p>
+                <ul>
+                    <li><strong>Ajouter un cours :</strong> Envoyez votre cours (format texte, PDF...) par email à <a href="mailto:flashcardlyon3@gmail.com?subject=Proposition%20Cours%20Flashcards">flashcardlyon3@gmail.com</a>. Je me chargerai de le transformer en flashcards.</li>
+                    <li><strong>Feedback :</strong> Toute suggestion ou rapport de bug est apprécié !</li>
+                    <!-- Optionnel : Ajouter un lien de support/don -->
+                    <!-- <li><strong>Soutenir :</strong> Si vous trouvez cet outil utile, vous pouvez [faire un don](lien_vers_don).</li> -->
+                </ul>
+            </div>
+
+             <!-- 4. Bouton Reset Global -->
              <button id="reset-all-progress-btn" class="utility-button reset-button reset-all-btn" title="Réinitialiser la progression de TOUTES les cartes de TOUTES les matières">
                  <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
                  Oublier TOUTE la progression
              </button>
         </div>
-
         <!-- === ÉCRAN 2: Sélection Chapitres (Caché initialement) === -->
         <div id="chapter-selection" class="page-section chapter-selection-container selection-container" style="display: none;">
             <h2 id="chapter-selection-title">Choisissez un chapitre ou un mode :</h2>
