@@ -1,14 +1,15 @@
 .progress-bar-container {
-    width: 50%;
+    width: 100%;
+    max-width: 50%; /* Limiter à la largeur max du contenu */
     height: 8px;
     background-color: var(--progress-bar-bg);
     border-radius: 4px;
     overflow: hidden;
     margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 5px;
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
+    margin-left: auto; /* Centrer */
+    margin-right: auto;
 }
 
 .progress-bar-inner {
@@ -26,4 +27,25 @@
     font-size: 0.9em;
     width: 100%;
     text-align: center;
+}
+
+/* --- Responsive Progress --- */
+@media (max-width: 768px) {
+    .progress-bar-container {
+       height: 7px;
+       /* Pas besoin de changer max-width ici, il suit le conteneur parent */
+    }
+     .progress-indicator {
+        font-size: 0.85em;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-bar-container {
+       height: 6px;
+    }
+    .progress-indicator {
+        font-size: 0.8em;
+    }
 }

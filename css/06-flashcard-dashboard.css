@@ -1,41 +1,37 @@
 #flashcard-section {
-    padding: 0; /* Le page-section a déjà du padding */
+    display: flex;
+    flex-direction: column; /* Revenir à column pour que progress/controls soient en dessous */
+    align-items: center;    /* Centre le contenu horizontalement */
+    padding: 0;
     background-color: transparent;
     box-shadow: none;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Ou center si vous préférez verticalement */
-    border: none; /* Enlever la bordure/bg du conteneur principal de section */
+    border: none;
 }
 
 .flashcard-container {
-    margin-top: 40px;
-    width: 50%; /* Prend 100% de son parent #flashcard-section */
-    max-width: 50%; /* LIMITE LA LARGEUR MAXIMALE à 50% */
+    perspective: 1200px;
+    width: 100%;
+    max-width: 50%; /* Limite sur grand écran */
     margin-bottom: 20px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
 }
 
-
 .question-reminder-container {
     width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
     background-color: var(--reminder-bg);
     border: 1px solid var(--reminder-border);
     border-radius: calc(var(--border-radius) / 2);
     padding: 8px 12px;
-    margin-bottom: -5px;
+    margin-bottom: -5px; /* chevauche légèrement la carte */
     z-index: 5;
     position: relative;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     opacity: 0;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     transform: translateY(-10px);
+    box-sizing: border-box;
 }
 
 .question-reminder-container p {
@@ -50,7 +46,7 @@
 
 .flashcard {
     width: 100%;
-    min-height: 300px;
+    min-height: 350px;
     height: auto;
     position: relative;
     background-color: transparent;
@@ -135,7 +131,6 @@
     display: inline-block;
 }
 
-
 .card-chapter-info-header {
     font-size: 0.7em;
     font-weight: 400;
@@ -145,7 +140,6 @@
 .card-chapter-info-header:empty {
     display: none;
 }
-
 
 .card-content-wrapper {
     flex-grow: 1;
@@ -215,6 +209,12 @@
     margin-bottom: 15px;
     border: 1px solid var(--button-match-bg);
     box-shadow: 0 2px 8px rgba(40, 167, 69, 0.15);
+    /* Assurer qu'il prend la largeur appropriée */
+    width: 100%;
+    max-width: var(--max-width-content); /* ou une largeur spécifique */
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
 }
 .session-complete p small {
     display: block;
@@ -231,16 +231,18 @@
 .session-complete button:hover {
     background-color: var(--button-utility-hover-bg);
 }
-/* Ajustements pour les écrans plus petits où 50% est trop petit */
-@media (max-width: 1200px) { /* Ajustez ce breakpoint si nécessaire */
+
+/* --- Responsive Flashcard --- */
+
+@media (max-width: 1200px) {
     .flashcard-container {
-        max-width: 65%; /* Un peu plus large sur écrans moyens */
+        max-width: 65%;
     }
 }
 
 @media (max-width: 992px) {
     .flashcard-container {
-        max-width: 80%; /* Encore plus large sur tablettes */
+        max-width: 80%;
     }
      .flashcard {
         min-height: 320px;
@@ -248,13 +250,52 @@
 }
 
 @media (max-width: 768px) {
-    #flashcard-section {
-        /* Peut-être revenir à align-items: stretch si besoin */
-    }
     .flashcard-container {
-        max-width: 100%; /* Prend toute la largeur disponible sur mobile */
+        max-width: 100%; /* Prend toute la largeur disponible */
+        /* Ajouter un petit padding horizontal au parent si nécessaire */
+        /* Ou laisser le padding de .content-wrapper faire le travail */
     }
     .flashcard {
         min-height: 300px;
+        box-shadow: 0 3px 8px var(--shadow-color); /* Ombre un peu moins forte */
+    }
+    .card-content-wrapper {
+       padding: 15px; /* Réduire padding intérieur */
+    }
+     .card-face h2 {
+        padding: 10px 15px;
+        font-size: 1.05em;
+    }
+     .card-face p {
+        font-size: 0.95em; /* Texte légèrement plus petit */
+        line-height: 1.55;
+    }
+    .question-reminder-container {
+        padding: 6px 10px;
+    }
+    .question-reminder-container p {
+        font-size: 0.8em;
+    }
+     .favorite-toggle-btn {
+        right: 10px;
+    }
+     .favorite-toggle-btn .star-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flashcard {
+        min-height: 280px; /* Encore un peu moins haut si besoin */
+    }
+    .card-content-wrapper {
+       padding: 12px;
+    }
+     .card-face p {
+        font-size: 0.9em;
+    }
+     .heart-animation {
+        width: 40px;
     }
 }

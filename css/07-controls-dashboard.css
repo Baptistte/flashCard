@@ -3,8 +3,9 @@
     justify-content: space-between;
     align-items: center;
     gap: 8px;
-    width: 50%;
     margin-bottom: 12px;
+    max-width: 50%; /* Limite sur grand écran */
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -71,8 +72,11 @@
     display: flex;
     justify-content: center;
     gap: 12px;
-    width: 100%;
+    width: 100%; /* Prend toute la largeur de #flashcard-section */
+    max-width: var(--max-width-content); /* Limiter si besoin */
     margin-bottom: 15px;
+    margin-left: auto; /* Centre le conteneur lui-même */
+    margin-right: auto;
 }
 
 .utility-button {
@@ -92,31 +96,58 @@
     background-color: var(--button-reset-hover-bg);
 }
 
-/* === AJUSTER LA RESPONSIVITÉ === */
-/* Sur les écrans plus petits, 50% peut être trop étroit */
-@media (max-width: 992px) { /* Ajustez ce breakpoint si nécessaire */
+/* --- Responsive Controls --- */
+
+@media (max-width: 992px) {
     .controls {
-        max-width: 75%; /* Augmente la largeur max */
+        max-width: 75%;
     }
 }
 
 @media (max-width: 768px) {
     .controls {
-        max-width: 90%; /* Encore plus large sur tablettes */
-        flex-wrap: wrap; /* Important de garder ça */
+        max-width: 100%; /* Prend toute la largeur sur tablette/mobile */
+        flex-wrap: wrap;
+        margin-left: 0; /* Annuler le centrage auto */
+        margin-right: 0;
     }
-    /* Les styles existants pour .match-pass-group en tablette devraient rester */
-    .match-pass-group { flex-basis: 100%; margin-top: 8px; }
+    .match-pass-group {
+        flex-basis: 100%;
+        margin-top: 8px;
+    }
+    .utility-controls-container {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center; /* Centre les boutons empilés */
+    }
+    .utility-controls-container button {
+        width: 100%;
+        max-width: 280px;
+    }
 }
 
 @media (max-width: 480px) {
     .controls {
-        max-width: 100%; /* Prend toute la largeur sur mobile */
-        display: block; /* Revenir à l'empilement si flex ne marche plus bien */
-         margin-left: 0; /* Annuler le centrage auto si display: block */
-         margin-right: 0;
+        display: block; /* Empiler les boutons Préc/Flip */
     }
-    /* Les styles existants pour les boutons en mobile doivent être réappliqués/vérifiés */
-     .nav-button, .utility-button, .match-pass-group button { width: 100%; margin-bottom: 8px; font-size: 0.9em; }
-     .match-pass-group { display: flex; width: 100%; gap: 8px; margin-top: 0; }
+    .nav-button, .utility-button { /* Appliquer à tous les boutons pour mobile */
+         width: 100%;
+         margin-bottom: 8px;
+         font-size: 0.9em;
+         justify-content: center; /* Centrer contenu du bouton */
+    }
+    .match-pass-group { /* Garder côte à côte mais pleine largeur */
+        display: flex;
+        width: 100%;
+        gap: 8px;
+        margin-top: 0; /* Pas de marge top si Préc/Flip sont block */
+        margin-bottom: 8px;
+    }
+    .utility-controls-container button {
+        max-width: 100%; /* Pleine largeur sur mobile */
+        font-size: 0.9em;
+    }
+     .utility-button.reset-button {
+        font-size: 0.85em; /* Ajuster si besoin */
+    }
 }
