@@ -1,7 +1,7 @@
 #flashcard-section {
     display: flex;
-    flex-direction: column; /* Revenir à column pour que progress/controls soient en dessous */
-    align-items: center;    /* Centre le contenu horizontalement */
+    flex-direction: column;
+    align-items: center;
     padding: 0;
     background-color: transparent;
     box-shadow: none;
@@ -11,7 +11,7 @@
 .flashcard-container {
     perspective: 1200px;
     width: 100%;
-    max-width: 50%; /* Limite sur grand écran */
+    max-width: 50%;
     margin-bottom: 20px;
     position: relative;
     margin-left: auto;
@@ -19,40 +19,49 @@
 }
 
 .question-reminder-container {
-    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    width: auto;
     background-color: var(--reminder-bg);
     border: 1px solid var(--reminder-border);
     border-radius: calc(var(--border-radius) / 2);
     padding: 8px 12px;
-    margin-bottom: -5px; /* chevauche légèrement la carte */
-    z-index: 5;
-    position: relative;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     opacity: 0;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    transform: translateY(-10px);
+    transform: translateY(-100%);
     box-sizing: border-box;
 }
+
+.question-reminder-container.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .question-reminder-container p {
     font-size: 0.85em;
     color: var(--reminder-text);
     font-style: italic;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    text-align: left;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    margin: 0;
 }
 
 .flashcard {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
     width: 100%;
     min-height: 350px;
     height: auto;
     position: relative;
     background-color: transparent;
     border-radius: var(--border-radius);
-    transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
     cursor: pointer;
     z-index: 1;
 }
@@ -143,20 +152,25 @@
 
 .card-content-wrapper {
     flex-grow: 1;
-    overflow-y: auto;
     padding: 15px 20px;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .card-face p {
     font-size: 1em;
     line-height: 1.6;
-    margin: 0 0 12px 0;
+    margin: 0 0 15px 0;
     text-align: left;
     color: var(--text-color-darker);
     word-wrap: break-word;
     overflow-wrap: break-word;
+    max-width: 100%;
+}
+.card-face p:last-child {
+     margin-bottom: 0;
 }
 
 .card-question h2 {
@@ -209,9 +223,8 @@
     margin-bottom: 15px;
     border: 1px solid var(--button-match-bg);
     box-shadow: 0 2px 8px rgba(40, 167, 69, 0.15);
-    /* Assurer qu'il prend la largeur appropriée */
     width: 100%;
-    max-width: var(--max-width-content); /* ou une largeur spécifique */
+    max-width: var(--max-width-content);
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
@@ -232,8 +245,6 @@
     background-color: var(--button-utility-hover-bg);
 }
 
-/* --- Responsive Flashcard --- */
-
 @media (max-width: 1200px) {
     .flashcard-container {
         max-width: 65%;
@@ -251,24 +262,24 @@
 
 @media (max-width: 768px) {
     .flashcard-container {
-        max-width: 100%; /* Prend toute la largeur disponible */
-        /* Ajouter un petit padding horizontal au parent si nécessaire */
-        /* Ou laisser le padding de .content-wrapper faire le travail */
+        max-width: 100%;
     }
     .flashcard {
         min-height: 300px;
-        box-shadow: 0 3px 8px var(--shadow-color); /* Ombre un peu moins forte */
+        height: auto;
+        box-shadow: 0 3px 8px var(--shadow-color);
     }
     .card-content-wrapper {
-       padding: 15px; /* Réduire padding intérieur */
+       padding: 15px;
     }
      .card-face h2 {
         padding: 10px 15px;
         font-size: 1.05em;
     }
      .card-face p {
-        font-size: 0.95em; /* Texte légèrement plus petit */
+        font-size: 0.95em;
         line-height: 1.55;
+        margin-bottom: 12px;
     }
     .question-reminder-container {
         padding: 6px 10px;
@@ -287,13 +298,14 @@
 
 @media (max-width: 480px) {
     .flashcard {
-        min-height: 280px; /* Encore un peu moins haut si besoin */
+        min-height: 280px;
     }
     .card-content-wrapper {
        padding: 12px;
     }
      .card-face p {
         font-size: 0.9em;
+        margin-bottom: 10px;
     }
      .heart-animation {
         width: 40px;

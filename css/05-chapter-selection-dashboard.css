@@ -45,13 +45,35 @@
 }
 
 .chapter-selection-container .chapter-description-list .chapter-button {
+    /* Styles existants (gardez votre width, padding, etc.) */
     flex-shrink: 0;
-    width: 150px;
+    width: 130px; /* Ou 150px, ce que vous aviez */
+    min-height: 38px;
+    height: auto;
     margin: 0;
-    padding: 8px 12px;
+    padding: 8px 10px;
     font-size: 0.9em;
+    font-weight: 500;
+    color: #fff;
     background-color: var(--button-secondary-bg);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 1.3;
+
+    /* === LA LIGNE CLÉ POUR LE RETOUR À LA LIGNE === */
+    white-space: normal !important; /* Force le retour à la ligne */
+    /* ============================================ */
+
+    /* Optionnel mais recommandé pour les mots longs */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
+
 .chapter-selection-container .chapter-description-list .chapter-button:hover:not(:disabled) {
     background-color: var(--button-secondary-hover-bg);
 }

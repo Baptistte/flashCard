@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showView(viewId, data = {}) {
         const views = [
             { id: 'subject-selection', title: 'Matières' },
-            { id: 'chapter-selection', title: `Chapitres - ${currentSelectedSubject?.name || ''}` },
+            { id: 'chapter-selection', title: `${currentSelectedSubject?.name || ''}` },
             { id: 'flashcard-section', title: `Flashcards - ${currentSelectedSubject?.name || ''}` },
             { id: 'about-section', title: 'À Propos' }
         ];
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fadeInElement(targetElement, 'block');
             if (contentTitleHeader && targetViewInfo) {
                 if (viewId === 'chapter-selection' && currentSelectedSubject) {
-                    contentTitleHeader.textContent = `Chapitres - ${currentSelectedSubject.name}`;
+                    contentTitleHeader.textContent = `${currentSelectedSubject.name}`;
                 } else if (viewId === 'flashcard-section' && currentSelectedSubject) {
                      let chapterDetail = "";
                      if (currentSelectedChapterOrMode === 'all') chapterDetail = "Tous les chapitres";
