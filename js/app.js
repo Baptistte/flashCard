@@ -1,4 +1,3 @@
-// js/app.js
 import {
     loadAllData,
     loadSubjectData,
@@ -10,7 +9,6 @@ import {
     toggleFavorite,
     isFavorite,
     resetMasteredProgress,
-    resetFavorites,
     getFavoriteCount,
     resetAllProgressGlobal,
     getAvailableSubjects
@@ -18,25 +16,18 @@ import {
 import {
     setupSelectionListeners,
     displaySubjectSelection,
-    displayChapterSelection, // Utiliser displayChapterSelection pour préparer l'UI
+    displayChapterSelection,
     updateFavoriteButtonState as updateFavBtnStateChapterUI,
-    updateResetAllButtonState,
-    hideChapterSelection,
-    showChapterSelection, // Utiliser showChapterSelection pour la transition
-    hideSubjectSelection,
-    showSubjectSelectionScreen
+    updateResetAllButtonState
 } from './ui/chapterSelectUI.js';
-import { shuffleArray, isValidChapter } from './utils/helpers.js';
+import { shuffleArray } from './utils/helpers.js';
 import { initializeMermaid } from './utils/mermaidUtil.js';
 import { displayCardContent, flipCardUI, showQuestionReminder, hideQuestionReminder, updateFavoriteIcon } from './ui/flashcardUI.js';
 import { updateButtonStates as updateControlsUI, showFlipButton, showMatchPassButtons, disableAllCardControls, enableAllCardControls, setupControlsListeners } from './ui/controlsUI.js';
 import { updateProgressDisplay, hideProgress } from './ui/progressUI.js';
-import { fadeInElement, fadeOutElement } from './utils/animation.js'; // Assurer que c'est importé
+import { fadeInElement, fadeOutElement } from './utils/animation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM Loaded - Initializing App"); // LOG INIT
-
-    // --- Variables d'état globales ---
     let initialFilteredCards = [];
     let currentSessionDeck = [];
     let currentIndex = 0;
@@ -46,78 +37,117 @@ document.addEventListener('DOMContentLoaded', () => {
     let sessionMatchedCount = 0;
     let sessionPassedCount = 0;
 
-    // --- Références DOM ---
     const subjectSelectionContainer = document.getElementById('subject-selection');
     const chapterSelectionContainer = document.getElementById('chapter-selection');
     const flashcardSection = document.getElementById('flashcard-section');
+    const aboutSection = document.getElementById('about-section');
     const sessionCompleteMessage = document.getElementById('session-complete-message');
     const backBtn = document.getElementById('back-btn');
     const flashcardContainer = document.querySelector('.flashcard-container');
     const controlsContainer = document.querySelector('.controls');
     const utilityControlsContainer = document.querySelector('.utility-controls-container');
     const progressVisualContainer = document.getElementById('progress-visual-container');
-    const appTitle = document.getElementById('app-title');
+    const contentTitleHeader = document.getElementById('content-title');
+    const sidebar = document.getElementById('sidebar');
 
-    // --- Initialisation ---
     async function initializeApp() {
-        console.log("initializeApp: Starting");
         initializeMermaid();
         try {
-            await loadAllData(); // Charge juste la liste des matières maintenant
+            await loadAllData();
             const subjects = getAvailableSubjects();
-            console.log("initializeApp: Available subjects loaded:", subjects);
-            displaySubjectSelection(subjects); // chapterSelectUI affiche les matières
-            updateResetAllButtonState(Object.keys(localStorage).some(k => k.startsWith('flashcardsMastered_') || k.startsWith('flashcardsFavorites_')));
-            fadeInElement(subjectSelectionContainer);
-            setupAppListeners(); // Attacher les listeners une fois
-            console.log("initializeApp: Initialization complete");
+            displaySubjectSelection(subjects);
+            updateResetAllButtonState();
+            setupAppListeners();
+            showView('subject-selection');
+            updateActiveNavLink(document.getElementById('nav-subjects'));
         } catch (error) {
             console.error("initializeApp: Failed to initialize", error);
-            // Gérer l'affichage de l'erreur à l'utilisateur si nécessaire
+            if (contentTitleHeader) contentTitleHeader.textContent = "Erreur Initialisation";
+            const subjectButtonsDiv = document.getElementById('subject-buttons');
+            if (subjectButtonsDiv) subjectButtonsDiv.innerHTML = `<p class="error-message">Erreur lors du chargement de la configuration des matières. Veuillez vérifier le fichier subjectsConfig.json et la console pour plus de détails.</p>`;
         }
     }
 
-    // --- Logique de Sélection Matière ---
+    function showView(viewId, data = {}) {
+        const views = [
+            { id: 'subject-selection', title: 'Matières' },
+            { id: 'chapter-selection', title: `Chapitres - ${currentSelectedSubject?.name || ''}` },
+            { id: 'flashcard-section', title: `Flashcards - ${currentSelectedSubject?.name || ''}` },
+            { id: 'about-section', title: 'À Propos' }
+        ];
+
+        views.forEach(view => {
+            const el = document.getElementById(view.id);
+            if (el && el.style.display !== 'none' && view.id !== viewId) {
+                fadeOutElement(el);
+            }
+        });
+
+        const targetViewInfo = views.find(v => v.id === viewId);
+        const targetElement = document.getElementById(viewId);
+
+        if (targetElement) {
+            fadeInElement(targetElement, 'block');
+            if (contentTitleHeader && targetViewInfo) {
+                if (viewId === 'chapter-selection' && currentSelectedSubject) {
+                    contentTitleHeader.textContent = `Chapitres - ${currentSelectedSubject.name}`;
+                } else if (viewId === 'flashcard-section' && currentSelectedSubject) {
+                     let chapterDetail = "";
+                     if (currentSelectedChapterOrMode === 'all') chapterDetail = "Tous les chapitres";
+                     else if (currentSelectedChapterOrMode === 'favorites') chapterDetail = "Favoris";
+                     else if (currentSelectedChapterOrMode) chapterDetail = `Chap. ${currentSelectedChapterOrMode}`;
+                     contentTitleHeader.textContent = `${currentSelectedSubject.name} - ${chapterDetail}`;
+                }
+                else {
+                    contentTitleHeader.textContent = targetViewInfo.title;
+                }
+            }
+        }
+
+        if (backBtn) {
+            if (viewId === 'subject-selection' || viewId === 'about-section') {
+                backBtn.style.display = 'none';
+            } else {
+                backBtn.style.display = 'inline-flex';
+                if (viewId === 'chapter-selection') backBtn.dataset.targetView = 'subject-selection';
+                if (viewId === 'flashcard-section') backBtn.dataset.targetView = 'chapter-selection';
+            }
+        }
+        if (sidebar && sidebar.classList.contains('is-open') && window.innerWidth <= 768) {
+            sidebar.classList.remove('is-open');
+        }
+    }
+
+    function updateActiveNavLink(activeLink) {
+        document.querySelectorAll('.sidebar-link.active').forEach(link => link.classList.remove('active'));
+        if (activeLink) activeLink.classList.add('active');
+    }
+
     async function handleSubjectSelect(subjectFile, subjectName) {
-        console.log(`handleSubjectSelect: Subject selected - File: ${subjectFile}, Name: ${subjectName}`);
+        console.log('%c[app.js] handleSubjectSelect APPELÉ avec:', 'color: green; font-weight: bold;', subjectFile, subjectName); // LOG 5
         currentSelectedSubject = { file: subjectFile, name: subjectName };
         try {
-            console.log("handleSubjectSelect: Loading subject data...");
-            const subjectData = await loadSubjectData(subjectFile); // Charge données + localStorage matière
-            if (!subjectData || subjectData.length === 0) {
-                 console.warn(`handleSubjectSelect: No card data found for ${subjectFile}`);
-                 // Afficher un message à l'utilisateur ?
-                 // Pour l'instant, on continue pour afficher l'écran chapitre (qui dira qu'il n'y a rien)
-            } else {
-                 console.log(`handleSubjectSelect: Subject data loaded, ${subjectData.length} cards total.`);
-            }
-
-            const chapters = getChapters(); // Chapitres de la matière courante
-            const favCount = getFavoriteCount(); // Favoris de la matière courante
-            console.log(`handleSubjectSelect: Chapters found: [${chapters.join(', ')}], Favorites: ${favCount}`);
-
-            // Utiliser la fonction de chapterSelectUI pour gérer l'affichage et la transition
-            showChapterSelection(subjectName, chapters, favCount); // Affiche écran chapitres
-            console.log("handleSubjectSelect: showChapterSelection called");
-
-            if (backBtn) {
-                backBtn.style.display = 'inline-flex';
-                backBtn.title = "Retour aux matières";
-                console.log("handleSubjectSelect: Back button displayed for subject selection");
-            }
+            console.log('%c[app.js] handleSubjectSelect - Début chargement données matière...', 'color: green;');
+            await loadSubjectData(subjectFile);
+            const chapters = getChapters();
+            const favCount = getFavoriteCount();
+            console.log('%c[app.js] handleSubjectSelect - Données prêtes. Appel displayChapterSelection...', 'color: green;');
+            console.log('  Chapters:', chapters);
+            console.log('  FavCount:', favCount);
+            console.log('  SubjectName:', subjectName);
+            displayChapterSelection(chapters, favCount, subjectName);
+            console.log('%c[app.js] handleSubjectSelect - Après displayChapterSelection. Appel showView...', 'color: green;');
+            showView('chapter-selection');
+            updateActiveNavLink(document.getElementById('nav-subjects')); // Garder matières actif
         } catch (error) {
-            console.error(`handleSubjectSelect: Error loading data for ${subjectFile}`, error);
+            console.error(`%c[app.js] handleSubjectSelect: Erreur lors du chargement des données pour ${subjectFile}`, 'color: red;', error);
             alert(`Erreur lors du chargement de la matière : ${subjectName}`);
-            // Peut-être revenir à l'écran des matières ?
-            showSubjectSelectionScreen();
+            showView('subject-selection');
         }
     }
 
-    // --- Logique de démarrage de session ---
     function startFlashcards(selectedChapterOrMode) {
-        console.log(`startFlashcards: Starting session for mode/chapter: ${selectedChapterOrMode}`);
         if (!currentSelectedSubject) {
-            console.error("startFlashcards: No subject selected!");
             alert("Erreur : Aucune matière n'est sélectionnée.");
             return;
         }
@@ -125,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let baseFilteredData;
         let allMasteredInitially = false;
 
-        try { // Ajouter try/catch autour de la récupération des données
+        try {
             if (selectedChapterOrMode === 'all') {
                 baseFilteredData = getCardsForChapter(undefined);
                 initialFilteredCards = baseFilteredData.filter(card => !isMastered(card.uniqueId));
@@ -137,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
                 initialFilteredCards = [...baseFilteredData];
-            } else { // Chapitre spécifique
+            } else {
                 baseFilteredData = getCardsForChapter(Number(selectedChapterOrMode));
                 if (baseFilteredData.length === 0) {
                     alert(`Aucune carte trouvée pour le chapitre ${selectedChapterOrMode} dans cette matière.`);
@@ -152,30 +182,29 @@ document.addEventListener('DOMContentLoaded', () => {
              return;
         }
 
-
-        console.log(`startFlashcards: Initial cards for session: ${initialFilteredCards.length}, Base cards: ${baseFilteredData.length}, All mastered initially: ${allMasteredInitially}`);
-
-
         if (allMasteredInitially) {
             alert(`Félicitations ! Toutes les cartes pour cette sélection sont déjà maîtrisées.`);
-             displaySessionCompleteView(true);
-             hideChapterSelection(() => {
-                 if (backBtn) backBtn.title = "Retour aux chapitres";
-                 fadeInElement(flashcardSection, 'flex');
-                 if (progressVisualContainer) progressVisualContainer.style.display = 'block';
-                 if (sessionCompleteMessage) sessionCompleteMessage.style.display = 'block';
-                 hideQuestionReminder();
-                 if (flashcardContainer) flashcardContainer.style.display = 'none';
-                 if (controlsContainer) controlsContainer.style.display = 'none';
-                 if (utilityControlsContainer) utilityControlsContainer.style.display = 'none';
-             });
-             return;
+            showView('flashcard-section');
+            displaySessionCompleteView(true);
+            if (backBtn) backBtn.title = "Retour aux chapitres";
+            if (progressVisualContainer) progressVisualContainer.style.display = 'block';
+            if (sessionCompleteMessage) sessionCompleteMessage.style.display = 'block';
+            hideQuestionReminder();
+            if (flashcardContainer) flashcardContainer.style.display = 'none';
+            if (controlsContainer) controlsContainer.style.display = 'none';
+            if (utilityControlsContainer) utilityControlsContainer.style.display = 'none';
+            return;
         }
 
-        if (initialFilteredCards.length === 0) {
-             alert(`Aucune carte à étudier pour cette sélection.`);
+        if (initialFilteredCards.length === 0 && selectedChapterOrMode !== 'favorites') {
+             alert(`Aucune carte à étudier pour cette sélection (probablement toutes maîtrisées ou chapitre vide).`);
              return;
         }
+         if (initialFilteredCards.length === 0 && selectedChapterOrMode === 'favorites') {
+             alert("Aucune carte favorite à réviser. Avez-vous marqué des cartes comme favorites et non maîtrisées?");
+             return;
+         }
+
 
         currentSessionDeck = [...initialFilteredCards];
         currentIndex = 0;
@@ -183,27 +212,20 @@ document.addEventListener('DOMContentLoaded', () => {
         sessionMatchedCount = 0;
         sessionPassedCount = 0;
 
-        console.log("startFlashcards: Hiding chapter selection, showing flashcard section");
-        hideChapterSelection(() => {
-            shuffleDeck();
-            if (backBtn) backBtn.title = "Retour aux chapitres";
-            fadeInElement(flashcardSection, 'flex');
-            if (progressVisualContainer) progressVisualContainer.style.display = 'block';
-            hideSessionCompleteMessage();
-            hideQuestionReminder();
-        });
+        shuffleDeck();
+        showView('flashcard-section');
+        if (backBtn) backBtn.title = "Retour aux chapitres";
+        if (progressVisualContainer) progressVisualContainer.style.display = 'block';
+        hideSessionCompleteMessage();
+        hideQuestionReminder();
     }
 
-    // --- Logique d'affichage de carte ---
     async function showCard(index) {
-        console.log(`showCard: Attempting to show card at index ${index}. Deck size: ${currentSessionDeck?.length}`);
         if (!currentSessionDeck || currentSessionDeck.length === 0) {
-            console.log("showCard: No cards left in deck, displaying session complete.");
             displaySessionCompleteView();
             return;
         }
         if (index < 0 || index >= currentSessionDeck.length) {
-             console.warn(`showCard: Invalid index ${index}, resetting to 0.`);
              currentIndex = 0;
              index = 0;
              if (currentSessionDeck.length === 0) {
@@ -213,8 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const currentCard = currentSessionDeck[index];
-        console.log("showCard: Displaying card:", currentCard?.uniqueId);
-        await displayCardContent(currentCard); // Géré par flashcardUI
+        await displayCardContent(currentCard);
 
         hideSessionCompleteMessage();
         if(flashcardContainer) flashcardContainer.style.display = 'block';
@@ -227,9 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showFlipButton();
     }
 
-    // --- Logique de navigation et d'action ---
     function flip() {
-        console.log("flip: Flipping card");
         if (!currentSessionDeck || currentSessionDeck.length === 0) return;
         const isNowFlipped = flipCardUI();
         if (isNowFlipped) {
@@ -244,19 +263,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function match() {
-        console.log("match: Card matched");
-         if (!currentSessionDeck || currentSessionDeck.length === 0) return;
+        if (!currentSessionDeck || currentSessionDeck.length === 0) return;
         const matchedCard = currentSessionDeck[currentIndex];
-        console.log("match: Matched card ID:", matchedCard?.uniqueId);
 
         if (currentSelectedChapterOrMode === 'favorites' && isFavorite(matchedCard.uniqueId)) {
-            console.log("match: Removing from favorites (in fav mode)");
             toggleFavorite(matchedCard.uniqueId);
             updateFavBtnStateChapterUI(getFavoriteCount());
         }
 
         if (currentSelectedChapterOrMode !== 'favorites') {
-             console.log("match: Adding to mastered");
             addMastered(matchedCard.uniqueId);
         }
         sessionMatchedCount++;
@@ -265,19 +280,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentIndex >= currentSessionDeck.length) {
             currentIndex = Math.max(0, currentSessionDeck.length - 1);
         }
-        console.log("match: Hiding reminder and showing next card");
         hideQuestionReminder(() => {
             showCard(currentIndex);
         });
    }
 
     function pass() {
-        console.log("pass: Card passed");
         if (!currentSessionDeck || currentSessionDeck.length <= 1) {
-             console.log("pass: Only one card left, treating as match");
              sessionPassedCount++;
               hideQuestionReminder(() => {
-                  showCard(currentIndex); // Réaffiche la même puis déclenchera fin si c'est la dernière
+                  showCard(currentIndex);
               });
              return;
          }
@@ -290,19 +302,16 @@ document.addEventListener('DOMContentLoaded', () => {
             newIndex = Math.floor(Math.random() * (maxIndex - minInsertIndex + 1)) + minInsertIndex;
         } while (newIndex === currentIndex && currentSessionDeck.length > 0);
         currentSessionDeck.splice(newIndex, 0, passedCard);
-        console.log(`pass: Reinserted card ${passedCard?.uniqueId} at index ${newIndex}`);
 
         if (currentIndex >= currentSessionDeck.length) {
              currentIndex = Math.max(0, currentSessionDeck.length - 1);
         }
-        console.log("pass: Hiding reminder and showing card at current index:", currentIndex);
          hideQuestionReminder(() => {
             showCard(currentIndex);
         });
     }
 
     function prev() {
-        console.log("prev: Going to previous card");
         if (currentIndex > 0) {
             currentIndex--;
              hideQuestionReminder(() => {
@@ -312,7 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function shuffleDeck() {
-        console.log("shuffleDeck: Shuffling remaining cards");
          if (currentSessionDeck && currentSessionDeck.length > 1) {
              currentSessionDeck = shuffleArray(currentSessionDeck);
              currentIndex = 0;
@@ -327,7 +335,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displaySessionCompleteView(allMasteredInitially = false) {
-        console.log("displaySessionCompleteView: Session ended. All mastered initially:", allMasteredInitially);
         const sessionEndTime = new Date();
         let timeSpent = '';
         if (sessionStartTime) {
@@ -365,78 +372,61 @@ document.addEventListener('DOMContentLoaded', () => {
              if (!sessionCompleteMessage.querySelector('#restart-session-btn')) {
                  sessionCompleteMessage.insertAdjacentHTML('beforeend', restartBtnHTML);
              }
-         } else {
+         } else if (sessionCompleteMessage) {
              sessionCompleteMessage.innerHTML = completionTextHTML + restartBtnHTML;
          }
 
-         fadeInElement(sessionCompleteMessage, 'block');
-         const restartBtn = document.getElementById('restart-session-btn');
-         if(restartBtn) {
+        if(sessionCompleteMessage) fadeInElement(sessionCompleteMessage, 'block');
+        const restartBtn = document.getElementById('restart-session-btn');
+        if(restartBtn) {
             restartBtn.removeEventListener('click', restartSession);
             restartBtn.addEventListener('click', restartSession);
-         }
+        }
     }
 
-     function hideSessionCompleteMessage() {
+    function hideSessionCompleteMessage() {
         if (sessionCompleteMessage && sessionCompleteMessage.style.display !== 'none') {
             sessionCompleteMessage.style.display = 'none';
         }
     }
 
     function restartSession() {
-        console.log("restartSession: Restarting current session");
-         if(currentSelectedChapterOrMode !== null) {
-             hideSessionCompleteMessage();
-             if(flashcardContainer) flashcardContainer.style.display = 'block';
-             if(controlsContainer) controlsContainer.style.display = 'flex';
-             if(utilityControlsContainer) utilityControlsContainer.style.display = 'flex';
-             startFlashcards(currentSelectedChapterOrMode);
-         } else {
-            console.log("restartSession: No current selection, going back to subject select");
-             navigateBack(); // Devrait ramener à la sélection matière si rien n'est sélectionné
-         }
+        if(currentSelectedChapterOrMode !== null) {
+            hideSessionCompleteMessage();
+            if(flashcardContainer) flashcardContainer.style.display = 'block';
+            if(controlsContainer) controlsContainer.style.display = 'flex';
+            if(utilityControlsContainer) utilityControlsContainer.style.display = 'flex';
+            startFlashcards(currentSelectedChapterOrMode);
+        } else {
+            navigateBack();
+        }
     }
 
-     function navigateBack() {
-        const isFlashcardVisible = flashcardSection.style.display !== 'none' && !flashcardSection.classList.contains('fade-out');
-        const isChapterSelectVisible = chapterSelectionContainer.style.display !== 'none' && !chapterSelectionContainer.classList.contains('fade-out');
-
-        if (isFlashcardVisible) {
-            console.log("navigateBack: From Flashcards to Chapters");
-            fadeOutElement(flashcardSection, () => {
-                 const chapters = getChapters();
-                 const favCount = getFavoriteCount();
-                 displayChapterSelection(chapters, favCount, currentSelectedSubject?.name); // Prépare
-                 fadeInElement(chapterSelectionContainer); // Affiche
-                 if (backBtn) {
-                    backBtn.style.display = 'inline-flex';
-                    backBtn.title = "Retour aux matières";
-                 }
-                 currentSelectedChapterOrMode = null;
-                 initialFilteredCards = [];
-                 currentSessionDeck = [];
-                 currentIndex = 0;
-                 displayCardContent(null);
-                 hideSessionCompleteMessage();
-                 hideProgress();
-                 hideQuestionReminder();
-                 disableAllCardControls();
-            });
-        } else if (isChapterSelectVisible) {
-            console.log("navigateBack: From Chapters to Subjects");
-            fadeOutElement(chapterSelectionContainer, () => {
-                showSubjectSelectionScreen(); // Affiche écran matières
-                if (backBtn) backBtn.style.display = 'none';
-                currentSelectedSubject = null;
-                if (appTitle) appTitle.textContent = "Flashcards";
-            });
+    function navigateBack() {
+        const targetView = backBtn.dataset.targetView;
+        if (targetView === 'chapter-selection') {
+            showView('chapter-selection');
+            updateActiveNavLink(document.getElementById('nav-subjects'));
+            currentSelectedChapterOrMode = null;
+            initialFilteredCards = [];
+            currentSessionDeck = [];
+            currentIndex = 0;
+            displayCardContent(null);
+            hideSessionCompleteMessage();
+            hideProgress();
+            hideQuestionReminder();
+            disableAllCardControls();
+        } else if (targetView === 'subject-selection') {
+            showView('subject-selection');
+            updateActiveNavLink(document.getElementById('nav-subjects'));
+            currentSelectedSubject = null;
         } else {
-             console.log("navigateBack: Already at subject selection or unknown state.");
+            showView('subject-selection');
+            updateActiveNavLink(document.getElementById('nav-subjects'));
         }
     }
 
     function handleResetCurrent() {
-        console.log("handleResetCurrent: Attempting reset for selection:", currentSelectedChapterOrMode);
         if (currentSelectedChapterOrMode === null || !currentSelectedSubject || currentSelectedChapterOrMode === 'favorites') {
             alert("Cette option n'est pas disponible pour le mode 'Favoris' ou si aucune sélection n'est active.");
             return;
@@ -444,21 +434,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const chapterToReset = currentSelectedChapterOrMode;
         const chapterLabel = chapterToReset === 'all' ? `tous les chapitres de ${currentSelectedSubject.name}` : `le chapitre ${chapterToReset} de ${currentSelectedSubject.name}`;
         if (confirm(`Êtes-vous sûr de vouloir oublier la progression pour ${chapterLabel} ? Vous retournerez à l'écran de sélection des chapitres.`)) {
-             console.log("handleResetCurrent: Resetting progress for", chapterToReset);
              resetMasteredProgress(chapterToReset === 'all' ? undefined : Number(chapterToReset));
-             navigateBack(); // Retourne à la sélection des chapitres
+             showView('chapter-selection');
+             displayChapterSelection(getChapters(), getFavoriteCount(), currentSelectedSubject.name);
          }
     }
 
     function handleResetAll() {
-        console.log("handleResetAll: Attempting reset all progress");
          if (confirm("Êtes-vous sûr de vouloir oublier TOUTE la progression (cartes maîtrisées ET favoris) pour TOUTES les matières ?")) {
              if (confirm("VRAIMENT TOUT ? Cette action est irréversible.")) {
-                 console.log("handleResetAll: Confirming full reset");
                  resetAllProgressGlobal();
                  alert("Toute la progression et les favoris ont été réinitialisés.");
-                 updateResetAllButtonState(true);
-                 updateFavBtnStateChapterUI(0);
+                 updateResetAllButtonState();
+                 if(currentSelectedSubject) {
+                     updateFavBtnStateChapterUI(getFavoriteCount());
+                 } else {
+                     updateFavBtnStateChapterUI(0);
+                 }
              }
          }
     }
@@ -471,35 +463,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const isFlipped = document.querySelector('.flashcard')?.classList.contains('is-flipped');
         let canResetCurrent = false;
-        if (currentSelectedChapterOrMode !== 'favorites' && currentSelectedSubject && initialFilteredCards.length > 0) { // Ajout vérif initialFilteredCards > 0
+        if (currentSelectedChapterOrMode !== 'favorites' && currentSelectedSubject && initialFilteredCards.length > 0) {
              const allCardsForSelection = getCardsForChapter(currentSelectedChapterOrMode === 'all' ? undefined : Number(currentSelectedChapterOrMode));
-             canResetCurrent = initialFilteredCards.length < allCardsForSelection.length; // Possible si des cartes ont été maîtrisées
+             canResetCurrent = initialFilteredCards.length < allCardsForSelection.length;
         }
 
         updateControlsUI({
             hasCards: currentSessionDeck.length > 0,
             isFirst: currentIndex === 0,
             isLast: currentIndex === currentSessionDeck.length - 1,
-            isFlipped: !!isFlipped, // Convertir en booléen
+            isFlipped: !!isFlipped,
             canShuffle: currentSessionDeck.length > 1,
             canReset: canResetCurrent
         });
 
         if (currentSessionDeck.length > 0 && currentSessionDeck[currentIndex]) {
              updateFavoriteIcon(isFavorite(currentSessionDeck[currentIndex].uniqueId));
-         } else {
+        } else {
              updateFavoriteIcon(false);
-         }
+        }
     }
 
     function setupAppListeners() {
-         setupSelectionListeners({
-             onSubjectClick: handleSubjectSelect,
-             onChapterClick: (chapterNum) => startFlashcards(chapterNum),
-             onAllClick: () => startFlashcards('all'),
-             onFavoritesClick: () => startFlashcards('favorites'),
-             onResetAllClick: handleResetAll
-         });
+        console.log('%c[app.js] setupAppListeners APPELÉ.', 'color: blue; font-weight: bold;'); // LOG 6
+        setupSelectionListeners({
+            onSubjectClick: handleSubjectSelect,
+            onChapterClick: (chapterNum) => startFlashcards(chapterNum),
+            onAllClick: () => startFlashcards('all'),
+            onFavoritesClick: () => startFlashcards('favorites')
+        });
 
         setupControlsListeners({
             onPrev: prev,
@@ -512,13 +504,44 @@ document.addEventListener('DOMContentLoaded', () => {
             onRestart: restartSession
         });
 
+        const navSubjectsBtn = document.getElementById('nav-subjects');
+        const navAboutBtn = document.getElementById('nav-about');
+        const sidebarToggleBtn = document.getElementById('sidebar-toggle');
+        const resetAllSidebarBtn = document.getElementById('reset-all-progress-btn-sidebar');
+
+        if (navSubjectsBtn) {
+            navSubjectsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showView('subject-selection');
+                updateActiveNavLink(navSubjectsBtn);
+                currentSelectedSubject = null;
+                currentSelectedChapterOrMode = null;
+            });
+        }
+        if (navAboutBtn) {
+            navAboutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showView('about-section');
+                updateActiveNavLink(navAboutBtn);
+            });
+        }
+        if (sidebarToggleBtn && sidebar) {
+            sidebarToggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('is-open');
+            });
+        }
+        if (resetAllSidebarBtn) {
+            resetAllSidebarBtn.addEventListener('click', handleResetAll);
+        }
+
+
         const toggleFavoriteBtnQ = document.getElementById('toggle-favorite-btn-question');
         const toggleFavoriteBtnA = document.getElementById('toggle-favorite-btn-answer');
         if (toggleFavoriteBtnQ) toggleFavoriteBtnQ.addEventListener('click', handleToggleFavoriteApp);
         if (toggleFavoriteBtnA) toggleFavoriteBtnA.addEventListener('click', handleToggleFavoriteApp);
 
         if (backBtn) {
-            backBtn.removeEventListener('click', navigateBack); // Nettoyer au cas où
+            backBtn.removeEventListener('click', navigateBack);
             backBtn.addEventListener('click', navigateBack);
         }
         document.addEventListener('keydown', handleKeyPress);
@@ -530,21 +553,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const flipBtnRef = document.getElementById('flip-btn');
                 if (!flashcardElement.classList.contains('is-flipped') && flipBtnRef && !flipBtnRef.disabled) {
                      flip();
-                 }
+                }
             });
         }
     }
 
     function handleToggleFavoriteApp() {
-        if (!currentSessionDeck || currentSessionDeck.length === 0) return;
+        if (!currentSessionDeck || currentSessionDeck.length === 0 || !currentSessionDeck[currentIndex]) return;
         const currentCard = currentSessionDeck[currentIndex];
-        if (!currentCard) return;
-        console.log(`handleToggleFavoriteApp: Toggling favorite for ${currentCard.uniqueId}`);
         toggleFavorite(currentCard.uniqueId);
         updateFavoriteIcon(isFavorite(currentCard.uniqueId));
         updateFavBtnStateChapterUI(getFavoriteCount());
     }
-
 
     function handleKeyPress(event) {
         const activeElement = document.activeElement;
@@ -557,9 +577,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const isSubjectSelectVisible = subjectSelectionContainer.style.display !== 'none';
         const isFlipped = document.querySelector('.flashcard')?.classList.contains('is-flipped');
         const isSessionComplete = sessionCompleteMessage.style.display !== 'none';
-        const areControlsVisible = document.getElementById('controls')?.style.display !== 'none';
+        const controlsAreVisible = controlsContainer?.style.display !== 'none';
 
-        if (isFlashcardSectionVisible && !isSessionComplete && currentSessionDeck && currentSessionDeck.length > 0 && areControlsVisible) {
+        if (isFlashcardSectionVisible && !isSessionComplete && currentSessionDeck && currentSessionDeck.length > 0 && controlsAreVisible) {
             const prevBtnDisabled = document.getElementById('prev-btn')?.disabled;
             const matchBtnDisabled = document.getElementById('match-btn')?.disabled;
             const passBtnDisabled = document.getElementById('pass-btn')?.disabled;
@@ -574,26 +594,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 case ' ': case 'ArrowUp': if (!isFlipped && !flipBtnDisabled) { event.preventDefault(); flip(); } break;
                 case 'm': case 'M': if (!shuffleBtnDisabled) { event.preventDefault(); shuffleDeck(); } break;
                 case 'f': case 'F': if(!favoriteBtnDisabled) {event.preventDefault(); handleToggleFavoriteApp();} break;
-                case 'Escape': if (backBtn.style.display !== 'none') { event.preventDefault(); navigateBack(); } break;
             }
-        } else if (isChapterSelectVisible && !chapterSelectionContainer.classList.contains('fade-out')) {
+        }
+
+        if (event.key === 'Escape') {
+             if (backBtn.style.display !== 'none') { event.preventDefault(); navigateBack(); }
+             else if (sidebar && sidebar.classList.contains('is-open')) { sidebar.classList.remove('is-open'); }
+        }
+
+
+        if (isChapterSelectVisible && !chapterSelectionContainer.classList.contains('fade-out')) {
             if (event.key === 'Enter') {
                  if (document.activeElement && document.activeElement.classList.contains('chapter-button')) { document.activeElement.click(); }
                  else if (document.activeElement?.id === 'start-all-chapters-btn' && !document.activeElement?.disabled) { document.activeElement.click(); }
                  else if (document.activeElement?.id === 'start-favorites-btn' && !document.activeElement?.disabled) { document.activeElement.click(); }
-             } else if (event.key === 'Escape') {
-                 if (backBtn.style.display !== 'none') { event.preventDefault(); navigateBack(); }
              }
         } else if (isSubjectSelectVisible && !subjectSelectionContainer.classList.contains('fade-out')) {
             if (event.key === 'Enter') {
-                 if (document.activeElement && document.activeElement.classList.contains('subject-button')) { document.activeElement.click(); }
+                 if (document.activeElement && document.activeElement.classList.contains('subject-widget')) { document.activeElement.click(); }
              }
         } else if (isSessionComplete) {
              const restartBtn = document.getElementById('restart-session-btn');
              if (event.key === 'Enter' || event.key === 'r' || event.key === 'R') {
                 if(restartBtn) restartSession();
-             } else if (event.key === 'Escape') {
-                  if (backBtn.style.display !== 'none') { event.preventDefault(); navigateBack(); }
              }
         }
     }

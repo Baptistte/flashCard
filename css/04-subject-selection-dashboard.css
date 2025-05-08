@@ -1,0 +1,93 @@
+.subject-selection-container h3 {
+    color: var(--header-color);
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+.subject-selection-container h3 .section-icon {
+    font-size: 1.1em;
+}
+
+.subject-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.subject-buttons-grid p {
+    grid-column: 1 / -1;
+    color: var(--button-secondary-bg);
+    font-style: italic;
+    padding: 20px 0;
+    text-align: center;
+}
+.subject-widget {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.subject-widget:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--button-primary-bg);
+}
+
+.subject-widget h3 {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: var(--button-primary-bg);
+    margin-top: 0;
+    margin-bottom: 8px;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.subject-widget p {
+    font-size: 0.9em;
+    color: var(--text-color-darker);
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+
+#about-section .info-widget,
+#about-section .contribution-widget {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 25px;
+    width: 100%;
+}
+#about-section .info-widget { border-left: 3px solid var(--button-primary-bg); padding-left: 15px;}
+#about-section .contribution-widget { border-left: 3px solid var(--button-favorite-bg); padding-left: 15px;}
+
+
+#about-section .info-widget h3,
+#about-section .contribution-widget h3 {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#about-section .info-widget ul li,
+#about-section .contribution-widget ul li {
+    font-size: 0.95em;
+}

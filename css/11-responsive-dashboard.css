@@ -1,0 +1,98 @@
+@media (max-width: 992px) {
+    :root {
+        --sidebar-width: 220px;
+    }
+    .sidebar-link {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+    .sidebar-link svg {
+        margin-right: 10px;
+    }
+    #app-title-sidebar {
+        font-size: 1.2em;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+    .sidebar.is-open {
+        transform: translateX(0);
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .sidebar-toggle-btn {
+        display: block;
+    }
+    .main-content-header {
+        padding: 0 15px;
+    }
+    .content-wrapper {
+        padding: 15px;
+    }
+    .page-section {
+        padding: 20px;
+    }
+
+    .subject-buttons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+    }
+    .match-pass-group {
+        flex-basis: 100%;
+        margin-top: 8px;
+    }
+    .utility-controls-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .utility-controls-container button {
+        width: 100%;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .chapter-selection-container .chapter-description-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .chapter-selection-container .chapter-description-list .chapter-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --sidebar-width: 240px; /* Full width when open on small screens */
+    }
+     #content-title {
+        font-size: 1.1em;
+    }
+    .page-section {
+        padding: 15px;
+    }
+    .controls {
+        display: block;
+    }
+    .nav-button, .utility-button, .match-pass-group button {
+        width: 100%;
+        margin-bottom: 8px;
+        font-size: 0.9em;
+    }
+    .match-pass-group {
+        display: flex;
+        width: 100%;
+        gap: 8px;
+        margin-top: 0;
+    }
+}

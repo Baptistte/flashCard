@@ -46,5 +46,22 @@
           "8": "Haut Moyen Âge: Période Franque - Mérovingiens (conception pouvoir, personnalité lois), Carolingiens (sacre, empire).",
           "9": "Haut Moyen Âge: Féodalité (IXe-XIIe) - Morcellement, relation féodo-vassalique, royauté affaiblie, coutumes."
         }
+    },
+    {
+        "file": "fpb.json",
+        "name": "Finances Publiques",
+        "description": "Analyse des sources, principes et procédures régissant le budget de l'État et des autres administrations publiques en France.",
+        "chapterDescriptions": {
+          "0": "Sources Internes: Cadre Constitutionnel (DDHC, Art 34-72) et Organique (LOLF : objectifs, principes, force).",
+          "1": "Sources Internes: Décret GBCP (exécution, ordonnateur/comptable), autres sources (LPFP, règlements assemblées, budgets CL).",
+          "2": "Lois de Finances: Typologie (LFI, LFR, LGFG, LRGAC, LFS), portée juridique, contenu LFI (partie 1 obligatoire/exclusif).",
+          "3": "Lois de Finances: Contenu LFI (partie 2 obligatoire/exclusif), domaine facultatif exclusif, domaine partagé, lois spéciales.",
+          "4": "Autres Sources Internes: Lois de Programmation (LPFP - objectif, portée), Règlements des Assemblées (rôle, contrôle).",
+          "5": "Autres Sources Internes: Actes d'Exécution (décrets répartition/avance/annulation), Budgets des Collectivités Locales.",
+          "6": "Principes Budgétaires: Annualité (signification, adaptations AECP/reports), Unité (signification, dérogations BA/CS partie 1).",
+          "7": "Principes Budgétaires: Universalité (non-contraction/non-affectation, dérogations), Spécialité (signification, fongibilité), Unité (CS partie 2).",
+          "8": "Principes Budgétaires: Sincérité (budgétaire/comptable, jurisprudence), Équilibre (contenu, portée, maîtrise).",
+          "9": "Préparation & Vote Budget: Autorités responsables, calendriers (externe/interne), étapes élaboration, documents, discussion Parlement."
+        }
       }
 ]

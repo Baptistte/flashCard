@@ -1,0 +1,30 @@
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+.fade-in {
+    animation: fadeIn var(--animation-duration) ease-out forwards;
+}
+
+.fade-out {
+    animation: fadeOut var(--animation-duration) ease-in forwards;
+}
+
+@keyframes heart-pulse {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .fade-out, .heart-animation.animate-heart { animation: none !important; }
+  .flashcard { transition: none !important; }
+  .progress-bar-inner { transition: none !important; }
+  .question-reminder-container { transition: none !important; }
+}
