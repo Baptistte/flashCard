@@ -64,27 +64,86 @@
     flex-grow: 1;
 }
 
-.chapter-selection-container .start-button,
-.chapter-selection-container .favorites-button {
-    padding: 10px 15px;
+
+/* ... (styles existants pour .chapter-selection-container, etc.) ... */
+
+/* NOUVEAU: Conteneur pour les boutons d'action en bas */
+.chapter-start-actions {
+    display: flex;
+    flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
+    justify-content: center; /* Centre les boutons horizontalement */
+    gap: 15px; /* Espace entre les boutons */
+    margin-top: 30px; /* Espace au-dessus des boutons */
+    padding-top: 20px; /* Espace intérieur */
+    border-top: 1px solid var(--border-color); /* Séparateur visuel */
+}
+
+/* NOUVEAU: Style de base pour les boutons d'action */
+.action-button {
+    border: 0px solid white;
+    /* Hérite de .styled-button pour la base */
+    padding: 10px 20px; /* Padding ajusté */
     font-size: 0.95em;
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    margin: 15px auto 0 auto;
+    border-radius: 6px; /* Bordures légèrement moins arrondies ? Ou var(--border-radius) */
+    font-weight: 500;
+    /* Permettre aux boutons de grandir mais base flexible */
+    flex-grow: 1;
+    flex-basis: 200px; /* Largeur minimale avant de wrapper */
+    max-width: 300px; /* Limite la largeur max */
+    display: inline-flex; /* Assure l'alignement icône/texte */
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
-.chapter-selection-container .start-button {
+
+.action-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Style spécifique pour le bouton "Tous les chapitres" */
+.action-button.primary-button {
     background-color: var(--button-primary-bg);
+    color: #fff;
+    border: 0px solid white;
 }
-.chapter-selection-container .start-button:hover:not(:disabled) {
+.action-button.primary-button:hover:not(:disabled) {
     background-color: var(--button-primary-hover-bg);
+    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
 }
-.chapter-selection-container .favorites-button {
+.action-button.primary-button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+/* Style spécifique pour le bouton "Favoris" */
+.action-button.favorites-button {
     background-color: var(--button-favorite-bg);
+    color: #fff;
 }
-.chapter-selection-container .favorites-button:hover:not(:disabled) {
+.action-button.favorites-button:hover:not(:disabled) {
     background-color: var(--button-favorite-hover-bg);
+     box-shadow: 0 3px 8px rgba(111, 66, 193, 0.3);
 }
-.chapter-selection-container .favorites-button svg {
-    color: var(--favorite-star-color);
+.action-button.favorites-button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+.action-button.favorites-button svg {
+    color: var(--favorite-star-color); /* Garde l'étoile jaune */
+}
+
+
+
+/* Ajustements Responsifs pour les boutons d'action */
+@media (max-width: 520px) {
+    .chapter-start-actions {
+        flex-direction: column; /* Empiler les boutons */
+        align-items: center; /* Centrer les boutons empilés */
+        gap: 10px;
+    }
+    .action-button {
+        flex-basis: auto; /* Enlever la base flex */
+        width: 100%; /* Prendre toute la largeur */
+        max-width: 320px; /* Limiter quand même */
+    }
 }
