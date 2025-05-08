@@ -91,3 +91,32 @@
 .utility-button.reset-button:hover:not(:disabled) {
     background-color: var(--button-reset-hover-bg);
 }
+
+/* === AJUSTER LA RESPONSIVITÉ === */
+/* Sur les écrans plus petits, 50% peut être trop étroit */
+@media (max-width: 992px) { /* Ajustez ce breakpoint si nécessaire */
+    .controls {
+        max-width: 75%; /* Augmente la largeur max */
+    }
+}
+
+@media (max-width: 768px) {
+    .controls {
+        max-width: 90%; /* Encore plus large sur tablettes */
+        flex-wrap: wrap; /* Important de garder ça */
+    }
+    /* Les styles existants pour .match-pass-group en tablette devraient rester */
+    .match-pass-group { flex-basis: 100%; margin-top: 8px; }
+}
+
+@media (max-width: 480px) {
+    .controls {
+        max-width: 100%; /* Prend toute la largeur sur mobile */
+        display: block; /* Revenir à l'empilement si flex ne marche plus bien */
+         margin-left: 0; /* Annuler le centrage auto si display: block */
+         margin-right: 0;
+    }
+    /* Les styles existants pour les boutons en mobile doivent être réappliqués/vérifiés */
+     .nav-button, .utility-button, .match-pass-group button { width: 100%; margin-bottom: 8px; font-size: 0.9em; }
+     .match-pass-group { display: flex; width: 100%; gap: 8px; margin-top: 0; }
+}

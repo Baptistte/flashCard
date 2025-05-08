@@ -16,7 +16,8 @@
 
 .subject-buttons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, max(280px, 30%)), 1fr));
+
     gap: 20px;
     width: 100%;
 }
@@ -65,29 +66,70 @@
 }
 
 
+#about-section {
+    padding: 30px;
+    background-color: #f8fafc;
+}
+
 #about-section .info-widget,
 #about-section .contribution-widget {
-    background-color: transparent;
+    background-color: #ffffff;
     border: none;
-    box-shadow: none;
-    padding: 0;
-    margin-top: 0;
-    margin-bottom: 25px;
-    width: 100%;
+    border-left: 5px solid var(--button-primary-bg);
+    border-radius: 12px;
+    padding: 25px 25px 20px 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-#about-section .info-widget { border-left: 3px solid var(--button-primary-bg); padding-left: 15px;}
-#about-section .contribution-widget { border-left: 3px solid var(--button-favorite-bg); padding-left: 15px;}
 
+#about-section .contribution-widget {
+    border-left-color: var(--button-favorite-bg);
+}
+
+#about-section .info-widget:hover,
+#about-section .contribution-widget:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
 
 #about-section .info-widget h3,
 #about-section .contribution-widget h3 {
-    font-size: 1.2em;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--header-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
 }
 
-#about-section .info-widget ul li,
-#about-section .contribution-widget ul li {
-    font-size: 0.95em;
+#about-section .info-widget p,
+#about-section .contribution-widget p {
+    font-size: 1em;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
+
+#about-section ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+#about-section ul li {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    position: relative;
+    padding-left: 15px;
+}
+
+#about-section ul li::before {
+    position: absolute;
+    left: 0;
+    color: var(--button-primary-bg);
+    font-weight: bold;
+}
+
