@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     contentTitleHeader.textContent = `${currentSelectedSubject.name}`;
                 } else if (viewId === 'flashcard-section' && currentSelectedSubject) {
                      let chapterDetail = "";
-                     if (currentSelectedChapterOrMode === 'all') chapterDetail = "Tous les chapitres";
+                     if (currentSelectedChapterOrMode === 'all') chapterDetail = "";
                      else if (currentSelectedChapterOrMode === 'favorites') chapterDetail = "Favoris";
                      else if (currentSelectedChapterOrMode) chapterDetail = `Chap. ${currentSelectedChapterOrMode}`;
                      contentTitleHeader.textContent = `${currentSelectedSubject.name} - ${chapterDetail}`;
