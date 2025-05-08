@@ -63,5 +63,26 @@
           "8": "Principes Budgétaires: Sincérité (budgétaire/comptable, jurisprudence), Équilibre (contenu, portée, maîtrise).",
           "9": "Préparation & Vote Budget: Autorités responsables, calendriers (externe/interne), étapes élaboration, documents, discussion Parlement."
         }
+    },
+    {
+      "file": "anglais.json",
+      "name": "Anglais Juridique",
+      "description": "Key concepts and cases in US Criminal Procedure (Miranda, OJ Simpson), Tort Law (Negligence, Duty of Care, Product Liability), and Contract Law (Offer/Acceptance).",
+      "chapterDescriptions": {
+        "0": "S3 - WYSK 1: Miranda v. Arizona - Custody, miscarriage of justice, facts, procedure, arguments, decision, rights.",
+        "1": "S3 - WYSK 2: Historical Context & OJ Simpson (Pre-Trial) - Watts Riots, LAPD attitude, Rodney King, OJ background, the murders.",
+        "2": "S3 - WYSK 3: OJ Simpson Trial (Criminal) - Evidence, arrest, charges, legal team, pleas, judge, jury selection, verdict.",
+        "3": "S3 - WYSK 4: OJ Simpson Trial (Civil) - Differences civil/criminal, wrongful death, double jeopardy, verdict, damages, book.",
+        "4": "S3 - WYSK 5: Mark Chapman Case - Background, obsession, the crime, insanity defense, plea, sentence.",
+        "5": "S4 - WYSK 1: Tort Law Intro - Civil vs Criminal, tort categories, negligence elements, duty of care (*Donoghue*), reasonable person (*Hall*).",
+        "6": "S4 - WYSK 2: Specific Negligence/Nuisance Case - Analysis of facts, arguments, verdicts (trial/appeal), cost/benefit reasoning.",
+        "7": "S4 - WYSK 3: Ford Pinto Case - Design flaw, accidents, liability, damages (compensatory/punitive), cost-benefit analysis, impact.",
+        "8": "S4 - WYSK 4: Litigation Culture & Liebeck v. McDonald's - Frivolous litigation, 'hot coffee' case facts, arguments, outcome, tort reform.",
+        "9": "S4 - WYSK 5: Palsgraf v. Long Island RR - Facts, duty of care debate (Cardozo vs Andrews), foreseeability, proximate cause.",
+        "10": "S4 - WYSK 6: Privity & MacPherson v. Buick - Privity of contract, Industrial Revolution, *MacPherson* facts, Cardozo's reasoning, precedents.",
+        "11": "S4 - WYSK 7: Donoghue v. Stevenson Analysis - Neighbour principle revisited, Lord Atkin's method, use of precedents.",
+        "12": "S4 - WYSK 8: Allen v. Farrow Custody Case - Background, legal process, arguments, 'best interests' standard, outcome.",
+        "13": "S4 - WYSK 9: Carlill v. Carbolic Smoke Ball - Unilateral contracts, offer vs puff, acceptance by performance, consideration."
+      }
     }
 ]
