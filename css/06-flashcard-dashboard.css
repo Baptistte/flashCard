@@ -16,15 +16,17 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 45px; /* AJOUT: Espace réservé en haut pour le rappel */
+    box-sizing: border-box; /* Inclure le padding dans la taille totale si nécessaire */
 }
 
 .question-reminder-container {
     position: absolute;
-    top: 0;
+    top: 0; /* MODIFIÉ: Aligné au VRAI haut du conteneur (dans le padding) */
     left: 0;
     right: 0;
     z-index: 5;
-    width: auto;
+    width: auto; /* Laisser left/right gérer la largeur */
     background-color: var(--reminder-bg);
     border: 1px solid var(--reminder-border);
     border-radius: calc(var(--border-radius) / 2);
@@ -32,13 +34,14 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     opacity: 0;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    transform: translateY(-100%);
+    transform: translateY(-100%); /* Commence au-dessus */
     box-sizing: border-box;
+    margin-bottom: 0; /* Annule l'ancienne marge négative */
 }
 
 .question-reminder-container.fade-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* Position finale en haut */
 }
 
 
@@ -46,10 +49,10 @@
     font-size: 0.85em;
     color: var(--reminder-text);
     font-style: italic;
-    text-align: left;
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
+    text-align: left; /* MODIFIÉ: Alignement gauche */
+    white-space: normal; /* MODIFIÉ: Permet le retour à la ligne */
+    overflow: visible; /* MODIFIÉ: Permet l'affichage complet */
+    text-overflow: clip; /* MODIFIÉ: Annule les "..." */
     margin: 0;
 }
 
@@ -260,8 +263,15 @@
     }
 }
 
+/* Optionnel: Si le rappel dépasse encore sur mobile après ces changements */
+@media (max-width: 768px) {
+
+}
+
+
 @media (max-width: 768px) {
     .flashcard-container {
+        padding-top: 50px; /* Augmenter légèrement l'espace si besoin */
         max-width: 100%;
     }
     .flashcard {
@@ -286,6 +296,7 @@
     }
     .question-reminder-container p {
         font-size: 0.8em;
+        line-height: 1.4; /* Contrôler l'interligne */
     }
      .favorite-toggle-btn {
         right: 10px;
