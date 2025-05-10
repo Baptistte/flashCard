@@ -588,9 +588,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const favoriteBtnDisabled = document.getElementById('toggle-favorite-btn-question')?.disabled;
 
             switch (event.key) {
-                case 'ArrowLeft': if (!prevBtnDisabled) { event.preventDefault(); prev(); } break;
+                case 'ArrowLeft': if (isFlipped && !passBtnDisabled) { event.preventDefault(); pass(); } break;
                 case 'ArrowRight': if (isFlipped && !matchBtnDisabled) { event.preventDefault(); match(); } break;
                 case 'ArrowDown': if (isFlipped && !passBtnDisabled) { event.preventDefault(); pass(); } break;
+                
                 case ' ': case 'ArrowUp': if (!isFlipped && !flipBtnDisabled) { event.preventDefault(); flip(); } break;
                 case 'm': case 'M': if (!shuffleBtnDisabled) { event.preventDefault(); shuffleDeck(); } break;
                 case 'f': case 'F': if(!favoriteBtnDisabled) {event.preventDefault(); handleToggleFavoriteApp();} break;
