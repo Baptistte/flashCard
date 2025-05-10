@@ -87,7 +87,7 @@
     },
     {
       "file": "dco.json",
-      "name": "Droit Civil des Obligations",
+      "name": "Droit civil",
       "description": "Étude approfondie des actes juridiques (contrats, engagements unilatéraux) et des faits juridiques (responsabilité civile extracontractuelle, quasi-contrats) en droit français.",
       "chapterDescriptions": {
         "0": "Généralités Contrats, Chp1, Intro & Sec1: Liberté contractuelle (sens, valeur).",
