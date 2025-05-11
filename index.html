@@ -66,23 +66,22 @@
             <div class="content-wrapper">
 
                 <div id="subject-selection" class="page-section subject-selection-container selection-container">
-                    <h3><span class="section-icon">📚</span> Matières disponibles - L2 :</h3>
-                    <div id="subject-buttons" class="subject-buttons-grid buttons-grid">
-                         <p>Chargement des matières...</p>
+                    <h3 class="subject-group-title"><span class="section-icon">⭐</span> Matières Majeures - L2 :</h3>
+                    <div id="subject-buttons-majeur" class="subject-buttons-grid buttons-grid">
+                         <p>Chargement des matières majeures...</p>
+                    </div>
+
+                    <h3 class="subject-group-title"><span class="section-icon">📚</span> Matières Mineures - L2 :</h3>
+                    <div id="subject-buttons-mineur" class="subject-buttons-grid buttons-grid">
+                         <p>Chargement des matières mineures...</p>
                     </div>
                 </div>
 
-                <!-- === SECTION DE SÉLECTION DES CHAPITRES === -->
                 <div id="chapter-selection" class="page-section chapter-selection-container selection-container" style="display: none;">
-                    <!-- Description de la matière -->
                     <p class="subject-description-text" id="subject-description"></p>
-                    <!-- Conteneur pour la liste des chapitres (généré par JS) -->
                     <div id="chapter-buttons" class="chapter-buttons-grid buttons-grid">
                          <p>Chargement des chapitres...</p>
-                         <!-- La liste <ul> sera ajoutée ici par JS -->
                     </div>
-                    <!-- Conteneur pour les boutons d'action (Favoris / Tous) -->
-                    <!-- !! CETTE DIV EST MAINTENANT À L'INTÉRIEUR DE #chapter-selection !! -->
                     <div class="chapter-start-actions">
                         <button id="start-favorites-btn" class="action-button favorites-button" title="Voir uniquement les cartes favorites de cette matière">
                             <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -93,11 +92,10 @@
                            <span>Tous les Chapitres</span>
                         </button>
                    </div>
-                </div> <!-- === FIN DE #chapter-selection === -->
+                </div>
 
 
                 <div id="flashcard-section" class="page-section" style="display: none;">
-                    <!-- ... contenu flashcard ... -->
                     <div class="flashcard-container">
                         <div id="question-reminder" class="question-reminder-container" style="display: none;">
                             <p id="question-reminder-text"></p>
@@ -156,10 +154,9 @@
                      </div>
                  </div>
 
-
-                 <div id="about-section" class="page-section" style="display: none;">
-                    <!-- ... contenu À Propos ... -->
-                     <div class="info-widget">
+                 <div id="about-section" class="page-section about-container" style="display: none;">
+                    <!-- Les widgets info-widget et contribution-widget sont réintégrés ici -->
+                    <div class="info-widget">
                         <h3><span class="section-icon">🎯</span> Objectif & Fonctionnement</h3>
                         <p>Cette plateforme est conçue par un étudiant en droit pour centraliser et faciliter la révision des cours universitaires grâce à des flashcards interactives, basées sur la répétition espacée et le suivi de progression.</p>
                         <ul>
@@ -175,7 +172,7 @@
                         <p>Ce projet vise à grandir grâce à la communauté ! Si vous souhaitez ajouter vos propres cours ou soutenir le développement :</p>
                         <ul>
                             <li><strong>Ajouter un cours :</strong> Envoyez votre cours (format texte, PDF...) par email à <a href="mailto:flashcardlyon3@gmail.com?subject=Proposition%20Cours%20Flashcards">flashcardlyon3@gmail.com</a>. Je me chargerai de le transformer en flashcards.</li>
-                            <li><strong>Feedback :</strong> Toute suggestion ou rapport de bug est apprécié !</li>                            
+                            <li><strong>Feedback :</strong> Toute suggestion ou rapport de bug est apprécié !</li>
                         </ul>
                     </div>
                  </div>

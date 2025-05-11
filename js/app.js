@@ -54,8 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeMermaid();
         try {
             await loadAllData();
-            const subjects = getAvailableSubjects();
-            displaySubjectSelection(subjects);
+            displaySubjectSelection(); // Appelle la fonction modifiée
             updateResetAllButtonState();
             setupAppListeners();
             showView('subject-selection');
@@ -63,15 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error("initializeApp: Failed to initialize", error);
             if (contentTitleHeader) contentTitleHeader.textContent = "Erreur Initialisation";
-            const subjectButtonsDiv = document.getElementById('subject-buttons');
-            if (subjectButtonsDiv) subjectButtonsDiv.innerHTML = `<p class="error-message">Erreur lors du chargement de la configuration des matières. Veuillez vérifier le fichier subjectsConfig.json et la console pour plus de détails.</p>`;
+            const majorButtonsDiv = document.getElementById('subject-buttons-majeur');
+            if (majorButtonsDiv) majorButtonsDiv.innerHTML = `<p class="error-message">Erreur lors du chargement de la configuration.</p>`;
         }
     }
 
     function showView(viewId, data = {}) {
         const views = [
             { id: 'subject-selection', title: 'Matières' },
-            { id: 'chapter-selection', title: `${currentSelectedSubject?.name || ''}` },
+            { id: 'chapter-selection', title: `Chapitres - ${currentSelectedSubject?.name || ''}` },
             { id: 'flashcard-section', title: `Flashcards - ${currentSelectedSubject?.name || ''}` },
             { id: 'about-section', title: 'À Propos' }
         ];
@@ -90,12 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
             fadeInElement(targetElement, 'block');
             if (contentTitleHeader && targetViewInfo) {
                 if (viewId === 'chapter-selection' && currentSelectedSubject) {
-                    contentTitleHeader.textContent = `${currentSelectedSubject.name}`;
+                    contentTitleHeader.textContent = `Chapitres - ${currentSelectedSubject.name}`;
                 } else if (viewId === 'flashcard-section' && currentSelectedSubject) {
                      let chapterDetail = "";
-                     if (currentSelectedChapterOrMode === 'all') chapterDetail = "";
+                     if (currentSelectedChapterOrMode === 'all') chapterDetail = "Tous les chapitres";
                      else if (currentSelectedChapterOrMode === 'favorites') chapterDetail = "Favoris";
-                     else if (currentSelectedChapterOrMode) chapterDetail = `Chap. ${currentSelectedChapterOrMode}`;
+                     else if (currentSelectedChapterOrMode !== null) chapterDetail = `Chap. ${currentSelectedChapterOrMode}`;
                      contentTitleHeader.textContent = `${currentSelectedSubject.name} - ${chapterDetail}`;
                 }
                 else {
@@ -109,8 +108,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 backBtn.style.display = 'none';
             } else {
                 backBtn.style.display = 'inline-flex';
-                if (viewId === 'chapter-selection') backBtn.dataset.targetView = 'subject-selection';
-                if (viewId === 'flashcard-section') backBtn.dataset.targetView = 'chapter-selection';
+                if (viewId === 'chapter-selection') {
+                    backBtn.dataset.targetView = 'subject-selection';
+                    backBtn.title = "Retour aux matières";
+                }
+                if (viewId === 'flashcard-section') {
+                    backBtn.dataset.targetView = 'chapter-selection';
+                    backBtn.title = "Retour aux chapitres";
+                }
             }
         }
         if (sidebar && sidebar.classList.contains('is-open') && window.innerWidth <= 768) {
@@ -124,23 +129,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function handleSubjectSelect(subjectFile, subjectName) {
-        console.log('%c[app.js] handleSubjectSelect APPELÉ avec:', 'color: green; font-weight: bold;', subjectFile, subjectName); // LOG 5
         currentSelectedSubject = { file: subjectFile, name: subjectName };
         try {
-            console.log('%c[app.js] handleSubjectSelect - Début chargement données matière...', 'color: green;');
             await loadSubjectData(subjectFile);
             const chapters = getChapters();
             const favCount = getFavoriteCount();
-            console.log('%c[app.js] handleSubjectSelect - Données prêtes. Appel displayChapterSelection...', 'color: green;');
-            console.log('  Chapters:', chapters);
-            console.log('  FavCount:', favCount);
-            console.log('  SubjectName:', subjectName);
             displayChapterSelection(chapters, favCount, subjectName);
-            console.log('%c[app.js] handleSubjectSelect - Après displayChapterSelection. Appel showView...', 'color: green;');
             showView('chapter-selection');
-            updateActiveNavLink(document.getElementById('nav-subjects')); // Garder matières actif
+            updateActiveNavLink(document.getElementById('nav-subjects'));
         } catch (error) {
-            console.error(`%c[app.js] handleSubjectSelect: Erreur lors du chargement des données pour ${subjectFile}`, 'color: red;', error);
             alert(`Erreur lors du chargement de la matière : ${subjectName}`);
             showView('subject-selection');
         }
@@ -177,7 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (initialFilteredCards.length === 0 && baseFilteredData.length > 0) allMasteredInitially = true;
             }
         } catch (error) {
-             console.error("startFlashcards: Error filtering cards", error);
              alert("Erreur lors de la préparation des cartes pour la session.");
              return;
         }
@@ -204,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
              alert("Aucune carte favorite à réviser. Avez-vous marqué des cartes comme favorites et non maîtrisées?");
              return;
          }
-
 
         currentSessionDeck = [...initialFilteredCards];
         currentIndex = 0;
@@ -440,6 +435,16 @@ document.addEventListener('DOMContentLoaded', () => {
          }
     }
 
+    function handleResetSingleChapter(chapterNum) {
+        if (!currentSelectedSubject || chapterNum === undefined || chapterNum === null) return;
+        if (confirm(`Êtes-vous sûr de vouloir réinitialiser la progression pour le chapitre ${chapterNum} de ${currentSelectedSubject.name} ?`)) {
+            resetMasteredProgress(Number(chapterNum));
+            // Rafraîchir la vue des chapitres pour mettre à jour la barre de progression et le bouton
+            displayChapterSelection(getChapters(), getFavoriteCount(), currentSelectedSubject.name);
+        }
+    }
+
+
     function handleResetAll() {
          if (confirm("Êtes-vous sûr de vouloir oublier TOUTE la progression (cartes maîtrisées ET favoris) pour TOUTES les matières ?")) {
              if (confirm("VRAIMENT TOUT ? Cette action est irréversible.")) {
@@ -450,6 +455,14 @@ document.addEventListener('DOMContentLoaded', () => {
                      updateFavBtnStateChapterUI(getFavoriteCount());
                  } else {
                      updateFavBtnStateChapterUI(0);
+                 }
+                 // Rafraîchir l'affichage des matières si on est dessus
+                 if (document.getElementById('subject-selection').style.display !== 'none') {
+                    displaySubjectSelection();
+                 }
+                 // Rafraîchir l'affichage des chapitres si on est dessus
+                 if (document.getElementById('chapter-selection').style.display !== 'none' && currentSelectedSubject) {
+                    displayChapterSelection(getChapters(), getFavoriteCount(), currentSelectedSubject.name);
                  }
              }
          }
@@ -479,18 +492,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (currentSessionDeck.length > 0 && currentSessionDeck[currentIndex]) {
              updateFavoriteIcon(isFavorite(currentSessionDeck[currentIndex].uniqueId));
-        } else {
+         } else {
              updateFavoriteIcon(false);
-        }
+         }
     }
 
     function setupAppListeners() {
-        console.log('%c[app.js] setupAppListeners APPELÉ.', 'color: blue; font-weight: bold;'); // LOG 6
         setupSelectionListeners({
             onSubjectClick: handleSubjectSelect,
             onChapterClick: (chapterNum) => startFlashcards(chapterNum),
             onAllClick: () => startFlashcards('all'),
-            onFavoritesClick: () => startFlashcards('favorites')
+            onFavoritesClick: () => startFlashcards('favorites'),
+            onResetChapter: handleResetSingleChapter // NOUVEAU HANDLER
         });
 
         setupControlsListeners({
@@ -533,7 +546,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (resetAllSidebarBtn) {
             resetAllSidebarBtn.addEventListener('click', handleResetAll);
         }
-
 
         const toggleFavoriteBtnQ = document.getElementById('toggle-favorite-btn-question');
         const toggleFavoriteBtnA = document.getElementById('toggle-favorite-btn-answer');
@@ -588,10 +600,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const favoriteBtnDisabled = document.getElementById('toggle-favorite-btn-question')?.disabled;
 
             switch (event.key) {
-                case 'ArrowLeft': if (isFlipped && !passBtnDisabled) { event.preventDefault(); pass(); } break;
+                case 'ArrowLeft': if (!prevBtnDisabled) { event.preventDefault(); prev(); } break;
                 case 'ArrowRight': if (isFlipped && !matchBtnDisabled) { event.preventDefault(); match(); } break;
                 case 'ArrowDown': if (isFlipped && !passBtnDisabled) { event.preventDefault(); pass(); } break;
-                
                 case ' ': case 'ArrowUp': if (!isFlipped && !flipBtnDisabled) { event.preventDefault(); flip(); } break;
                 case 'm': case 'M': if (!shuffleBtnDisabled) { event.preventDefault(); shuffleDeck(); } break;
                 case 'f': case 'F': if(!favoriteBtnDisabled) {event.preventDefault(); handleToggleFavoriteApp();} break;
@@ -602,7 +613,6 @@ document.addEventListener('DOMContentLoaded', () => {
              if (backBtn.style.display !== 'none') { event.preventDefault(); navigateBack(); }
              else if (sidebar && sidebar.classList.contains('is-open')) { sidebar.classList.remove('is-open'); }
         }
-
 
         if (isChapterSelectVisible && !chapterSelectionContainer.classList.contains('fade-out')) {
             if (event.key === 'Enter') {

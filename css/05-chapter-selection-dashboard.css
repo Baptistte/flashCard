@@ -1,6 +1,10 @@
 .chapter-selection-container {
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
+
 .chapter-selection-container .subject-description-text {
     font-size: 0.9em;
     color: var(--text-color-darker);
@@ -11,6 +15,7 @@
     border-left: 3px solid var(--button-primary-bg);
     text-align: left;
     line-height: 1.5;
+    flex-shrink: 0;
 }
 .chapter-selection-container .subject-description-text:empty {
     display: none;
@@ -20,11 +25,15 @@
     display: block;
     margin-bottom: 25px;
     text-align: left;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 10px;
 }
 .chapter-selection-container .chapter-buttons-grid p {
     color: var(--button-secondary-bg);
     font-style: italic;
     text-align: center;
+    padding: 15px 0;
 }
 
 .chapter-selection-container .chapter-description-list {
@@ -33,24 +42,31 @@
     margin: 0;
 }
 
-.chapter-selection-container .chapter-description-list li {
+.chapter-selection-container .chapter-description-list li.chapter-list-item {
     display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 12px 0;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 15px 0;
     border-bottom: 1px solid var(--border-color);
 }
 .chapter-selection-container .chapter-description-list li:last-child {
     border-bottom: none;
 }
 
-.chapter-selection-container .chapter-description-list .chapter-button {
-    /* Styles existants (gardez votre width, padding, etc.) */
+.chapter-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 150px;
     flex-shrink: 0;
-    width: 130px; /* Ou 150px, ce que vous aviez */
+}
+
+.chapter-selection-container .chapter-description-list .progress-button {
+    position: relative;
+    width: 100%;
     min-height: 38px;
     height: auto;
-    margin: 0;
+    margin: 0 0 5px 0;
     padding: 8px 10px;
     font-size: 0.9em;
     font-weight: 500;
@@ -61,22 +77,74 @@
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
     text-align: center;
-    display: inline-block;
+    display: block;
     vertical-align: top;
     line-height: 1.3;
-
-    /* === LA LIGNE CLÉ POUR LE RETOUR À LA LIGNE === */
-    white-space: normal !important; /* Force le retour à la ligne */
-    /* ============================================ */
-
-    /* Optionnel mais recommandé pour les mots longs */
+    white-space: normal;
+    overflow: hidden;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    z-index: 1;
 }
 
-.chapter-selection-container .chapter-description-list .chapter-button:hover:not(:disabled) {
-    background-color: var(--button-secondary-hover-bg);
+.progress-button-text {
+    position: relative;
+    z-index: 2;
+    display: block;
 }
+
+.progress-button-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: var(--button-match-bg);
+    border-radius: 6px;
+    transition: width 0.4s ease-in-out;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.chapter-selection-container .chapter-description-list .progress-button:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.chapter-selection-container .chapter-description-list .progress-button.completed .progress-button-bar {
+    opacity: 0.75;
+}
+
+.chapter-progress-info {
+    display: flex; /* Pour aligner le texte et le bouton reset */
+    align-items: center;
+    justify-content: space-between; /* Met le texte à gauche et le bouton reset à droite */
+    width: 100%;
+    margin-top: 2px;
+}
+
+.chapter-progress-text {
+    font-size: 0.75em;
+    color: var(--text-color-darker);
+    /* text-align: center; Pas besoin si flex parent gère l'alignement */
+    flex-grow: 1; /* Permet au texte de prendre l'espace */
+}
+
+.reset-chapter-btn {
+    background: none;
+    border: none;
+    color: var(--button-reset-bg);
+    cursor: pointer;
+    padding: 2px 4px;
+    margin-left: 5px; /* Espace par rapport au texte de progression */
+    line-height: 1; /* Pour un meilleur alignement vertical de l'icône */
+    flex-shrink: 0; /* Empêche le bouton de rétrécir */
+}
+.reset-chapter-btn svg {
+    display: block; /* Évite un espace en dessous de l'icône */
+}
+.reset-chapter-btn:hover {
+    color: var(--button-reset-hover-bg);
+}
+
 
 .chapter-selection-container .chapter-description-text {
     font-size: 0.9em;
@@ -84,51 +152,49 @@
     line-height: 1.4;
     margin: 0;
     flex-grow: 1;
+    padding-top: 5px;
 }
 
-
-/* ... (styles existants pour .chapter-selection-container, etc.) ... */
-
-/* NOUVEAU: Conteneur pour les boutons d'action en bas */
 .chapter-start-actions {
     display: flex;
-    flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
-    justify-content: center; /* Centre les boutons horizontalement */
-    gap: 15px; /* Espace entre les boutons */
-    margin-top: 30px; /* Espace au-dessus des boutons */
-    padding-top: 20px; /* Espace intérieur */
-    border-top: 1px solid var(--border-color); /* Séparateur visuel */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
 }
 
-/* NOUVEAU: Style de base pour les boutons d'action */
 .action-button {
-    border: 0px solid white;
-    /* Hérite de .styled-button pour la base */
-    padding: 10px 20px; /* Padding ajusté */
+    padding: 10px 20px;
     font-size: 0.95em;
-    border-radius: 6px; /* Bordures légèrement moins arrondies ? Ou var(--border-radius) */
+    border-radius: 6px;
     font-weight: 500;
-    /* Permettre aux boutons de grandir mais base flexible */
-    flex-grow: 1;
-    flex-basis: 200px; /* Largeur minimale avant de wrapper */
-    max-width: 300px; /* Limite la largeur max */
-    display: inline-flex; /* Assure l'alignement icône/texte */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px;
+    max-width: 300px;
 }
 
 .action-button svg {
     width: 18px;
     height: 18px;
+    flex-shrink: 0;
 }
 
-/* Style spécifique pour le bouton "Tous les chapitres" */
 .action-button.primary-button {
     background-color: var(--button-primary-bg);
     color: #fff;
-    border: 0px solid white;
 }
 .action-button.primary-button:hover:not(:disabled) {
     background-color: var(--button-primary-hover-bg);
@@ -138,7 +204,6 @@
     transform: scale(0.97);
 }
 
-/* Style spécifique pour le bouton "Favoris" */
 .action-button.favorites-button {
     background-color: var(--button-favorite-bg);
     color: #fff;
@@ -151,21 +216,42 @@
     transform: scale(0.97);
 }
 .action-button.favorites-button svg {
-    color: var(--favorite-star-color); /* Garde l'étoile jaune */
+    color: var(--favorite-star-color);
+    fill: var(--favorite-star-color);
 }
 
+@media (max-width: 600px) {
+     .chapter-selection-container .chapter-description-list li.chapter-list-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+     .chapter-button-wrapper {
+        width: 100%;
+    }
+     .chapter-selection-container .chapter-description-list .progress-button {
+        min-height: 0;
+        padding: 10px 12px;
+    }
+     .chapter-progress-text {
+        text-align: left;
+        padding-left: 2px;
+    }
+     .chapter-selection-container .chapter-description-text {
+         padding-left: 5px;
+         padding-top: 0;
+     }
+}
 
-
-/* Ajustements Responsifs pour les boutons d'action */
 @media (max-width: 520px) {
     .chapter-start-actions {
-        flex-direction: column; /* Empiler les boutons */
-        align-items: center; /* Centrer les boutons empilés */
+        flex-direction: column;
+        align-items: center;
         gap: 10px;
     }
     .action-button {
-        flex-basis: auto; /* Enlever la base flex */
-        width: 100%; /* Prendre toute la largeur */
-        max-width: 320px; /* Limiter quand même */
+        flex-basis: auto;
+        width: 100%;
+        max-width: 320px;
     }
 }

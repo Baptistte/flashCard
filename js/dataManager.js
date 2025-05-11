@@ -1,11 +1,10 @@
-// js/dataManager.js
 import { isValidChapter } from './utils/helpers.js';
 
-let AVAILABLE_SUBJECTS = []; // Sera chargé depuis JSON
-let currentSubjectConfig = null; // Stocke la config de la matière active
-let allSubjectsData = {}; // Cache pour les données JSON de chaque matière
-let masteredCards = {}; // Progression pour la matière courante
-let favoriteCards = []; // Favoris pour la matière courante
+let AVAILABLE_SUBJECTS = [];
+let currentSubjectConfig = null;
+let allSubjectsData = {};
+let masteredCards = {};
+let favoriteCards = [];
 let currentSubjectFile = null;
 
 const LOCAL_STORAGE_KEY_MASTERED_PREFIX = 'flashcardsMastered_';
@@ -57,31 +56,26 @@ function saveFavorites() {
     catch (e) { console.error("Err save favorites:", key, e); }
 }
 
-// Charge la CONFIGURATION des matières au début
 export async function loadAllData() {
-    console.log("Initialisation dataManager...");
     try {
-        const response = await fetch('subjectsConfig.json'); // Charger la config
+        const response = await fetch('subjectsConfig.json');
         if (!response.ok) throw new Error(`Config HTTP error! status: ${response.status}`);
         AVAILABLE_SUBJECTS = await response.json();
         if (!Array.isArray(AVAILABLE_SUBJECTS)) {
-             console.error("Format subjectsConfig.json invalide.");
              AVAILABLE_SUBJECTS = [];
         }
-         console.log("Subject config loaded:", AVAILABLE_SUBJECTS);
     } catch(error) {
         console.error("Erreur chargement subjectsConfig.json:", error);
-        AVAILABLE_SUBJECTS = []; // Fallback
+        AVAILABLE_SUBJECTS = [];
     }
-    return AVAILABLE_SUBJECTS; // Retourne la liste chargée
+    return AVAILABLE_SUBJECTS;
 }
 
-// Charge les données spécifiques d'UNE matière
 export async function loadSubjectData(subjectFile) {
     if (!subjectFile) return [];
 
     currentSubjectFile = subjectFile;
-    currentSubjectConfig = AVAILABLE_SUBJECTS.find(s => s.file === subjectFile); // Trouver la config
+    currentSubjectConfig = AVAILABLE_SUBJECTS.find(s => s.file === subjectFile);
 
     if (!currentSubjectConfig) {
         console.error(`Configuration non trouvée pour ${subjectFile}`);
@@ -91,13 +85,11 @@ export async function loadSubjectData(subjectFile) {
     masteredCards = loadMasteredCardsForSubject(subjectFile);
     favoriteCards = loadFavoritesForSubject(subjectFile);
 
-    if (allSubjectsData[subjectFile]) { // Utiliser cache si possible
-        console.log(`Données pour ${subjectFile} chargées depuis cache.`);
+    if (allSubjectsData[subjectFile]) {
         return allSubjectsData[subjectFile];
     }
 
     try {
-        console.log(`Chargement JSON : ${subjectFile}`);
         const response = await fetch(subjectFile);
         if (!response.ok) throw new Error(`JSON HTTP error! status: ${response.status} for ${subjectFile}`);
         const jsonData = await response.json();
@@ -113,7 +105,6 @@ export async function loadSubjectData(subjectFile) {
          });
 
         allSubjectsData[subjectFile] = subjectDataCache;
-        console.log(`JSON chargé pour ${subjectFile}: ${subjectDataCache.length} cartes.`);
         return subjectDataCache;
 
     } catch (error) {
@@ -202,14 +193,12 @@ export function resetMasteredProgress(chapterNum = undefined) {
          if (masteredCards[chapKey]) delete masteredCards[chapKey];
      }
      saveMasteredCards();
-     console.log(`Progression réinitialisée pour ${chapterNum === undefined ? currentSubjectFile : 'chap ' + chapterNum + ' de ' + currentSubjectFile}`);
 }
 
 export function resetFavorites() {
     if (!currentSubjectFile) return;
     favoriteCards = [];
     saveFavorites();
-    console.log(`Favoris pour ${currentSubjectFile} réinitialisés.`);
 }
 
 export function resetAllProgressGlobal() {
@@ -221,5 +210,17 @@ export function resetAllProgressGlobal() {
     });
     masteredCards = {};
     favoriteCards = [];
-    console.log("TOUTE la progression (maîtrisées et favoris) a été réinitialisée.");
+}
+
+export function getMasteredCountForChapter(chapterNum) {
+    if (!currentSubjectFile || !isValidChapter(chapterNum)) return 0;
+    const chapKey = `chapitre_${chapterNum}`;
+    const masteredInChapter = masteredCards[chapKey] || [];
+    return masteredInChapter.length;
+}
+
+export function getTotalCardsInChapter(chapterNum) {
+    if (!currentSubjectFile || !isValidChapter(chapterNum)) return 0;
+    const currentData = allSubjectsData[currentSubjectFile] || [];
+    return currentData.filter(card => card.chapitre === chapterNum).length;
 }

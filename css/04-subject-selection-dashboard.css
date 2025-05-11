@@ -1,34 +1,45 @@
-.subject-selection-container h3 {
+.subject-selection-container h3.subject-group-title {
     color: var(--header-color);
-    margin-bottom: 20px;
-    font-size: 1.3em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
     font-weight: 700;
     text-align: left;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--button-primary-bg);
 }
-.subject-selection-container h3 .section-icon {
-    font-size: 1.1em;
+.subject-selection-container h3.subject-group-title:first-of-type {
+    margin-top: 0;
 }
 
-.subject-buttons-grid {
+.subject-selection-container h3.subject-group-title .section-icon {
+    font-size: 1.2em;
+}
+
+/* Appliquer cette règle aux DEUX grilles */
+#subject-buttons-majeur.subject-buttons-grid,
+#subject-buttons-mineur.subject-buttons-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, max(280px, 30%)), 1fr));
-
-    gap: 20px;
+    gap: 20px; /* Vous pouvez définir une variable --grid-gap: 20px; ici si vous l'utilisez dans le calc() plus bas */
     width: 100%;
+    margin-bottom: 20px;
+    justify-content: flex-start;
 }
 
-.subject-buttons-grid p {
+/* Style commun pour les messages de chargement/vide dans les DEUX grilles */
+#subject-buttons-majeur.subject-buttons-grid p,
+#subject-buttons-mineur.subject-buttons-grid p {
     grid-column: 1 / -1;
     color: var(--button-secondary-bg);
     font-style: italic;
     padding: 20px 0;
     text-align: center;
 }
+
 .subject-widget {
     display: flex;
     flex-direction: column;
@@ -40,12 +51,30 @@
     cursor: pointer;
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    /* La largeur sera gérée par la grille ou par la règle :only-child */
 }
 .subject-widget:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border-color: var(--button-primary-bg);
 }
+
+/* Si un .subject-widget est le SEUL enfant de la grille majeure */
+#subject-buttons-majeur.subject-buttons-grid > .subject-widget:only-child {
+    max-width: calc(33.333% - (2 * 20px / 3)); /* Ajustez 20px si votre gap est différent */
+    /* Fallback plus simple si calc() est complexe ou si le gap varie : */
+    /* max-width: 300px; */
+    /* Pour s'assurer qu'il ne prend pas plus, même si la colonne de grille est plus large */
+    width: min(100%, calc(33.333% - (2 * 20px / 3))); /* Ou width: min(100%, 300px); */
+}
+/* Si vous voulez aussi limiter pour 2 enfants dans la grille majeure */
+#subject-buttons-majeur.subject-buttons-grid > .subject-widget:nth-last-child(2):first-child,
+#subject-buttons-majeur.subject-buttons-grid > .subject-widget:nth-last-child(2):first-child ~ .subject-widget {
+    /* S'il y a exactement 2 enfants, cette règle s'appliquera aux deux */
+    /* Vous pourriez vouloir qu'ils prennent chacun ~50% ou une largeur fixe */
+    /* max-width: calc(50% - (20px / 2)); */ /* Exemple pour 2 enfants */
+}
+
 
 .subject-widget h3 {
     font-size: 1.15em;
@@ -66,70 +95,117 @@
 }
 
 
+/* Styles pour la Section À Propos (ID: about-section) - STYLE ORIGINAL RÉINTRODUIT */
 #about-section {
+    background-color: var(--card-bg);
     padding: 30px;
-    background-color: #f8fafc;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    text-align: left;
+    margin-bottom: 30px;
 }
 
 #about-section .info-widget,
 #about-section .contribution-widget {
-    background-color: #ffffff;
-    border: none;
-    border-left: 5px solid var(--button-primary-bg);
-    border-radius: 12px;
-    padding: 25px 25px 20px 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-top: 0;
+    margin-bottom: 25px;
+    width: 100%;
 }
-
+#about-section .info-widget {
+    border-left: 4px solid var(--button-primary-bg);
+}
 #about-section .contribution-widget {
-    border-left-color: var(--button-favorite-bg);
+    border-left: 4px solid var(--button-favorite-bg);
+}
+#about-section .contribution-widget:last-child {
+    margin-bottom: 0;
 }
 
-#about-section .info-widget:hover,
-#about-section .contribution-widget:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
 
 #about-section .info-widget h3,
 #about-section .contribution-widget h3 {
-    font-size: 1.4em;
+    font-size: 1.1em;
     font-weight: 700;
-    color: var(--header-color);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border-color);
     display: flex;
     align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 8px;
+    gap: 8px;
 }
+#about-section .info-widget h3 { color: var(--button-primary-bg); }
+#about-section .contribution-widget h3 { color: var(--button-favorite-bg); }
+
 
 #about-section .info-widget p,
 #about-section .contribution-widget p {
-    font-size: 1em;
-    color: var(--text-color);
+    font-size: 0.95em;
     line-height: 1.6;
-    margin-bottom: 15px;
+    color: var(--text-color-darker);
+    margin-bottom: 10px;
+}
+#about-section .info-widget p:last-child,
+#about-section .contribution-widget p:last-child {
+    margin-bottom: 0;
 }
 
 #about-section ul {
-    padding-left: 20px;
-    margin: 0;
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 10px;
+    padding-left: 0;
 }
 
 #about-section ul li {
-    margin-bottom: 10px;
-    font-size: 0.95em;
+    font-size: 0.9em;
+    color: var(--text-color);
+    margin-bottom: 6px;
+    line-height: 1.5;
     position: relative;
-    padding-left: 15px;
+    padding-left: 20px;
 }
 
 #about-section ul li::before {
+    content: '✓';
     position: absolute;
     left: 0;
-    color: var(--button-primary-bg);
+    top: 1px;
+    color: var(--button-match-bg);
     font-weight: bold;
 }
+#about-section .contribution-widget ul li::before {
+    color: var(--button-favorite-bg);
+}
 
+#about-section .contribution-widget a {
+    color: var(--button-primary-bg);
+    text-decoration: none;
+    font-weight: 500;
+}
+#about-section .contribution-widget a:hover {
+    text-decoration: underline;
+    color: var(--button-primary-hover-bg);
+}
+
+@media (max-width: 768px) {
+    #about-section {
+        padding: 20px;
+    }
+    #about-section .info-widget,
+    #about-section .contribution-widget {
+        padding: 15px;
+    }
+
+    /* Assurer que le widget unique ne s'étire pas trop sur mobile non plus */
+    #subject-buttons-majeur.subject-buttons-grid > .subject-widget:only-child {
+        max-width: 100%; /* ou une valeur plus appropriée pour mobile si nécessaire */
+        width: 100%;
+    }
+}
