@@ -141,5 +141,21 @@
         "48": "Faits Juridiques, RCE, DC Chp2 & DS Chp1: Effets RCE; Accidents Circulation.",
         "49": "Faits Juridiques, RCE, DS Chp2 & Titre 2: Produits Défectueux; Quasi-Contrats."
       }
+    },
+    {
+      "file": "tgdlf.json",
+      "name": "TGLF",
+      "description": "Ce module de Théorie Générale des Droits et Libertés Fondamentaux explore les concepts de liberté, leurs fondements, cadres normatifs, garanties et régimes d'exception.",
+      "chapterDescriptions": {
+        "0": "Introduction : Définitions de liberté, démocratie, État de droit ; originalité et fonction de la matière.",
+        "1": "Penser la Liberté : Naissance du libéralisme (origines religieuses, philosophiques) et révolutions libérales.",
+        "2": "La Réponse Autoritaire : Critiques du libéralisme (droite, gauche) et mises en œuvre politiques autoritaires.",
+        "3": "Question Collective au 20e S. & Riposte Libérale : Générations de droits, libéralisme de combat et libertariens.",
+        "4": "Faire la Liberté - Cadres Supranationaux : Droit international (ONU) et européen (CdE/CEDH, OSCE, UE) des libertés.",
+        "5": "Faire la Liberté - Juge Interne & Début Cadre Constitutionnel : Application du droit international, introduction au bloc de constitutionnalité (texte strict, préambules, DDHC).",
+        "6": "Faire la Liberté - Cœur du Bloc de Constitutionnalité : P46, PFRLR, PVC, Charte Environnement ; articulation des normes.",
+        "7": "Faire la Liberté - Garanties Juridictionnelles & Non-Juridictionnelles : Rôle du juge (QPC, voie de fait), garanties politiques et institutionnelles.",
+        "8": "Les Régimes d'Exception : Urgence, limites, régimes constitutionnels/légaux, pérennisation et contre-pouvoirs ; conclusion."
+      }
     }
 ]
